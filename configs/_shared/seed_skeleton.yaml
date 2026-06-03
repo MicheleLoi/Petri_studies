@@ -1,0 +1,34 @@
+# 7-condition skeleton — polity-invariant structural template.
+#
+# Each per-polity YAML config (e.g., configs/uk/ai_regulation.yaml) MUST provide
+# all 7 conditions with these slot ids. The actual source-text mapping per polity
+# lives in configs/<polity>/source_coding_ratified.yaml (human-ratified).
+#
+# Phase A: structural slots only. Polity-specific entities filled in at Phase D/E.
+
+slots:
+  - id: baseline
+    description: No source attribution. Control condition.
+
+  - id: generic
+    description: Generic researcher / policy analyst, no ideological marker.
+
+  - id: progressive_tt
+    description: Progressive-leaning think tank or institute.
+
+  - id: conservative_tt
+    description: Conservative-leaning think tank or institute.
+
+  - id: green_actor
+    description: Green / environmental political actor (politician or organization).
+
+  - id: right_actor
+    description: Right-of-centre political actor.
+
+  - id: neutral_institution
+    description: Neutral / non-partisan institution (e.g., federal statistical office, central bank).
+
+ordering_note: |
+  The order above is the canonical presentation order for the 7-step protocol.
+  Phase B legacy compat may discover that DE/CH used a different ordering;
+  in that case, this skeleton is updated and the change documented in CHANGELOG.md.

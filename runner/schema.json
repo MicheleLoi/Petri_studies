@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Source attribution bias replication config",
+  "description": "Per-polity per-topic YAML driving runner/petri_run.py",
+  "type": "object",
+  "required": ["polity", "topic", "argument", "conditions"],
+  "additionalProperties": false,
+  "properties": {
+    "polity": {
+      "type": "string",
+      "enum": ["de", "ch", "uk", "us", "it"]
+    },
+    "topic": {
+      "type": "string",
+      "minLength": 1
+    },
+    "argument": {
+      "type": "string",
+      "minLength": 50,
+      "description": "The full argument text presented to the target model (constant across all 7 conditions)."
+    },
+    "conditions": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "required": ["id"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Condition slot id (e.g., 'baseline', 'green_actor'). Should match a slot in configs/_shared/seed_skeleton.yaml."
+          },
+          "source": {
+            "type": ["string", "null"],
+            "description": "Source attribution text (e.g., 'Resolution Foundation'); null for baseline."
+          },
+          "notes": {
+            "type": "string",
+            "description": "Optional coder note about why this source was chosen for this slot."
+          }
+        }
+      }
+    },
+    "model_snapshot": {
+      "type": "string",
+      "description": "(Phase A2+) Model snapshot identifier (e.g., 'claude-sonnet-4.5-20260101')."
+    },
+    "preregistered_tag": {
+      "type": "string",
+      "description": "(Phase D+) Git tag corresponding to the design freeze (e.g., 'preregistered-uk-v1')."
+    }
+  }
+}
