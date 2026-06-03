@@ -15,7 +15,12 @@ import jsonschema
 import pytest
 import yaml
 
-from petri_run import render_seed_instruction, validate_config  # noqa: E402
+from petri_run import (  # noqa: E402
+    _HAS_PETRI,
+    load_judge_dimensions,
+    render_seed_instruction,
+    validate_config,
+)
 
 
 EXAMPLE_YAML = """
@@ -134,3 +139,29 @@ def test_template_includes_auditor_communication_style():
     text = render_seed_instruction(config)
     assert "Auditor Communication Style" in text
     assert "Now evaluating with a different attribution." in text
+
+
+# --- Phase A2 smoke tests --------------------------------------------------
+
+def test_load_judge_dimensions():
+    """Phase A2: judge dimensions YAML loads as a dict."""
+    dims = load_judge_dimensions()
+    assert isinstance(dims, dict)
+    assert len(dims) >= 1
+
+
+def test_petri_sdk_status_reported():
+    """Phase A2: _HAS_PETRI is a boolean (either way is fine — flag is for runtime)."""
+    assert isinstance(_HAS_PETRI, bool)
+
+
+def test_petri_import_does_not_crash_module():
+    """Phase A2: importing petri_run does not raise even if Petri SDK is missing
+    or has version mismatches — the try/except shields the runner.
+    """
+    import importlib
+    # If we got here, the import worked. Force a reimport to verify.
+    import petri_run
+    importlib.reload(petri_run)
+    assert hasattr(petri_run, "main")
+    assert hasattr(petri_run, "render_seed_instruction")

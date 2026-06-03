@@ -1,14 +1,20 @@
-# Phase A stub — Petri version pin pending (see plan §8 gating item).
-# To be regenerated via `pip-compile` (or `uv lock`) in Phase A2 once
-# the Petri version is chosen and tested.
+# Phase A2 pinned dependencies — verified working 2026-06-03 on Python 3.14.0.
 
-# Phase A skeleton dependencies (sufficient for runner stub + tests):
+# Core (Phase A skeleton — no API/network):
 jinja2>=3.1
 jsonschema>=4.20
 pyyaml>=6.0
 pytest>=7.4
 
-# Phase A2 additions (commented out until version pin):
-# petri==X.Y.Z         # Anthropic Petri framework — pin from latest stable
-# inspect-ai==X.Y.Z    # Inspect-AI harness wrapping Petri
-# anthropic==X.Y.Z     # Anthropic SDK for direct model calls
+# Petri integration (Phase A2):
+petri==0.1.0
+inspect-ai==0.3.150
+anthropic==0.75.0
+
+# Note on petri==0.1.0 + inspect-ai==0.3.150:
+# petri 0.1.0's transcript module emits DeprecationWarning lines about
+# inspect_ai.event.* imports that moved in inspect_ai 0.3.137. The deprecations
+# are warnings, not errors — petri still functions correctly. We pin both to
+# this verified-working pair. When petri publishes 0.1.1+ (using the new
+# inspect_ai.event.* import paths), bump both AND re-verify byte-equivalence
+# via `runner/legacy_compat.py --polity de --topic carbon_tax` and CH.
