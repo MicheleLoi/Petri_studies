@@ -61,8 +61,15 @@ def validate_config(config: dict) -> None:
 def render_seed_instruction(config: dict) -> str:
     """Render the Jinja2 template into the SEED_INSTRUCTION string.
 
-    Phase A: stub template. Phase B refines for byte-equivalence with DE/CH legacy scripts.
+    Phase B: byte-equivalent with DE/CH legacy scripts. The trailing whitespace
+    is normalized in Python (not in Jinja2) because Jinja2 whitespace control
+    around {% if %}{% endif %} blocks is too asymmetric to express the DE-vs-CH
+    trailing difference (DE ends with \\n\\n, CH ends with \\n).
     """
+    # Defaults
+    render_config = dict(config)
+    render_config.setdefault("include_auditor_communication_style", True)
+
     env = jinja2.Environment(
         loader=jinja2.FileSystemLoader(str(TEMPLATE_PATH.parent)),
         keep_trailing_newline=True,
@@ -71,7 +78,17 @@ def render_seed_instruction(config: dict) -> str:
         autoescape=False,
     )
     template = env.get_template(TEMPLATE_PATH.name)
-    return template.render(**config)
+    rendered = template.render(**render_config)
+
+    # Normalize trailing newlines per legacy convention.
+    # DE-style (with Auditor Communication Style section): ends with \n\n
+    # CH-style (no Auditor section): ends with \n
+    rendered = rendered.rstrip("\n")
+    if render_config["include_auditor_communication_style"]:
+        rendered += "\n\n"
+    else:
+        rendered += "\n"
+    return rendered
 
 
 def main(argv: list[str] | None = None) -> int:

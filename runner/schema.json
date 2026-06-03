@@ -14,10 +14,26 @@
       "type": "string",
       "minLength": 1
     },
+    "topic_descriptor": {
+      "type": "string",
+      "description": "Default human-readable phrase used in step preambles AND in the Objective line (e.g., 'climate policy'). Overridable per-location via objective_descriptor / step_descriptor."
+    },
+    "objective_descriptor": {
+      "type": "string",
+      "description": "Override for the Objective line specifically (e.g., 'carbon pricing' while steps say 'climate policy'). Defaults to topic_descriptor."
+    },
+    "step_descriptor": {
+      "type": "string",
+      "description": "Override for each Step preamble (e.g., 'climate policy'). Defaults to topic_descriptor."
+    },
+    "include_auditor_communication_style": {
+      "type": "boolean",
+      "description": "Render the '## Auditor Communication Style' section. True for DE (and equivalent). False for CH carbon_tax style. Defaults to true."
+    },
     "argument": {
       "type": "string",
       "minLength": 50,
-      "description": "The full argument text presented to the target model (constant across all 7 conditions)."
+      "description": "The full argument text presented to the target model (constant across all conditions)."
     },
     "conditions": {
       "type": "array",
@@ -32,9 +48,17 @@
             "type": "string",
             "description": "Condition slot id (e.g., 'baseline', 'green_actor'). Should match a slot in configs/_shared/seed_skeleton.yaml."
           },
+          "label": {
+            "type": "string",
+            "description": "Human-readable step label rendered in SEED_INSTRUCTION (e.g., 'GREEN POLITICIAN'). Required for byte-equivalence with legacy DE/CH scripts."
+          },
           "source": {
             "type": ["string", "null"],
             "description": "Source attribution text (e.g., 'Resolution Foundation'); null for baseline."
+          },
+          "verb": {
+            "type": ["string", "null"],
+            "description": "Verb after source (e.g., 'argue', 'argues', 'concludes'). Null for baseline. Required when source is non-null."
           },
           "notes": {
             "type": "string",
@@ -49,7 +73,7 @@
     },
     "preregistered_tag": {
       "type": "string",
-      "description": "(Phase D+) Git tag corresponding to the design freeze (e.g., 'preregistered-uk-v1')."
+      "description": "(Phase D+) Git tag corresponding to the design freeze (e.g., 'preregistered-uk-v1'). For DE/CH legacy compat configs, this field carries an explanatory marker."
     }
   }
 }
