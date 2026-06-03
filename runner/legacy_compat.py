@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import argparse
 import difflib
+import os
 import re
 import sys
 from pathlib import Path
@@ -33,7 +34,14 @@ RUNNER_DIR = Path(__file__).resolve().parent
 sys.path.insert(0, str(RUNNER_DIR))
 from petri_run import load_config, render_seed_instruction, validate_config  # noqa: E402
 
-LEGACY_DIR = Path("C:/Users/loimi/Petri_studies")
+# Default location of the decommissioned legacy Python scripts (read-only archive).
+# The original `~/Petri_studies/` was renamed to `~/Petri_studies.archived_2026-06-03/`
+# on 2026-06-03 (workspace MOD-003 / Phase C). Override via env var LEGACY_DIR for
+# unusual setups (CI, restored snapshot at non-default path).
+LEGACY_DIR = Path(os.environ.get(
+    "LEGACY_DIR",
+    "C:/Users/loimi/Petri_studies.archived_2026-06-03",
+))
 
 # Mapping: (polity, topic) -> path to the canonical legacy script (within LEGACY_DIR)
 LEGACY_SOURCES = {
