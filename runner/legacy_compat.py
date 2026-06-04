@@ -1,4 +1,4 @@
-"""
+﻿"""
 legacy_compat.py — proof of byte-equivalence between the new runner+config
 pipeline and the historical hardcoded SEED_INSTRUCTION strings in DE/CH scripts.
 
@@ -35,12 +35,12 @@ sys.path.insert(0, str(RUNNER_DIR))
 from petri_run import load_config, render_seed_instruction, validate_config  # noqa: E402
 
 # Default location of the decommissioned legacy Python scripts (read-only archive).
-# The original `~/Petri_studies/` was renamed to `~/Petri_studies.archived_2026-06-03/`
+# The original `~/Petri_studies/` was renamed to `~/Petri_studies/_archive/`
 # on 2026-06-03 (workspace MOD-003 / Phase C). Override via env var LEGACY_DIR for
 # unusual setups (CI, restored snapshot at non-default path).
 LEGACY_DIR = Path(os.environ.get(
     "LEGACY_DIR",
-    "C:/Users/loimi/Petri_studies.archived_2026-06-03",
+    "C:/Users/loimi/Petri_studies/_archive",
 ))
 
 # Mapping: (polity, topic) -> path to the canonical legacy script (within LEGACY_DIR)

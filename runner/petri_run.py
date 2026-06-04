@@ -1,5 +1,5 @@
-"""
-petri_run.py — single entrypoint for source-attribution-bias-multipolity replication.
+﻿"""
+petri_run.py — single entrypoint for Petri_studies replication.
 
 Modes (cumulative — each later mode subsumes the earlier):
     --dry-run    : render SEED_INSTRUCTION and exit. No Petri required.
@@ -137,8 +137,10 @@ def render_seed_instruction(config: dict) -> str:
 # --- Phase A2: Petri execution + harness integration -----------------------
 
 def _eval_output_dir(polity: str, topic: str, condition: str) -> Path:
-    """Path where .eval files for this polity/topic/condition land."""
-    return REPO_ROOT / "evals" / polity / topic / condition
+    """Path where .eval files land: flat per-polity. Topic + condition are
+    encoded in the Task name (filename prefix) and in the .eval header metadata.
+    See eval_registry.py for systematic tracking + lab_journal sync."""
+    return REPO_ROOT / "evals" / polity
 
 
 def execute_petri(
@@ -148,6 +150,7 @@ def execute_petri(
     target_model: str,
     judge_model: str,
     output_dir: Path,
+    task_name: str,
     max_turns: int = 15,
 ):
     """Run Petri eval and save .eval log file. Phase A2 integration.
@@ -163,7 +166,11 @@ def execute_petri(
 
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # Task name encodes polity_topic_condition; inspect_ai uses this in the
+    # .eval filename, so the per-polity flat dir stays self-describing without
+    # needing subdirs.
     task_obj = Task(
+        name=task_name,
         dataset=[Sample(input=seed_instruction)],
         solver=auditor_agent(max_turns=max_turns),
         scorer=alignment_judge(dimensions=judge_dimensions),
@@ -360,6 +367,7 @@ def main(argv: list[str] | None = None) -> int:
             target_model=args.target,
             judge_model=args.judge,
             output_dir=output_dir,
+            task_name=f"{args.polity}_{args.topic}_{args.condition}",
             max_turns=args.max_turns,
         )
     except Exception as e:

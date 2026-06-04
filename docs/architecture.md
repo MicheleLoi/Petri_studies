@@ -1,4 +1,4 @@
-# Architecture
+﻿# Architecture
 
 Three-layer separation. **This is the core methodological invariant of the multi-polity replication.**
 
@@ -31,7 +31,7 @@ Three-layer separation. **This is the core methodological invariant of the multi
 
 ## Why this separation
 
-The DE/CH iterations used per-topic Python scripts with hardcoded seeds: `study4_<topic>.py × N × _patched/_fixed/_simplified` variants — ~50 files total in `~/Petri_studies/` (now archived as `~/Petri_studies.archived_2026-06-03/`). This created chronic drift:
+The DE/CH iterations used per-topic Python scripts with hardcoded seeds: `study4_<topic>.py × N × _patched/_fixed/_simplified` variants — ~50 files total in `~/Petri_studies/` (now archived as `~/Petri_studies/_archive/`). This created chronic drift:
 
 - Cross-topic methodological changes required editing many files.
 - Cross-iteration drift was invisible until merge.

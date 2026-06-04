@@ -1,4 +1,4 @@
-# source-attribution-bias-multipolity
+﻿# Petri_studies
 
 **Multi-polity replication of the source-attribution-bias study** (Anthropic Petri framework / Inspect-AI), extending the German (DE) and Swiss (CH) iterations to the United Kingdom (UK), United States (US), and Italy (IT).
 
@@ -15,8 +15,8 @@ A reproducible setup for measuring how frontier LLMs (Claude Sonnet 4.5, Claude 
 ## Quickstart
 
 ```bash
-git clone https://github.com/MicheleLoi/source-attribution-bias-multipolity
-cd source-attribution-bias-multipolity
+git clone https://github.com/MicheleLoi/Petri_studies
+cd Petri_studies
 pip install -r runner/requirements.lock
 
 # Dry-run: render the SEED_INSTRUCTION for inspection (no API call)
