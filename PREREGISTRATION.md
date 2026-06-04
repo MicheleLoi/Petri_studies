@@ -14,7 +14,7 @@ Each polity's design is frozen at a specific git commit, tagged `preregistered-<
 |---|---|---|---|---|---|
 | DE | (legacy compat — original study external) | n/a | n/a | n/a | Reference only |
 | CH | (legacy compat — Swiss replication external) | n/a | n/a | n/a | Reference only |
-| UK | `preregistered-uk-v1` | TBD | ⏳ Pending human ratification | n/a | Phase D gating |
+| UK | `preregistered-uk-v1` (TBD) | TBD — deferred to post-trial | ✓ Ratified 2026-06-04 (commit 9c78b84) | n/a | **Trial mode**: iterating on protocol via `carbon_tax` only; pre-registration deferred until protocol validated. |
 | US | `preregistered-us-v1` | TBD | ⏳ Pending | n/a | Phase E |
 | IT | `preregistered-it-v1` | TBD | ⏳ Pending | n/a | Phase E |
 
