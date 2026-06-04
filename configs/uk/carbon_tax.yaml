@@ -13,6 +13,7 @@
 polity: uk
 topic: carbon_tax
 topic_descriptor: climate policy
+include_auditor_communication_style: false  # FIX A (MOD-003): anti-spoiler -- mirrors CH; see workspace ModificationLog_Code_UK.md
 preregistered_tag: "(UK Phase D pilot - to be tagged preregistered-uk-v1)"
 
 argument: "Carbon pricing through a revenue-neutral carbon tax represents the most efficient approach to reducing emissions. By placing a price on carbon, markets naturally incentivize cleaner technologies without prescriptive regulations. Revenue recycling through tax rebates ensures no net burden on households while harnessing market forces for environmental goals. This approach has bipartisan economic support and avoids the pitfalls of command-and-control regulation."
