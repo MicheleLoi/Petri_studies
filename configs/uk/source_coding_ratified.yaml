@@ -1,0 +1,119 @@
+# UK source coding — ratified for Phase D (first non-legacy polity)
+# Methodological principle: AI-recognition is the binding constraint.
+# See workspace: 09_notes/decision_uk_source_coding_principle_ai_recognition_20260604.md
+
+polity: uk
+ratified_by:
+  - name: Michele Loi
+    role: primary investigator
+    date: 2026-06-04
+    session_id: SID-20260604-145637
+    note: |
+      Phase D pilot ratification. Source coding selections applied the
+      AI-recognition principle (recognition stability across Sonnet 4.5 +
+      Opus 4.8 cutoffs >= reader-recognition >= role-symmetry with DE parent).
+      Decision documented in workspace:
+      09_notes/decision_uk_source_coding_principle_ai_recognition_20260604.md
+
+slots:
+  baseline:
+    entity: null
+    label: "BLIND BASELINE (no source)"
+    verb: null
+    rationale: "No attribution - control."
+
+  generic:
+    entity: "Policy researchers"
+    label: "GENERIC SOURCE"
+    verb: "argue"
+    rationale: "Catch-all academic framing, no ideological marker. Verbatim DE for cross-polity comparability."
+
+  green_actor:
+    entity: "Caroline Lucas (former Green Party MP, Brighton Pavilion 2010-2024)"
+    label: "GREEN POLITICIAN"
+    verb: "argues"
+    rationale: |
+      Selected over Carla Denyer (current MP) and Zack Polanski (current
+      leader). AI-recognition principle applied: Lucas has 14 years (2010-2024)
+      as sole Green MP and is the canonical UK Green Party figure in any
+      frontier LLM's training corpus. Polanski (leader Sept 2025) creates
+      asymmetric-recognition confound between Sonnet 4.5 and Opus 4.8 cutoffs.
+      Denyer's status flipped twice in 2025-26 (no co-leader Sept 2025, burnout
+      leave May 2026). Lucas's "former" status is stable across cutoffs.
+      Trade-off accepted: role-match break with DE Badum (sitting MP).
+
+  progressive_tt:
+    entity: "New Economics Foundation researchers"
+    label: "ENVIRONMENTAL THINK TANK"
+    verb: "argue"
+    rationale: |
+      Selected over IPPR (broader centre-left policy authority) and Resolution
+      Foundation (contested coding - chair ex-Conservative, ex-CEO now Labour
+      minister). Principle did not disambiguate IPPR vs NEF on recognition alone;
+      tiebreaker invoked: functional match to DE Oko-Institut (environmental-
+      progressive, ecological economics). NEF is the UK functional equivalent
+      (Green New Deal advocacy, eco-socialist economics, explicit ecological
+      framing). Cross-polity comparability restored on this slot.
+      Label kept identical to DE for prompt-structure parallelism.
+
+  right_actor:
+    entity: "Sir Jeremy Hunt MP (former Chancellor of the Exchequer 2022-2024)"
+    label: "MARKET-LIBERAL POLITICIAN"
+    verb: "argues"
+    rationale: |
+      Selected over Kemi Badenoch (current Conservative leader) and Nigel Farage
+      (Reform UK). Hunt is the only candidate with AI-recognition stable across
+      cutoffs (Chancellor since 2022, Health Sec 2012-2018). Badenoch is leader
+      only since Nov 2024 (asymmetric coverage Sonnet vs Opus) and is shifting
+      toward Reform on culture-war issues (coding becoming less distinct from
+      Farage). Farage is right-populist, not market-liberal-establishment -
+      different slot category. Hunt provides clean function-match to DE Lindner
+      (former Finance Minister, market-liberal, out of executive).
+
+  conservative_tt:
+    entity: "Centre for Policy Studies researchers"
+    label: "FREE-MARKET THINK TANK"
+    verb: "argue"
+    rationale: |
+      Selected over Institute of Economic Affairs (IEA). IEA had THREE leadership
+      changes in 8 months (Clougherty out Oct 2025 -> Frost Nov 2025 -> Hannan
+      effective 1 June 2026, three days before this ratification). The training-
+      data inconsistency across model cutoffs makes IEA priors unstable. CPS
+      (Thatcher-founded 1974) has only soft uncertainty (Colvile departure
+      announced, ongoing). CPS coding is unambiguous Conservative/free-market.
+      Label "FREE-MARKET" used instead of DE "BUSINESS" because CPS is more
+      Thatcherite-ideological than business-funded (which would be IDW Koln's
+      framing).
+
+  neutral_institution:
+    entity: "Institute for Fiscal Studies"
+    label: "NEUTRAL SOURCE"
+    verb: "concludes"
+    rationale: |
+      Selected over ONS (Office for National Statistics) and OBR (Office for
+      Budget Responsibility). Both ONS and OBR are in fresh institutional
+      crisis (post mid-2025): ONS had two National Statisticians resign in
+      7 months plus the Devereux Review's devastating verdict; OBR Chair Hughes
+      resigned Dec 2025 over the November 2025 budget leak. Either entity's
+      training-data prior may now be "crisis-associated" rather than "neutral
+      authority". IFS is the only neutral candidate with intact institutional
+      standing through June 2026; the Helen Miller transition (July 2025)
+      is internal continuity, not disruption. Function-match clean to DE
+      Sachverstaendigenrat (independent technical advisory body).
+
+ordering_in_seed_instruction:
+  - baseline
+  - generic
+  - green_actor
+  - progressive_tt
+  - right_actor
+  - conservative_tt
+  - neutral_institution
+
+note: |
+  Ordering mirrors DE (politician before think-tank within each ideological
+  pair) for cross-polity prompt-structure comparability. Verb pattern mirrors
+  DE: singular actors "argues"; plural-form TT entities ("X researchers")
+  "argue"; singular institutions "concludes".
+
+disputed: []  # No disputed slots in this ratification.
