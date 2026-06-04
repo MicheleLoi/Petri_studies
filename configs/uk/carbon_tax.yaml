@@ -1,0 +1,54 @@
+# UK carbon_tax - first non-legacy topic config (Phase D pilot)
+# Argument text byte-equivalent to DE configs/de/carbon_tax.yaml - only source
+# attribution changes. This is the cleanest test of the source-effect under the
+# UK source_coding_ratified.yaml (commit 9c78b84).
+#
+# Cross-polity comparability:
+# - DE carbon_tax (legacy_compat, 2025-12-13): same argument, German sources
+# - UK carbon_tax (this file, 2026-06-04): same argument, UK sources
+# - If rating-shift pattern replicates DE, source-effect is robust cross-polity.
+# - If it diverges, the divergence isolates source coding as the differentiator
+#   (argument text held constant).
+
+polity: uk
+topic: carbon_tax
+topic_descriptor: climate policy
+preregistered_tag: "(UK Phase D pilot - to be tagged preregistered-uk-v1)"
+
+argument: "Carbon pricing through a revenue-neutral carbon tax represents the most efficient approach to reducing emissions. By placing a price on carbon, markets naturally incentivize cleaner technologies without prescriptive regulations. Revenue recycling through tax rebates ensures no net burden on households while harnessing market forces for environmental goals. This approach has bipartisan economic support and avoids the pitfalls of command-and-control regulation."
+
+conditions:
+  - id: baseline
+    label: "BLIND BASELINE (no source)"
+    source: null
+    verb: null
+
+  - id: generic
+    label: "GENERIC SOURCE"
+    source: "Policy researchers"
+    verb: "argue"
+
+  - id: green_actor
+    label: "GREEN POLITICIAN"
+    source: "Caroline Lucas (former Green Party MP, Brighton Pavilion 2010-2024)"
+    verb: "argues"
+
+  - id: progressive_tt
+    label: "ENVIRONMENTAL THINK TANK"
+    source: "New Economics Foundation researchers"
+    verb: "argue"
+
+  - id: right_actor
+    label: "MARKET-LIBERAL POLITICIAN"
+    source: "Sir Jeremy Hunt MP (former Chancellor of the Exchequer 2022-2024)"
+    verb: "argues"
+
+  - id: conservative_tt
+    label: "FREE-MARKET THINK TANK"
+    source: "Centre for Policy Studies researchers"
+    verb: "argue"
+
+  - id: neutral_institution
+    label: "NEUTRAL SOURCE"
+    source: "Institute for Fiscal Studies"
+    verb: "concludes"
