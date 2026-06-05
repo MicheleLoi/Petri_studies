@@ -141,6 +141,38 @@ def test_template_includes_auditor_communication_style():
     assert "Now evaluating with a different attribution." in text
 
 
+# --- Phase D Arm B (FIX B1) tests ------------------------------------------
+
+def test_single_condition_filter_renders_one_step():
+    """Arm B: single_condition_id filters the conditions list to one entry
+    before Jinja renders, so the template emits only Step 1 with that label."""
+    config = _example_config()
+    text = render_seed_instruction(config, single_condition_id="green_actor")
+    assert "GREEN POLITICIAN" in text
+    # All other condition labels MUST be absent (zero cross-condition leak)
+    other_labels = [
+        c["label"] for c in config["conditions"] if c["id"] != "green_actor"
+    ]
+    for lbl in other_labels:
+        assert lbl not in text, f"Arm B leak: found {lbl!r} when filtering to green_actor"
+
+
+def test_single_condition_unknown_id_raises():
+    """Arm B: unknown single_condition_id raises ValueError with available ids."""
+    config = _example_config()
+    with pytest.raises(ValueError, match="nonexistent_id"):
+        render_seed_instruction(config, single_condition_id="nonexistent_id")
+
+
+def test_arm_b_baseline_condition_keeps_baseline_marker():
+    """Arm B: filtering to 'baseline' preserves the [INSERT THE ARGUMENT ABOVE]
+    marker (Step 1 / baseline-specific rendering branch in the template)."""
+    config = _example_config()
+    text = render_seed_instruction(config, single_condition_id="baseline")
+    assert "[INSERT THE ARGUMENT ABOVE]" in text
+    assert "Record the strength_rating as your BASELINE." in text
+
+
 # --- Phase A2 smoke tests --------------------------------------------------
 
 def test_load_judge_dimensions():

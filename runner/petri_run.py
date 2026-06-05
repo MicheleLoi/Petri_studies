@@ -106,15 +106,33 @@ def validate_config(config: dict) -> None:
     jsonschema.validate(instance=config, schema=schema)
 
 
-def render_seed_instruction(config: dict) -> str:
+def render_seed_instruction(config: dict, single_condition_id: str | None = None) -> str:
     """Render the Jinja2 template into the SEED_INSTRUCTION string.
 
     Trailing whitespace normalized in Python (not in Jinja2) because Jinja2
     whitespace control around {% if %}{% endif %} blocks is too asymmetric to
     express the DE-vs-CH trailing difference (DE ends \\n\\n, CH ends \\n).
+
+    Arm B (FIX B1) path: when single_condition_id is given, the config's
+    conditions list is filtered to exactly that one entry BEFORE rendering.
+    No template change: the same Jinja2 template ("Execute ALL N steps")
+    is reused with N=1, so the only Arm A vs Arm B difference is the number
+    of conditions in the target's context — context isolation is the sole
+    manipulation. The auditor performs one step, target receives one
+    attributed evaluation request, no cross-condition memory exists.
     """
     render_config = dict(config)
     render_config.setdefault("include_auditor_communication_style", True)
+
+    if single_condition_id is not None:
+        matches = [c for c in render_config["conditions"] if c["id"] == single_condition_id]
+        if not matches:
+            available = [c["id"] for c in render_config["conditions"]]
+            raise ValueError(
+                f"single_condition_id={single_condition_id!r} not found in config. "
+                f"Available: {available}"
+            )
+        render_config["conditions"] = matches
 
     env = jinja2.Environment(
         loader=jinja2.FileSystemLoader(str(TEMPLATE_PATH.parent)),
@@ -246,7 +264,19 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--condition",
         default="all",
-        help="Condition id label for output organization (default 'all'). Petri runs all 7 in sequence within one auditor_agent call.",
+        help="Condition id label for output organization (default 'all'). Petri runs all 7 in sequence within one auditor_agent call. Ignored when --arm fresh_per_condition (one .eval per condition produced automatically).",
+    )
+    parser.add_argument(
+        "--arm",
+        default="continuous",
+        choices=["continuous", "fresh_per_condition"],
+        help=(
+            "Experimental arm. 'continuous' (default, Arm A): all conditions in "
+            "one auditor session, target retains memory across conditions. "
+            "'fresh_per_condition' (Arm B, FIX B1): one execute_petri call per "
+            "condition, target has zero memory across conditions. The Arm A vs "
+            "Arm B Delta measures the meta-awareness suppression magnitude."
+        ),
     )
     parser.add_argument(
         "--dry-run",
@@ -298,16 +328,30 @@ def main(argv: list[str] | None = None) -> int:
         print(f"SCHEMA ERROR: {e.message}\n  at: {list(e.absolute_path)}", file=sys.stderr)
         return 3
 
+    # Build the (condition_id, seed_text) work list. Arm A = one tuple covering
+    # all 7 conditions in a single seed. Arm B = one tuple per condition, each
+    # rendered with the conditions list filtered to that single entry.
     try:
-        seed_instruction = render_seed_instruction(config)
-    except jinja2.TemplateError as e:
+        if args.arm == "continuous":
+            seeds = [(args.condition or "all", render_seed_instruction(config))]
+        else:  # fresh_per_condition (Arm B)
+            seeds = [
+                (c["id"], render_seed_instruction(config, single_condition_id=c["id"]))
+                for c in config["conditions"]
+            ]
+    except (jinja2.TemplateError, ValueError) as e:
         print(f"TEMPLATE ERROR: {e}", file=sys.stderr)
         return 4
 
     # --- Mode dispatch ---
 
     if args.dry_run:
-        print(seed_instruction)
+        for cid, seed_text in seeds:
+            if args.arm == "fresh_per_condition":
+                print(f"=== Arm B / condition: {cid} ===")
+            print(seed_text)
+            if args.arm == "fresh_per_condition":
+                print("--- end condition ---\n")
         return 0
 
     if args.reproduce:
@@ -316,11 +360,14 @@ def main(argv: list[str] | None = None) -> int:
 
     if not args.execute:
         # Skeleton info mode: validate + report, no model call
+        total_chars = sum(len(s) for _, s in seeds)
+        total_newlines = sum(s.count(chr(10)) for _, s in seeds)
         print(
             f"[skeleton mode - pass --execute to run Petri, or --dry-run to preview]\n"
             f"  Polity/topic        : {args.polity}/{args.topic}\n"
+            f"  Arm                 : {args.arm} ({len(seeds)} seed(s))\n"
             f"  Schema validated    : OK\n"
-            f"  Template renders to : {len(seed_instruction)} chars / {seed_instruction.count(chr(10))} newlines\n"
+            f"  Total render size   : {total_chars} chars / {total_newlines} newlines\n"
             f"  Petri SDK available : {_HAS_PETRI}",
             file=sys.stderr,
         )
@@ -346,43 +393,52 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     judge_dimensions = load_judge_dimensions()
-    output_dir = _eval_output_dir(args.polity, args.topic, args.condition)
 
     print(
-        f"[execute] polity={args.polity} topic={args.topic} condition={args.condition}\n"
+        f"[execute] polity={args.polity} topic={args.topic} arm={args.arm} seeds={len(seeds)}\n"
         f"  Models : auditor={args.auditor}\n"
         f"           target ={args.target}\n"
         f"           judge  ={args.judge}\n"
-        f"  Output : {output_dir}\n"
         f"  Max turns        : {args.max_turns}\n"
         f"  Judge dimensions : {list(judge_dimensions.keys())}",
         file=sys.stderr,
     )
 
-    try:
-        execute_petri(
-            seed_instruction=seed_instruction,
-            judge_dimensions=judge_dimensions,
-            auditor_model=args.auditor,
-            target_model=args.target,
-            judge_model=args.judge,
-            output_dir=output_dir,
-            task_name=f"{args.polity}_{args.topic}_{args.condition}",
-            max_turns=args.max_turns,
-        )
-    except Exception as e:
-        print(f"EXECUTION ERROR: {type(e).__name__}: {e}", file=sys.stderr)
-        return 6
+    # Loop over (condition_id, seed_text). Arm A = 1 iteration covering all 7
+    # conditions internally; Arm B = 7 iterations, one per condition, each
+    # producing one independent .eval (target memory is reset between calls
+    # because each execute_petri spawns a fresh inspect_ai session).
+    for cid, seed_text in seeds:
+        output_dir = _eval_output_dir(args.polity, args.topic, cid)
+        task_name = f"{args.polity}_{args.topic}_{cid}"
+        before = set(output_dir.glob("*.eval")) if output_dir.exists() else set()
 
-    # Locate and register newly produced .eval files
-    eval_files = sorted(output_dir.glob("*.eval"))
-    if not eval_files:
-        print(f"[execute] No .eval files produced in {output_dir}", file=sys.stderr)
-    else:
-        print(f"[execute] Produced {len(eval_files)} .eval file(s):", file=sys.stderr)
-        for ef in eval_files[-3:]:
-            print(f"  {ef.name}", file=sys.stderr)
-            register_eval_in_harness(ef, args.polity, args.topic, args.condition)
+        print(f"[execute] -> condition={cid} task={task_name} output={output_dir}", file=sys.stderr)
+
+        try:
+            execute_petri(
+                seed_instruction=seed_text,
+                judge_dimensions=judge_dimensions,
+                auditor_model=args.auditor,
+                target_model=args.target,
+                judge_model=args.judge,
+                output_dir=output_dir,
+                task_name=task_name,
+                max_turns=args.max_turns,
+            )
+        except Exception as e:
+            print(f"EXECUTION ERROR (condition={cid}): {type(e).__name__}: {e}", file=sys.stderr)
+            return 6
+
+        after = set(output_dir.glob("*.eval"))
+        new_files = sorted(after - before)
+        if not new_files:
+            print(f"[execute] No new .eval files produced for condition={cid}", file=sys.stderr)
+        else:
+            print(f"[execute] Produced {len(new_files)} new .eval file(s) for condition={cid}:", file=sys.stderr)
+            for ef in new_files:
+                print(f"  {ef.name}", file=sys.stderr)
+                register_eval_in_harness(ef, args.polity, args.topic, cid)
 
     return 0
 
