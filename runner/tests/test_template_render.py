@@ -173,6 +173,52 @@ def test_arm_b_baseline_condition_keeps_baseline_marker():
     assert "Record the strength_rating as your BASELINE." in text
 
 
+# --- Stage 0 confabulation probe tests -------------------------------------
+
+def test_probe_block_absent_by_default():
+    """The frozen self-report probe must NOT render unless probe=True — the
+    canonical blind-rating sessions must never carry the probe (behaviour↔
+    testimony separation)."""
+    config = _example_config()
+    text = render_seed_instruction(config, single_condition_id="progressive_tt")
+    assert "Follow-up Probe" not in text
+    assert "predicted_rating_no_source" not in text
+
+
+def test_probe_block_present_when_enabled():
+    """probe=True appends the frozen probe block with the forced-numeric JSON
+    schema and the counterfactual question."""
+    config = _example_config()
+    text = render_seed_instruction(config, single_condition_id="progressive_tt", probe=True)
+    assert "Follow-up Probe" in text
+    # forced-numeric, structured self-report keys
+    assert "source_effect_direction" in text
+    assert "source_effect_magnitude" in text
+    assert "predicted_rating_no_source" in text
+
+
+def test_probe_offers_null_as_first_class():
+    """Anti-leading-the-witness: the probe must present 'no effect' as an equally
+    acceptable answer, not nudge the target toward asserting an effect."""
+    config = _example_config()
+    text = render_seed_instruction(config, single_condition_id="progressive_tt", probe=True)
+    assert "no effect" in text
+    assert "equally acceptable" in text
+
+
+def test_probe_does_not_leak_other_conditions():
+    """A probe session is still single-condition: only the probed condition's
+    label appears, even with the probe block attached."""
+    config = _example_config()
+    text = render_seed_instruction(config, single_condition_id="progressive_tt", probe=True)
+    assert "PROGRESSIVE THINK TANK" in text
+    other_labels = [
+        c["label"] for c in config["conditions"] if c["id"] != "progressive_tt"
+    ]
+    for lbl in other_labels:
+        assert lbl not in text, f"Probe-session leak: found {lbl!r}"
+
+
 # --- Phase A2 smoke tests --------------------------------------------------
 
 def test_load_judge_dimensions():

@@ -106,7 +106,7 @@ def validate_config(config: dict) -> None:
     jsonschema.validate(instance=config, schema=schema)
 
 
-def render_seed_instruction(config: dict, single_condition_id: str | None = None) -> str:
+def render_seed_instruction(config: dict, single_condition_id: str | None = None, probe: bool = False) -> str:
     """Render the Jinja2 template into the SEED_INSTRUCTION string.
 
     Trailing whitespace normalized in Python (not in Jinja2) because Jinja2
@@ -120,9 +120,18 @@ def render_seed_instruction(config: dict, single_condition_id: str | None = None
     of conditions in the target's context — context isolation is the sole
     manipulation. The auditor performs one step, target receives one
     attributed evaluation request, no cross-condition memory exists.
+
+    Confabulation-probe path (Stage 0): when probe=True, a FROZEN, symmetric
+    self-report + counterfactual probe block is appended to the seed (template
+    `include_self_report_probe`). The auditor asks the target two verbatim
+    follow-up questions after it rates — used only in dedicated probe sessions,
+    never in the canonical blind-rating sessions (the behaviour↔testimony
+    separation). The probe offers "no effect" as a first-class answer and forces
+    a numeric estimate, to avoid leading the witness.
     """
     render_config = dict(config)
     render_config.setdefault("include_auditor_communication_style", True)
+    render_config["include_self_report_probe"] = probe
 
     if single_condition_id is not None:
         matches = [c for c in render_config["conditions"] if c["id"] == single_condition_id]
@@ -311,9 +320,29 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--max-turns",
         type=int, default=15,
-        help="Petri auditor max_turns (default: 15, matches legacy DE/CH)",
+        help="Petri auditor max_turns (default: 15, matches legacy DE/CH). Use 1 for the canonical blind-rating session (single target turn, no follow-up); 3 for a probe session.",
+    )
+    parser.add_argument(
+        "--repeat",
+        type=int, default=1,
+        help="Repeat the whole run N times, each producing independent .eval file(s). Used by the Stage-0 quantization / positive-control / probe blocks. Default 1.",
+    )
+    parser.add_argument(
+        "--probe",
+        action="store_true",
+        help=(
+            "Append the FROZEN self-report + counterfactual probe block to the seed "
+            "(Stage-0 confabulation probe sessions). Symmetric wording (offers 'no effect' "
+            "as first-class) + forced-numeric. Use with a single ideological --condition, "
+            "--arm fresh_per_condition, and --max-turns 3. NEVER use for the canonical "
+            "blind-rating block — keeps behaviour and testimony in separate sessions."
+        ),
     )
     args = parser.parse_args(argv)
+
+    if args.repeat < 1:
+        print("ERROR: --repeat must be >= 1", file=sys.stderr)
+        return 1
 
     # Load + validate + render — always (cheap, fast)
     try:
@@ -333,11 +362,23 @@ def main(argv: list[str] | None = None) -> int:
     # rendered with the conditions list filtered to that single entry.
     try:
         if args.arm == "continuous":
-            seeds = [(args.condition or "all", render_seed_instruction(config))]
+            seeds = [(args.condition or "all", render_seed_instruction(config, probe=args.probe))]
         else:  # fresh_per_condition (Arm B)
+            # Respect an explicit --condition: a single-condition fresh run, used
+            # by the Stage-0 quantization / positive-control / probe blocks. The
+            # default "all" runs every condition as an independent fresh session.
+            if args.condition and args.condition != "all":
+                conds = [c for c in config["conditions"] if c["id"] == args.condition]
+                if not conds:
+                    available = [c["id"] for c in config["conditions"]]
+                    raise ValueError(
+                        f"--condition {args.condition!r} not found in config. Available: {available}"
+                    )
+            else:
+                conds = config["conditions"]
             seeds = [
-                (c["id"], render_seed_instruction(config, single_condition_id=c["id"]))
-                for c in config["conditions"]
+                (c["id"], render_seed_instruction(config, single_condition_id=c["id"], probe=args.probe))
+                for c in conds
             ]
     except (jinja2.TemplateError, ValueError) as e:
         print(f"TEMPLATE ERROR: {e}", file=sys.stderr)
@@ -395,7 +436,7 @@ def main(argv: list[str] | None = None) -> int:
     judge_dimensions = load_judge_dimensions()
 
     print(
-        f"[execute] polity={args.polity} topic={args.topic} arm={args.arm} seeds={len(seeds)}\n"
+        f"[execute] polity={args.polity} topic={args.topic} arm={args.arm} seeds={len(seeds)} repeat={args.repeat} probe={args.probe}\n"
         f"  Models : auditor={args.auditor}\n"
         f"           target ={args.target}\n"
         f"           judge  ={args.judge}\n"
@@ -405,40 +446,44 @@ def main(argv: list[str] | None = None) -> int:
     )
 
     # Loop over (condition_id, seed_text). Arm A = 1 iteration covering all 7
-    # conditions internally; Arm B = 7 iterations, one per condition, each
-    # producing one independent .eval (target memory is reset between calls
-    # because each execute_petri spawns a fresh inspect_ai session).
-    for cid, seed_text in seeds:
-        output_dir = _eval_output_dir(args.polity, args.topic, cid)
-        task_name = f"{args.polity}_{args.topic}_{cid}"
-        before = set(output_dir.glob("*.eval")) if output_dir.exists() else set()
+    # conditions internally; Arm B = one iteration per condition, each producing
+    # one independent .eval (target memory is reset between calls because each
+    # execute_petri spawns a fresh inspect_ai session). The outer --repeat loop
+    # re-runs the whole block N times for the Stage-0 quantization / positive-
+    # control / probe blocks; each repeat yields fresh independent .eval files.
+    for rep in range(args.repeat):
+        rep_label = f" [rep {rep + 1}/{args.repeat}]" if args.repeat > 1 else ""
+        for cid, seed_text in seeds:
+            output_dir = _eval_output_dir(args.polity, args.topic, cid)
+            task_name = f"{args.polity}_{args.topic}_{cid}"
+            before = set(output_dir.glob("*.eval")) if output_dir.exists() else set()
 
-        print(f"[execute] -> condition={cid} task={task_name} output={output_dir}", file=sys.stderr)
+            print(f"[execute]{rep_label} -> condition={cid} task={task_name} output={output_dir}", file=sys.stderr)
 
-        try:
-            execute_petri(
-                seed_instruction=seed_text,
-                judge_dimensions=judge_dimensions,
-                auditor_model=args.auditor,
-                target_model=args.target,
-                judge_model=args.judge,
-                output_dir=output_dir,
-                task_name=task_name,
-                max_turns=args.max_turns,
-            )
-        except Exception as e:
-            print(f"EXECUTION ERROR (condition={cid}): {type(e).__name__}: {e}", file=sys.stderr)
-            return 6
+            try:
+                execute_petri(
+                    seed_instruction=seed_text,
+                    judge_dimensions=judge_dimensions,
+                    auditor_model=args.auditor,
+                    target_model=args.target,
+                    judge_model=args.judge,
+                    output_dir=output_dir,
+                    task_name=task_name,
+                    max_turns=args.max_turns,
+                )
+            except Exception as e:
+                print(f"EXECUTION ERROR (condition={cid}{rep_label}): {type(e).__name__}: {e}", file=sys.stderr)
+                return 6
 
-        after = set(output_dir.glob("*.eval"))
-        new_files = sorted(after - before)
-        if not new_files:
-            print(f"[execute] No new .eval files produced for condition={cid}", file=sys.stderr)
-        else:
-            print(f"[execute] Produced {len(new_files)} new .eval file(s) for condition={cid}:", file=sys.stderr)
-            for ef in new_files:
-                print(f"  {ef.name}", file=sys.stderr)
-                register_eval_in_harness(ef, args.polity, args.topic, cid)
+            after = set(output_dir.glob("*.eval"))
+            new_files = sorted(after - before)
+            if not new_files:
+                print(f"[execute] No new .eval files produced for condition={cid}{rep_label}", file=sys.stderr)
+            else:
+                print(f"[execute] Produced {len(new_files)} new .eval file(s) for condition={cid}{rep_label}:", file=sys.stderr)
+                for ef in new_files:
+                    print(f"  {ef.name}", file=sys.stderr)
+                    register_eval_in_harness(ef, args.polity, args.topic, cid)
 
     return 0
 
