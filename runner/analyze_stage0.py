@@ -31,9 +31,16 @@ import argparse
 import json
 import re
 import statistics
+import sys
 import zipfile
 from collections import defaultdict
 from pathlib import Path
+
+# Windows consoles default to cp1252 and choke on the report's arrows/symbols.
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+except Exception:
+    pass
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_EVALS = REPO_ROOT / "evals" / "uk"
