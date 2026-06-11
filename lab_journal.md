@@ -509,3 +509,18 @@ Append-only journal of all events in this repository. **One entry per event.** N
   `preregistered-confab-v1` tag before any Stage-2 run. Probe wording validated (clean JSON, symmetric).
   n here is small (probe n=4/3) — Stage 0 is exploratory existence/feasibility, NOT a quantitative claim.
 
+## [2026-06-11T19:22:30+02:00] [SID-20260611-191657] [note]
+**Polity:** n/a
+**Topic:** n/a
+**Condition:** n/a
+**Files:** (workspace) `09_notes/registro_sessioni.md` (NEW); this `lab_journal.md` (this entry)
+**Notes:** **Cross-reference index** bridging this experimental lab journal to the MHC governance workspace. A human-readable session register was created at `C:\Users\loimi\switchdrive\CURRENTLY WORKING ON\AI - assisted papers\Epistemic constitutional AI\09_notes\registro_sessioni.md` (canonical machine sources for that register: `session_topology.yaml` + `.mhc-config.json` in the workspace). The register covers ALL workspace sessions; the subset with a direct experimental footprint in *this* repo (`Petri_studies`) is mapped below for navigation:
+  - **SID-20260603-095328** — Phase A bootstrap (root-commit `63fda01`) + Phase B byte-equivalence DE/CH (`98fc6d4`). See `[bootstrap]`/`[first_commit]`/`[legacy_compat_match]`/`[commit]` entries above.
+  - **SID-20260604-145637** — Phase D UK pilot: trials T1 + T1' (FIX A) on Sonnet 4.6 → meta-awareness suppression diagnosed; 2-arm A/B `[methodology_pivot]`; repo restructure → `Petri_studies` + `eval_registry.py` (MOD-007).
+  - **SID-20260604-160434** — `eval_registry.py` retro-sync (the two `[eval_saved]` trial entries).
+  - **SID-20260605-111646** — FIX B1 (Arm B, fresh-context per condition) implementation, commit `e5a8e41`; retro-logs + Topic `[correction]`.
+  - **SID-20260609-105624** — Confabulation study Stage-0: protocol lock (runner `--repeat`/`--probe`, frozen probe, positive-control configs, `analyze_stage0.py`) + Stage-0 RESULTS (H0a PASS strong−weak=+0.573; tau≈0.05; output-layer source effect null; introspective confabulation reproduced ~6/7 probe runs).
+  - **SID-20260609-181128** — Stage-0 pilot eval runs (38 valid `.eval`: baseline / strong_baseline / weak_baseline / progressive_tt / right_actor).
+  - **SID-20260610-145422** — (workspace-side) paper reframed as empirical-critical study of source dependence; research program specced (E1 prestige×stance prereg, calibration pilot spec) — governs the next experimental phase in this repo.
+  This is a `[note]` (navigation aid), not a run/eval event. Append-only discipline preserved: future sessions update the workspace register; this entry is a point-in-time bridge.
+
