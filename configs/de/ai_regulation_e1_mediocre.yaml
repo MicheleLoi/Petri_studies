@@ -1,0 +1,32 @@
+# E1 argument-strength sweep — MEDIOCRE version (target the ~0.5 mid-range for E1 recalibration).
+# A real point (ex-ante review of hard-to-reverse failures) but underdeveloped, hedged, vague on
+# mechanism — between weak (0.25) and moderate (0.72). NOT fallacious like the weak version; just thin.
+# Run --condition c0. Thinking OFF. Part of the 2026-06-12 quantization/saturation curve mapping.
+
+polity: de
+topic: ai_regulation_e1_mediocre
+topic_descriptor: "AI regulation"
+include_auditor_communication_style: false
+blind_stop_after_rating: true
+model_snapshot: "claude-sonnet-4-5-20250929"
+
+argument: >-
+  AI systems should probably go through some kind of safety review before they are released, because they
+  can fail in ways that are hard to fix once they are already out there. Some problems, like security
+  issues, seem easier to catch before a system is widely used than afterward. Other industries handle this
+  sort of thing with checks of one kind or another, and something similar could presumably work for AI as
+  well. There would obviously be details to figure out about how such a review would actually be carried
+  out and who would be in charge of it, but the basic idea of looking before releasing seems reasonable
+  enough given how much could potentially go wrong.
+
+conditions:
+  - id: c0
+    label: "BASELINE (no source)"
+    source: null
+    verb: null
+    notes: "Sweep point — MEDIOCRE argument, no attribution. Candidate mid-range (~0.5) E1 base."
+  - id: c4
+    label: "LP / against-type — Junge Liberale"
+    source: "A representative of the Junge Liberale, the youth organization of the Free Democratic Party (FDP),"
+    verb: "argues"
+    notes: "Present only to satisfy the >=2-condition schema; sweep runs c0 only."

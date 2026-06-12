@@ -569,3 +569,23 @@ Append-only journal of all events in this repository. **One entry per event.** N
 
   **DECISION (PI, 2026-06-12):** STOP here, commit + track thoroughly, and **recalibrate E1's argument as a separate next step**. NOT yet pre-registered / tagged — the E1 design is not final until the base argument is recalibrated. Next: argument-strength sweep to find a mid-range (~0.5) base, then re-freeze + port E1 to PREREGISTRATION.md + tag before the confirmatory grid.
 
+## [2026-06-12T16:37:19+02:00] [SID-20260611-191657] [run_completed]
+**Polity:** de
+**Topic:** ai_regulation_e1_mediocre, ai_regulation_e1_verystrong
+**Condition:** c0
+**Files:** configs/de/ai_regulation_e1_mediocre.yaml + _verystrong.yaml (NEW); evals/de/*mediocre*.eval + *verystrong*.eval (10); runner/calibration_ledger.py (classify: sweep tags via endswith)
+**Notes:** **Argument-strength sweep** to map the quality→rating curve — locate E1's mid-range base AND test the 0.72 ceiling. Two new graded arguments on baseline c0, same tightened protocol (target Sonnet 4.5, aud/jdg Haiku 4.5, thinking OFF, blind_stop). `mediocre` = a real point but thin/hedged (target ~0.5); `verystrong` = the strong argument PLUS the concrete review mechanism the model had flagged as missing (ceiling test). 5 reps each.
+
+## [2026-06-12T16:37:19+02:00] [SID-20260611-191657] [note]
+**Polity:** de
+**Topic:** ai_regulation_e1 (sweep)
+**Condition:** c0 across the quality gradient
+**Files:** evals/de/_calibration_ledger.csv; workspace 01_epistemic_traces/trace_quantized_rating_head_20260612.md; 09_notes/decision_calibration_pilot_findings_20260612.md
+**Notes:** **Sweep RESULT — corrects the regime picture; confirms saturation.**
+  Curve (c0, no source): weak **0.25 ×4** (flat) · **mediocre 0.45/0.45/0.52/0.55/0.62** (σ̂≈0.07, WANDERS) · moderate **0.72 ×8** (flat) · strong **0.72 ×4** (flat) · **verystrong 0.72 ×5** (flat).
+  - **CORRECTION to the earlier "uniform quantizer" read:** the head is a **saturating nonlinearity** — razor-flat (σ̂≈0) ONLY on two attractors (≈0.25 floor, ≈0.72 ceiling), but **responsive + noisy in the mid-range** (mediocre). "0.72 everywhere" in the pilot was an artifact of testing only arguments that sit on the high attractor (moderate/strong/verystrong all do).
+  - **SATURATION at 0.72 CONFIRMED:** `verystrong` — which specifies the review mechanism the model had flagged as the moderate argument's weakness — STILL caps at 0.72 ×5. So 0.72 is genuine saturation, not a weak "strong" variant. Earlier small-n caveat resolved.
+  - **Measurement implication (paper-grade):** a source effect is resolvable **only in the responsive mid-range**; for an argument on an attractor the head cannot move, so the measured effect is artifactually ≈0. The literature's small/unstable source effects may partly be an **instrument-placement** artifact (stimulus arguments near saturation), not a small true effect.
+  - **E1 recalibration (resolved):** base argument → **~mediocre strength** (rates ~0.5): headroom up (→0.72) and down (→0.25), and the head resolves there (σ̂≈0.07 ⇒ adaptive **n≈10**). Next: finalize the mid-range E1 base, re-freeze + port to PREREGISTRATION.md + tag.
+  - Still open: **naturalistic probe** (same argument, no auditor/eval frame) for the eval-situational-vs-intrinsic mechanism question. Framework: workspace trace `trace_quantized_rating_head_20260612.md`.
+

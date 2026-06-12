@@ -117,10 +117,12 @@ def extract_ratings(sample: dict) -> tuple[float | None, dict | None]:
 
 def classify(topic: str, condition: str, is_probe: bool) -> tuple[str, str]:
     """Return (eval_type, cell)."""
-    if "strong" in topic:
-        return "poscontrol", "PC-strong"
-    if "weak" in topic:
-        return "poscontrol", "PC-weak"
+    # Argument-quality sweep / positive controls: topic = ai_regulation_e1_<tag>.
+    # endswith with the leading underscore disambiguates 'strong' from 'verystrong'.
+    for tag, cell in [("veryweak", "PC-vweak"), ("weak", "PC-weak"), ("mediocre", "PC-mediocre"),
+                      ("verystrong", "PC-vstrong"), ("strong", "PC-strong")]:
+        if topic.endswith("_" + tag):
+            return "poscontrol", cell
     if "wredit" in topic:
         etype = "winrate"
     elif is_probe:
