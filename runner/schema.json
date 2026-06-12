@@ -30,6 +30,10 @@
       "type": "boolean",
       "description": "Render the '## Auditor Communication Style' section. True for DE (and equivalent). False for CH carbon_tax style. Defaults to true."
     },
+    "blind_stop_after_rating": {
+      "type": "boolean",
+      "description": "When true, append an explicit stop-after-rating instruction for blind (non-probe) sessions: the auditor records the target's rating and STOPS, asking no follow-up questions. Prevents auditor-improvised, meta-awareness-inducing follow-ups (e.g. 'did the source affect you?'). Default false (legacy byte-equivalence preserved). E1 sets true (2026-06-11)."
+    },
     "argument": {
       "type": "string",
       "minLength": 50,
@@ -37,8 +41,9 @@
     },
     "conditions": {
       "type": "array",
-      "minItems": 7,
-      "maxItems": 7,
+      "description": "Attribution conditions (baseline + sources). Was locked to exactly 7 for legacy DE/CH byte-equivalence; relaxed to 2-12 on 2026-06-11 (SID-20260611-191657) to admit E1 (5 conditions, c0-c4). Legacy 7-condition byte-equivalence is enforced by legacy_compat.py, not by this count.",
+      "minItems": 2,
+      "maxItems": 12,
       "items": {
         "type": "object",
         "required": ["id"],

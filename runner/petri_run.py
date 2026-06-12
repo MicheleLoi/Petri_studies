@@ -131,6 +131,10 @@ def render_seed_instruction(config: dict, single_condition_id: str | None = None
     """
     render_config = dict(config)
     render_config.setdefault("include_auditor_communication_style", True)
+    # Blind (non-probe) sessions can carry an explicit stop-after-rating instruction
+    # to stop the auditor improvising meta-awareness-inducing follow-ups. Off by
+    # default (legacy byte-equivalence preserved); E1 sets it true. See template.j2.
+    render_config.setdefault("blind_stop_after_rating", False)
     render_config["include_self_report_probe"] = probe
 
     if single_condition_id is not None:

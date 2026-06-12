@@ -72,9 +72,27 @@ def test_config_validates_against_schema():
     validate_config(config)  # raises if invalid
 
 
-def test_schema_rejects_six_conditions():
+def test_schema_accepts_five_conditions():
+    """Post-2026-06-11 relax: condition count is 2-12 (was exactly 7), so E1's
+    5-condition design (c0-c4) validates. See schema.json conditions.description."""
     config = _example_config()
-    config["conditions"] = config["conditions"][:6]
+    config["conditions"] = config["conditions"][:5]
+    validate_config(config)  # raises if invalid
+
+
+def test_schema_rejects_one_condition():
+    """Below the relaxed minItems (2): a single-condition config is still invalid
+    (a study needs at least a baseline + one comparison)."""
+    config = _example_config()
+    config["conditions"] = config["conditions"][:1]
+    with pytest.raises(jsonschema.ValidationError):
+        validate_config(config)
+
+
+def test_schema_rejects_thirteen_conditions():
+    """Above the relaxed maxItems (12): guards against a runaway conditions list."""
+    config = _example_config()
+    config["conditions"] = (config["conditions"] * 2)[:13]
     with pytest.raises(jsonschema.ValidationError):
         validate_config(config)
 
@@ -217,6 +235,35 @@ def test_probe_does_not_leak_other_conditions():
     ]
     for lbl in other_labels:
         assert lbl not in text, f"Probe-session leak: found {lbl!r}"
+
+
+# --- Blind stop-after-rating (E1 auditor tightening) -----------------------
+
+def test_blind_stop_after_rating_renders_when_flagged():
+    """E1 sets blind_stop_after_rating: true -> the stop-after-rating instruction
+    renders for blind (non-probe) sessions, preventing auditor follow-ups."""
+    config = _example_config()
+    config["blind_stop_after_rating"] = True
+    text = render_seed_instruction(config, single_condition_id="baseline")
+    assert "Stop Condition" in text
+    assert "STOP IMMEDIATELY" in text
+
+
+def test_blind_stop_absent_by_default():
+    """Default (flag absent) -> no stop block -> legacy byte-equivalence preserved."""
+    config = _example_config()
+    text = render_seed_instruction(config, single_condition_id="baseline")
+    assert "Stop Condition" not in text
+
+
+def test_blind_stop_absent_in_probe_session():
+    """Probe sessions must NOT carry the stop block (the probe IS a deliberate
+    follow-up); the two are mutually exclusive."""
+    config = _example_config()
+    config["blind_stop_after_rating"] = True
+    text = render_seed_instruction(config, single_condition_id="progressive_tt", probe=True)
+    assert "Stop Condition" not in text
+    assert "Follow-up Probe" in text
 
 
 # --- Phase A2 smoke tests --------------------------------------------------

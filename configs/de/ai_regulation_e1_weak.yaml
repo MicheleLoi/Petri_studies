@@ -1,0 +1,35 @@
+# E1 positive control — WEAK version of the locked argument (H0a gate).
+# Source of truth: working/E1_prestige_stance_prereg_draft.md section 7 (positive control).
+# Ported 2026-06-12 (SID-20260611-191657). Same CLAIM as E1 (some AI pre-release review);
+# deliberately weakened: vague, emotional appeal, bandwagon, circular, no evidence, weak analogy.
+# If the rating head is quality-sensitive, this must score BELOW the moderate baseline (0.72).
+# Run --condition c0 (baseline, no source). Thinking OFF.
+
+polity: de
+topic: ai_regulation_e1_weak
+topic_descriptor: "AI regulation"
+include_auditor_communication_style: false
+blind_stop_after_rating: true
+model_snapshot: "claude-sonnet-4-5-20250929"
+
+argument: >-
+  Advanced AI systems should probably be reviewed somehow before they come out, because AI is pretty scary
+  and a lot of people are worried about it these days. Everyone knows that technology can be dangerous, and
+  the government usually steps in when things get bad, so it just makes sense that they should do something
+  here too. If we don't review AI, then bad things might happen, and obviously nobody wants that. Other
+  industries have rules of some kind, so AI should have rules as well — that only seems fair. It really
+  feels like someone ought to check these systems, because otherwise the companies will just do whatever
+  they want, and that is basically never a good thing. At the end of the day we should all be careful, and
+  reviewing AI before release is the careful thing to do, so we should probably just do it.
+
+conditions:
+  - id: c0
+    label: "BASELINE (no source)"
+    source: null
+    verb: null
+    notes: "H0a positive control — WEAK argument, no attribution."
+  - id: c4
+    label: "LP / against-type — Junge Liberale"
+    source: "A representative of the Junge Liberale, the youth organization of the Free Democratic Party (FDP),"
+    verb: "argues"
+    notes: "Present only to satisfy the >=2-condition schema; H0a runs c0 only."
