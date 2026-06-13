@@ -18,7 +18,7 @@ and if so, is that bias or competence? Every run, config and decision is logged 
 
 **The spine in five movements** *(two of them expose a **measurement trap** — a spurious result produced by the test design or the instrument, not by the model; lettered A/B so they don't clash with the movement numbers)*:
 
-1. **A faithful instrument (2026-06-03).** Before extending anything, the runner reproduces the original
+1. **A faithful instrument (2026-06-03;** see the `[legacy_compat_match]` entries below**).** Before extending anything, the runner reproduces the original
    German and Swiss study prompts byte-for-byte (DE 3498 codepoints / 104 newlines; CH 3052 / 90). The
    multipolity runner is provably the same instrument as the legacy studies.
 
@@ -31,7 +31,7 @@ and if so, is that bias or competence? Every run, config and decision is logged 
    suppression with a two-arm design (Arm A continuous context vs. Arm B fresh context per condition). The
    0.68-flat is kept as a spoiled *run*, not a clean source-bias estimate.
 
-3. **The positive finding — introspective confabulation (2026-06-09).** With fresh contexts the source effect
+3. **The positive finding — introspective confabulation (2026-06-09;** see the Stage-0 `[note]` entries below — launch + RESULTS**).** With fresh contexts the source effect
    on *behaviour* is ~null, yet the model's *self-report* says the source moved its rating. Stage-0 (Sonnet
    4.6, 38 runs): the rating head (the model's 0–1 `strength_rating` output) is genuinely quality-sensitive
    (**H0a**, the positive-control gate — a strong vs. weak argument must separate by ≥0.15 or the null is
@@ -52,7 +52,7 @@ and if so, is that bias or competence? Every run, config and decision is logged 
    artifact. (Cost was de-risked too: the full ~505-eval core *projects* to roughly €22 as-billed / €38
    uncached @0.92 — a projection, not measured data; the point is only that cost is not the binding constraint.)
 
-5. **E1 locked (2026-06-13).** The original E1 argument sat on the 0.72 ceiling, masking the against-interest
+5. **E1 locked (2026-06-13;** see the `[preregistration]` entry below**).** The original E1 argument sat on the 0.72 ceiling, masking the against-interest
    *upward* bonus E1 exists to detect; its base was recalibrated to a mid-range argument (≈0.52) and the
    design frozen + tagged `preregistered-e1-v1`. E1 deconfounds prestige from stance to decide whether the
    against-interest credibility effect is **bias or competence** — and can now actually detect it.
