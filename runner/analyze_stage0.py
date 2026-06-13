@@ -82,15 +82,29 @@ def _msg_text(msg: dict) -> str:
 
 
 def _json_with_key(text: str, key: str) -> dict | None:
-    """Find the first JSON object in `text` that contains `key`."""
-    for m in re.finditer(r"\{[^{}]*\}", text, re.DOTALL):
-        blob = m.group(0)
-        if key in blob:
-            try:
-                return json.loads(blob)
-            except json.JSONDecodeError:
-                continue
-    return None
+    """Find the first JSON object in `text` that contains `key`.
+
+    Brace-balanced scan (``json.JSONDecoder.raw_decode`` from each ``{``) rather than
+    a flat ``{[^{}]*}`` regex. The flat regex silently dropped any object whose own
+    string values contained a ``{`` or ``}`` (code, prose, braces) — it matched the
+    inner brace pair first and could never span the outer object — discarding valid
+    first-turn ratings (e.g. RMiBm9 baseline: real 0.62 read as None). raw_decode lets
+    the JSON string parser handle embedded/nested braces correctly.
+    """
+    decoder = json.JSONDecoder()
+    idx = 0
+    while True:
+        start = text.find("{", idx)
+        if start == -1:
+            return None
+        try:
+            obj, end = decoder.raw_decode(text, start)
+        except json.JSONDecodeError:
+            idx = start + 1
+            continue
+        if isinstance(obj, dict) and key in obj:
+            return obj
+        idx = max(end, start + 1)
 
 
 def _task_name_from_filename(name: str) -> str:

@@ -2,6 +2,65 @@
 
 Append-only journal of all events in this repository. **One entry per event.** Never edit past entries; corrections go as new entries below.
 
+## Reader's guide — what this journal is and what it found (summary as of 2026-06-13)
+
+*Orientation for a human reader. The immutable record is the dated entries below; this guide summarizes their
+scientific meaning. Append-only applies to the entries, not to this living summary. Every number here is
+re-derivable from the .eval files + the version-pinned runner; the 2026-06-13 ground-truth audit (the
+`[correction]` entry at the bottom + `09_notes/methodology_ground_truth_verification_20260613.md` in the
+workspace) verified the empirical findings — 0 of 16 cross-checked claims falsified — and corrected the
+sub-statistics noted below.*
+
+**What this repo is.** The experimental *body* of an empirical-critical study of **source dependence** in a
+frontier model (Claude): does the model's rating of an argument change with *who* is said to have made it —
+and if so, is that bias or competence? Every run, config and decision is logged here for reproducibility.
+(The *intellectual* layer — paper, rationale, decisions — lives in the `Epistemic constitutional AI` workspace.)
+
+**The spine in five movements:**
+
+1. **A faithful instrument (2026-06-03).** Before extending anything, the runner reproduces the original
+   German and Swiss study prompts byte-for-byte (DE 3498 codepoints / 104 newlines; CH 3052 / 90). The
+   multipolity runner is provably the same instrument as the legacy studies.
+
+2. **Artifact #1 — meta-awareness suppression (2026-06-04).** The first UK trial returned an identical 0.68
+   across all 7 source conditions. The test design leaks to the model (the auditor announces "a different
+   attribution"; the model commits to "source-independence" and holds it; all 7 conditions share one
+   conversation). A prompt-level fix didn't move it → the spoiler is *structural*. Response: stop hiding the
+   test, *measure* the suppression with a two-arm design (continuous vs. fresh context per condition). The
+   0.68-flat is preserved as a spoiled measurement, not a clean source-bias estimate.
+
+3. **The positive finding — introspective confabulation (2026-06-09).** With fresh contexts the source effect
+   on *behaviour* is ~null, yet the model's *self-report* says the source moved its rating. Stage-0 (Sonnet
+   4.6, 38 runs): the rating head is genuinely quality-sensitive (H0a positive control: strong 0.760 vs weak
+   0.188, +0.573 PASS) — so the flat source ratings are a *real* null, not a dead dial; and ~6/7 probe runs
+   assert a +0.02–0.03 source effect the behaviour does not show, even when "no effect" is offered as a
+   first-class answer. Behaviour is source-independent; testimony confabulates a signed effect it cannot
+   introspect. (Quantization: 19 valid baseline runs on a 3-value grid {0.62,0.65,0.68}, mean 0.6342, SD
+   0.0232 → τ ≈ 0.05 — count corrected 2026-06-13 from a parser bug; see the `[correction]` entry.)
+
+4. **Artifact #2 — the saturating rating head (2026-06-12).** Calibrating the German prestige×stance
+   experiment (E1) on Sonnet 4.5 showed the 0–1 head is a *saturating nonlinearity*: razor-flat at ≈0.25
+   (weak) and ≈0.72 (good) attractors, responsive only in between (mediocre 0.45–0.62, σ̂≈0.07). Consequence:
+   a source effect is measurable *only* in the responsive mid-range; an argument on an attractor yields an
+   artifactual ≈0. The literature's small, fragile source effects may be partly an **instrument-placement**
+   artifact. (Cost was de-risked too: the full ~505-eval core *projects* to roughly €22 as-billed / €38
+   uncached @0.92 — a projection, not measured data; the point is only that cost is not the binding constraint.)
+
+5. **E1 locked (2026-06-13).** The original E1 argument sat on the 0.72 ceiling, masking the against-interest
+   *upward* bonus E1 exists to detect; its base was recalibrated to a mid-range argument (≈0.52) and the
+   design frozen + tagged `preregistered-e1-v1`. E1 deconfounds prestige from stance to decide whether the
+   against-interest credibility effect is **bias or competence** — and can now actually detect it.
+
+**Two lessons the findings carry:** source dependence is real but easily *mis-measured* — two independent
+artifacts (meta-awareness suppression; a saturating/quantized head) each manufacture spurious nulls or mask
+real effects — and the model's *testimony about its own source-sensitivity is unreliable* (confabulation).
+The novel, robust object is the **behaviour↔testimony dissociation**.
+
+**A third lesson, from the 2026-06-13 audit:** *deterministic ≠ correct.* A version-pinned but buggy extractor
+reproduced a wrong count (n=18) every run; only an independent raw read of the .eval data exposed the truth
+(n=19). Re-running the same script merely "confirms" the bug. Verification must triangulate the *extractor
+itself* against the raw data — and must not claim independence when the corroboration shares a cause.
+
 ## Format
 
 ```
@@ -599,4 +658,26 @@ Append-only journal of all events in this repository. **One entry per event.** N
   - **H0a unaffected:** the positive controls (weak 0.25 / strong 0.72) bracket the new ~0.52 base ⇒ the head moves with quality ⇒ no re-run needed.
   - **Follow-on (NOT blocking the lock):** the Win-Rate control `_wredit` synonym-edits are still derived from the moderate text; regenerate from the mediocre base before the Win-Rate run. The strong/weak/verystrong sweep configs are retained as-is (positive-control + ceiling evidence).
   - Workspace: prereg `working/E1_prestige_stance_prereg_draft.md` §3 updated; MHC code-modlog `03_modification_logs/ModificationLog_Code_E1.md` MOD-005.
+
+## [2026-06-13T15:38:45+02:00] [SID-20260613-002241] [correction]
+**Polity:** de + uk (instrument + records)
+**Topic:** ground-truth audit of the Stage-0 / E1 record
+**Condition:** n/a
+**Files:** runner/analyze_stage0.py (fixed); configs/de/ai_regulation_e1.yaml + PREREGISTRATION.md (hash annotated); corrects the 2026-06-09 Stage-0 RESULTS note + the 2026-06-12 sweep note above (append-only — those are NOT edited)
+**Notes:** **Ground-truth audit — five corrections.** Every value below was RE-DERIVED from immutable sources (the .eval ZIPs, the runner re-run, git blobs); none is taken on trust. The provenance of each flag is stated; "independent" is used only where the corroboration is causally independent of the flag. Method + copy-pasteable reproduction: workspace `09_notes/methodology_ground_truth_verification_20260613.md`.
+
+  **C1 — Confab "medium" baseline n=18 → n=19 (REQUIRED).** RE-DERIVED: a raw count of the 20 `uk-carbon-tax-baseline` .eval files = 1 empty stub + **19 valid ratings** (hist {0.62×13, 0.65×3, 0.68×3}), mean **0.6342**, SD **0.0232**, grid {0.62,0.65,0.68}. The 2026-06-09 note's "n=18 / mean 0.635 / SD 0.0236 / ~2 nulls" was wrong: it is **1 structural stub + 1 valid 0.62 silently dropped** by the old `_json_with_key` flat-brace regex `{[^{}]*}`, which cannot span a `{` occurring inside a string value (file `…RMiBm9…`). FIX: brace-balanced scan (`json.JSONDecoder.raw_decode`). Audit: old vs fixed over all 84 .eval → exactly 1 drop (uk), 0 in de. **H0a gate UNCHANGED** (strong 0.760 / weak 0.188 / +0.573 PASS — strong/weak parse fine, never affected); τ ≈ 0.05 unchanged; output-layer source-null unchanged (≈ −0.014).
+    *Provenance:* first flagged by an EXTERNAL, UNATTRIBUTED note pasted into the session — authorship untraced (searched all local Claude transcripts; the note's distinctive prose appears nowhere except the paste itself; treated as unverified). The correction does **not** rest on that note; it rests on the raw .eval count, which I reproduced directly and which the verification workflow's L0 read reproduced separately. The instrument was changed on the strength of a *reproduced* bug, not the note's authority; `analyze_stage0.py` is pre-`preregistered-confab-v1` (Stage-0 exploratory), so the edit is in-bounds.
+
+  **C2 — Temperature provenance is FALSE (REQUIRED).** The 2026-06-12 records state target temperature 1.0 was "confirmed from the .eval call.request." RE-DERIVED: a DE c0 .eval has **0 occurrences** of "temperature" (sample + header). 1.0 is the Anthropic API default — an INFERENCE, not a recorded value. The non-determinism conclusion stands, but on different evidence: distinct target prompts + prose varying ~2325–2693 chars at a constant 0.72. *Provenance:* this session's verification workflow (direct field check); re-confirmed here.
+
+  **C3 — Lock hash needs a rendering-path annotation (REQUIRED for reproducibility).** RE-DERIVED from the committed blob @5f54c8a: the lock hash `a1899eb1…/len 2542` is the **single-condition c0 render** (`render_seed_instruction(cfg, single_condition_id='c0')`); a naive full-config render is a DIFFERENT string `f6ff425d…/len 3680`. The hash is correct; without this note a verifier re-rendering the full config sees a false mismatch. Annotation added to the config comment + PREREGISTRATION E1 block. *Provenance:* verification workflow; re-derived here.
+
+  **C4 — Core-cost figures are PROJECTIONS, not data (caveat).** RE-DERIVED from the committed ledger (38 evals): asbilled mean $0.0482 × 505 = $24.3 → **€22.4** @0.92; uncached $0.0826 × 505 → **€38.4**. The "~€20 / ~€35" figures are per-eval-mean × 505 projections with an implicit FX/weighting, NOT measured 505-eval data. The directional claim ("cost is not the constraint" — uncached upper bound < €40 for 505) holds. *Provenance:* verification workflow; re-derived here.
+
+  **C5 — `calibration_ledger.py regime()` has a stale grid (known defect, non-load-bearing).** Lines 227–237 hard-code `grid = {0.60,0.62,0.65,0.68}`, which contains neither E1 attractor (0.25, 0.72); E1 c0 (single-valued) returns "FLAT" early so the grid is never reached — dead/misleading on E1 data. It does NOT feed the labbook or the CSV (no regime column persisted); the saturating-head/attractor claim rests on the raw rating multiset. Left unmodified by design (out of labbook scope); recorded for a separate fix. *Provenance:* verification workflow.
+
+  **Minor (no action):** 4/38 E1 c0 evals have auditor=judge=Sonnet (not Haiku) — target unaffected, canonical = Haiku. DE legacy "3498 chars" is codepoints (3503 UTF-8 bytes); reproduction still byte/MD5-identical.
+
+  **Overall:** the empirical findings of the Stage-0/E1 record are verified correct (0 of 16 cross-checked claims falsified); the items above are sub-statistic / provenance / annotation fixes. Workspace code-modlog for the `analyze_stage0.py` fix: `03_modification_logs/ModificationLog_Code_Multipolity_runner.md`.
 

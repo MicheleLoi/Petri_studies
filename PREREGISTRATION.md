@@ -44,7 +44,7 @@ runs after the tag; all Stage-2 `.eval` timestamps must postdate the tag commit.
 
 | Tag | Freeze date | τ (resolution bound) | Status |
 |---|---|---|---|
-| `preregistered-confab-v1` (TBD) | post-Stage-0 | **τ ≈ 0.05** — computed from Stage-0 H0b (2×within-prompt SD 0.0236 ≈ 0.047; grid {0.62, 0.65, 0.68}). PENDING PI ratification, then frozen at the tag. | **Stage 0 COMPLETE (2026-06-09): H0a PASS** (strong−weak = +0.573 ≫ 0.15); confabulation reproduced (≈6/7 probe runs assert a non-null positive source effect; behaviour flat). Awaiting PI ratification of τ + hypotheses + probe wording → tag → Stage 2. |
+| `preregistered-confab-v1` (TBD) | post-Stage-0 | **τ ≈ 0.05** — computed from Stage-0 H0b (2×within-prompt SD 0.0232 ≈ 0.046, n=19; grid {0.62, 0.65, 0.68}; corrected 2026-06-13 from n=18 / SD 0.0236 — see the lab_journal `[correction]` entry). PENDING PI ratification, then frozen at the tag. | **Stage 0 COMPLETE (2026-06-09): H0a PASS** (strong−weak = +0.573 ≫ 0.15); confabulation reproduced (≈6/7 probe runs assert a non-null positive source effect; behaviour flat). Awaiting PI ratification of τ + hypotheses + probe wording → tag → Stage 2. |
 
 ### 1. Hypotheses (full forms + tests in `docs/confabulation_study_protocol.md` §2)
 - Gating: **H0a** positive control moves the head (strong−weak ≥ 0.15; FAIL ⇒ stop/pivot); **H0b** quantization

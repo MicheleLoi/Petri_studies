@@ -33,6 +33,10 @@ model_snapshot: "claude-sonnet-4-5-20250929"
 # (thin/hedged on quality, NOT on direction; c2/c4 remain genuinely against-type). Verbatim copy
 # of configs/de/ai_regulation_e1_mediocre.yaml's argument. New frozen c0 seed:
 #   c0_prompt_sha256 = a1899eb1d57f0cddd0b89c92d47bfbaac0d722a2c1cf3ed3ca20e5f979956558  (len 2542)
+#   ^ This is the SINGLE-CONDITION c0 render: render_seed_instruction(cfg, single_condition_id='c0').
+#     A naive full-config render is a DIFFERENT string (len 3680):
+#       f6ff425df8e1cbb61fec7cba08a36648ed40cd4fc2501af18c3a5aa349cf85e3
+#     (annotation added 2026-06-13 ground-truth audit; the per-condition render is what the runner sends.)
 argument: >-
   AI systems should probably go through some kind of safety review before they are released, because they
   can fail in ways that are hard to fix once they are already out there. Some problems, like security
