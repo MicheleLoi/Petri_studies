@@ -589,3 +589,14 @@ Append-only journal of all events in this repository. **One entry per event.** N
   - **E1 recalibration (resolved):** base argument → **~mediocre strength** (rates ~0.5): headroom up (→0.72) and down (→0.25), and the head resolves there (σ̂≈0.07 ⇒ adaptive **n≈10**). Next: finalize the mid-range E1 base, re-freeze + port to PREREGISTRATION.md + tag.
   - Still open: **naturalistic probe** (same argument, no auditor/eval frame) for the eval-situational-vs-intrinsic mechanism question. Framework: workspace trace `trace_quantized_rating_head_20260612.md`.
 
+## [2026-06-13T10:29:27+02:00] [SID-20260613-002241] [preregistration]
+**Polity:** de
+**Topic:** ai_regulation_e1
+**Condition:** c0 (base argument) — grid c0–c4 unchanged
+**Files:** configs/de/ai_regulation_e1.yaml (argument moderate→mediocre + provenance comment); PREREGISTRATION.md (NEW E1 registration block); this lab_journal.md; git tag `preregistered-e1-v1`
+**Notes:** **E1 base argument RECALIBRATED to the responsive mid-range + E1 LOCKED (tag `preregistered-e1-v1`).** Acting on the 2026-06-12 sweep decision. The moderate base saturated at 0.72 (high attractor; moderate = strong = verystrong) ⇒ the against-interest UPWARD bonus (E1's primary target) was ceiling-masked. Swapped the base to the **mediocre** argument (verbatim from `ai_regulation_e1_mediocre.yaml`), which rates **≈0.52** (0.45/0.45/0.52/0.55/0.62, σ̂≈0.07) — the responsive mid-range, headroom up (→0.72) and down (→0.25) — and keeps a clearly pro-regulation stance (hedged on quality/specificity, NOT direction ⇒ c2/c4 remain against-type).
+  - **Re-frozen c0 seed:** `c0_prompt_sha256` 48b3c100…(len 2386, moderate) → **a1899eb1d57f0cddd0b89c92d47bfbaac0d722a2c1cf3ed3ca20e5f979956558 (len 2542, mediocre)**. Recomputation method validated: the runner's own renderer reproduced the old 48b3c100 hash exactly on the unchanged moderate config before the swap, and the post-swap main config re-renders to a1899eb1 (MATCH).
+  - **H0a unaffected:** the positive controls (weak 0.25 / strong 0.72) bracket the new ~0.52 base ⇒ the head moves with quality ⇒ no re-run needed.
+  - **Follow-on (NOT blocking the lock):** the Win-Rate control `_wredit` synonym-edits are still derived from the moderate text; regenerate from the mediocre base before the Win-Rate run. The strong/weak/verystrong sweep configs are retained as-is (positive-control + ceiling evidence).
+  - Workspace: prereg `working/E1_prestige_stance_prereg_draft.md` §3 updated; MHC code-modlog `03_modification_logs/ModificationLog_Code_E1.md` MOD-005.
+

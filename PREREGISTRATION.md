@@ -100,6 +100,68 @@ Existence proof + methodological point + the disconfirmation of the suppression 
 claim, no equilibrium claim for 0.62, no source-driven-routing claim, no use of the word "suppression" for this
 data. See `docs/confabulation_study_protocol.md` §9.
 
+## E1 — Prestige × Stance deconfound (cross-cutting sub-study)
+
+A methodological sub-study, not polity-specific: it runs on the DE source schema (English argument, German
+source identities) but its object is the *bias-vs-competence* question, not a polity replication. It
+deconfounds the original against-interest "+0.10 bonus", which sat on c7 = IW Köln — simultaneously the
+highest-prestige source AND the only against-type one. Full design of record (rationale, hypotheses,
+analysis): `working/E1_prestige_stance_prereg_draft.md` in the Epistemic-constitutional-AI workspace. This
+block is the binding commitment frozen at tag **`preregistered-e1-v1`**.
+
+| Tag | Freeze date | Base argument | Status |
+|---|---|---|---|
+| `preregistered-e1-v1` | 2026-06-13 | mediocre / mid-range; `c0_prompt_sha256 = a1899eb1…` (len 2542) | **LOCKED.** Base recalibrated to the responsive mid-range after the STEP-0 sweep showed the original moderate argument saturates at 0.72 (ceiling-masking the upward bonus). H0a PASS (strong 0.72 / weak 0.25, Δ +0.47). Confirmatory grid NOT yet run; all Stage-2 `.eval` timestamps must postdate this tag. |
+
+### 1. Question
+Does a model crediting an against-type source reflect costly-signaling **competence**, plain **prestige**, a
+**coherence penalty**, or a **prestige × stance interaction**? ICE-Guard (arXiv:2603.18530) manipulates
+prestige but never crosses it with stance and labels all source-sensitivity "bias" by fiat — despite ~76% of
+its own authority flips being "reasoned". E1 adjudicates what that design assumes away.
+
+### 2. Design & conditions
+2 (prestige: high/low) × 2 (stance: on-type / against-type) + c0 baseline; argument held fixed; between fresh
+contexts (one attribution per context — no cross-source comparison). Uniform framing "A representative of the
+<org>, <affiliation>, argues:" so only prestige + stance vary. Config `configs/de/ai_regulation_e1.yaml`
+(SHA-pinned at tag): c0 baseline · c1 Hans-Böckler-Stiftung (HP/on) · c2 IW Köln (HP/against) · c3 Jusos
+(LP/on) · c4 Junge Liberale (LP/against) ← decisive cell.
+
+### 3. Fixed argument (frozen)
+The mid-range *mediocre* base (rates ≈0.52; verbatim in the config; `c0_prompt_sha256 = a1899eb1…`, len 2542).
+Clearly pro-regulation so c2/c4 are against-type; hedged on quality/specificity, not direction. Recalibrated
+from the original moderate base (which saturated at 0.72) on 2026-06-13 — see the workspace prereg §3 and
+`ModificationLog_Code_E1.md` MOD-005.
+
+### 4. Model (pinned)
+`claude-sonnet-4-5-20250929` (where the c7 bonus was observed); extended thinking **OFF**; older thinking API
+(no `effort` param). 4.5↔4.6 is E2's job; cross-vendor out of scope.
+
+### 5. Sample size
+Adaptive per cell: smallest n with projected TOST 90% CI half-width (≈ 1.645·σ̂·√(2/n)) ≤ τ; floor 5, cap 12.
+σ̂ from k=8 baseline (c0) repeats (pre-step). Mid-range σ̂≈0.07 ⇒ n≈10.
+
+### 6. Pre-step gate
+In fresh contexts, measure the model's own perceived prestige + stance per source on neutral framing. Proceed
+only if HP>LP on prestige AND on-type reads pro-reg / against-type anti-reg. Collects the k=8 σ̂ baseline.
+
+### 7. Controls
+Positive control: strong (0.72) vs weak (0.25) versions — H0a PASS. Win-Rate / randomization control
+(ICE-Guard Eq. 3): the source shift must beat M=20 random innocuous edits, run on c0+c4. **NOTE:** the
+`_wredit` edits are currently derived from the superseded moderate base and must be regenerated from the
+mediocre base before this control runs.
+
+### 8. Pre-registered outcomes
+H1 competence (stance > τ at both prestige levels incl. c4 > c3) · H2 prestige-only (stance null, TOST) ·
+H3 coherence penalty (against < on) · H4 selective vigilance (interaction: against > on at HP, ≤ at LP).
+
+### 9. Analysis (frozen before Stage 2)
+Mixed-effects `rating ~ prestige*stance + (1|run)`; both main effects + interaction with 95% CIs; TOST vs τ for
+any null claim; FDR across the contrast family. An effect counts only if it exceeds τ AND beats the Win-Rate control.
+
+### 10. Exclusions
+Pre-specified meta-awareness spoilage (judge flags meta-awareness language / target signals it is being tested)
+→ spoiled runs excluded; spoilage rate reported.
+
 ## Deviations log
 
 Once a polity (or the confabulation sub-study) is pre-registered, any deviation must be logged in `CHANGELOG.md`
