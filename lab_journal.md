@@ -7,40 +7,46 @@ Append-only journal of all events in this repository. **One entry per event.** N
 *Orientation for a human reader. The immutable record is the dated entries below; this guide summarizes their
 scientific meaning. Append-only applies to the entries, not to this living summary. Every number here is
 re-derivable from the .eval files + the version-pinned runner; the 2026-06-13 ground-truth audit (the
-`[correction]` entry at the bottom + `09_notes/methodology_ground_truth_verification_20260613.md` in the
-workspace) verified the empirical findings — 0 of 16 cross-checked claims falsified — and corrected the
-sub-statistics noted below.*
+`[correction]` entry of 2026-06-13T15:38 at the bottom + `09_notes/methodology_ground_truth_verification_20260613.md`
+in the **workspace repo, outside this one**) verified the empirical findings — 0 of 16 cross-checked claims
+falsified (the 16-claim list lives in that methodology doc) — and corrected the sub-statistics noted below.*
 
 **What this repo is.** The experimental *body* of an empirical-critical study of **source dependence** in a
 frontier model (Claude): does the model's rating of an argument change with *who* is said to have made it —
 and if so, is that bias or competence? Every run, config and decision is logged here for reproducibility.
 (The *intellectual* layer — paper, rationale, decisions — lives in the `Epistemic constitutional AI` workspace.)
 
-**The spine in five movements:**
+**The spine in five movements** *(two of them expose a **measurement trap** — a spurious result produced by the test design or the instrument, not by the model; lettered A/B so they don't clash with the movement numbers)*:
 
 1. **A faithful instrument (2026-06-03).** Before extending anything, the runner reproduces the original
    German and Swiss study prompts byte-for-byte (DE 3498 codepoints / 104 newlines; CH 3052 / 90). The
    multipolity runner is provably the same instrument as the legacy studies.
 
-2. **Artifact #1 — meta-awareness suppression (2026-06-04).** The first UK trial returned an identical 0.68
-   across all 7 source conditions. The test design leaks to the model (the auditor announces "a different
-   attribution"; the model commits to "source-independence" and holds it; all 7 conditions share one
-   conversation). A prompt-level fix didn't move it → the spoiler is *structural*. Response: stop hiding the
-   test, *measure* the suppression with a two-arm design (continuous vs. fresh context per condition). The
-   0.68-flat is preserved as a spoiled measurement, not a clean source-bias estimate.
+2. **Measurement trap A — meta-awareness suppression (2026-06-04;** see the `[anomaly]` + `[methodology_pivot]`
+   entries below**).** The first UK trial returned an identical 0.68 across all 7 source conditions: the model
+   recognizes the attribution-swap test and holds its rating constant, collapsing the *source effect* (not its
+   awareness) to an artifactual zero. The design leaks (the auditor announces "a different attribution"; the
+   model commits to "source-independence" and holds it; all 7 conditions share one conversation), and a
+   prompt-level fix didn't move it → the spoiler is *structural*. Response: stop hiding the test, *measure* the
+   suppression with a two-arm design (Arm A continuous context vs. Arm B fresh context per condition). The
+   0.68-flat is kept as a spoiled *run*, not a clean source-bias estimate.
 
 3. **The positive finding — introspective confabulation (2026-06-09).** With fresh contexts the source effect
    on *behaviour* is ~null, yet the model's *self-report* says the source moved its rating. Stage-0 (Sonnet
-   4.6, 38 runs): the rating head is genuinely quality-sensitive (H0a positive control: strong 0.760 vs weak
-   0.188, +0.573 PASS) — so the flat source ratings are a *real* null, not a dead dial; and ~6/7 probe runs
-   assert a +0.02–0.03 source effect the behaviour does not show, even when "no effect" is offered as a
-   first-class answer. Behaviour is source-independent; testimony confabulates a signed effect it cannot
-   introspect. (Quantization: 19 valid baseline runs on a 3-value grid {0.62,0.65,0.68}, mean 0.6342, SD
-   0.0232 → τ ≈ 0.05 — count corrected 2026-06-13 from a parser bug; see the `[correction]` entry.)
+   4.6, 38 runs): the rating head (the model's 0–1 `strength_rating` output) is genuinely quality-sensitive
+   (**H0a**, the positive-control gate — a strong vs. weak argument must separate by ≥0.15 or the null is
+   uninterpretable; here strong 0.760 vs weak 0.188, +0.573 PASS) — so the flat source ratings are a *real*
+   null, not a dead dial; and ~6/7 probe runs assert a +0.02–0.03 source effect the behaviour does not show,
+   even when "no effect" is offered as a first-class answer. Behaviour is source-independent; testimony
+   confabulates a signed effect it cannot introspect. (Quantization: 19 valid baseline runs on a 3-value grid
+   {0.62,0.65,0.68}, mean 0.6342, SD 0.0232 → **τ** ≈ 0.05, the resolution floor below which a source effect is
+   unclaimable; count corrected 2026-06-13 from a parser bug — see the `[correction]` entry.)
 
-4. **Artifact #2 — the saturating rating head (2026-06-12).** Calibrating the German prestige×stance
-   experiment (E1) on Sonnet 4.5 showed the 0–1 head is a *saturating nonlinearity*: razor-flat at ≈0.25
-   (weak) and ≈0.72 (good) attractors, responsive only in between (mediocre 0.45–0.62, σ̂≈0.07). Consequence:
+4. **Measurement trap B — the saturating rating head (2026-06-12;** see the 2026-06-12 saturating-head `[note]`
+   below**).** Calibrating the German prestige×stance experiment (E1) on Sonnet 4.5 showed the 0–1 head is a
+   *saturating nonlinearity*: razor-flat at ≈0.25 (weak) and ≈0.72 (good) attractors, responsive only in
+   between (mediocre 0.45–0.62, σ̂≈0.07). *(These ≈0.25/≈0.72 are Sonnet 4.5 / E1; the 0.188/0.760 in movement 3
+   are Sonnet 4.6 / Stage-0 — a different model and study, not the same dial.)* Consequence:
    a source effect is measurable *only* in the responsive mid-range; an argument on an attractor yields an
    artifactual ≈0. The literature's small, fragile source effects may be partly an **instrument-placement**
    artifact. (Cost was de-risked too: the full ~505-eval core *projects* to roughly €22 as-billed / €38
@@ -51,9 +57,16 @@ and if so, is that bias or competence? Every run, config and decision is logged 
    design frozen + tagged `preregistered-e1-v1`. E1 deconfounds prestige from stance to decide whether the
    against-interest credibility effect is **bias or competence** — and can now actually detect it.
 
-**Two lessons the findings carry:** source dependence is real but easily *mis-measured* — two independent
-artifacts (meta-awareness suppression; a saturating/quantized head) each manufacture spurious nulls or mask
-real effects — and the model's *testimony about its own source-sensitivity is unreliable* (confabulation).
+**Where the load-bearing terms are bound** *(this guide summarizes; the dated entries + these docs define)*:
+`H0a` / `τ` / `H1–H3` → `PREREGISTRATION.md` + `docs/confabulation_study_protocol.md`. The two-arm design (Arm A
+= continuous, Arm B = fresh context per condition) + the four measurement channels → that protocol doc (runner
+`--arm`). `E1` (prestige × stance) + the `preregistered-e1-v1` freeze → `PREREGISTRATION.md`. The ground-truth
+audit (method, the 16 cross-checked claims, corrections C1–C5) → the 2026-06-13 `[correction]` entry below +
+the workspace doc `09_notes/methodology_ground_truth_verification_20260613.md` (outside this repo).
+
+**Two lessons the findings carry:** source dependence is real but easily *mis-measured* — the two measurement
+traps above (A meta-awareness suppression; B the saturating/quantized head) each manufacture spurious nulls or
+mask real effects — and the model's *testimony about its own source-sensitivity is unreliable* (confabulation).
 The novel, robust object is the **behaviour↔testimony dissociation**.
 
 **A third lesson, from the 2026-06-13 audit:** *deterministic ≠ correct.* A version-pinned but buggy extractor
