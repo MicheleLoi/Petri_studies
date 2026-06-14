@@ -166,7 +166,8 @@ def main():
 
     if a.json:
         Path(a.json).write_text(json.dumps({"cells": cells, "regime": reg, "verdict": v,
-            "effects": {k: {kk: (list(vv) if isinstance(vv, tuple) else vv) for kk, vv in res[k].items()} for k in C}}, indent=2))
+            "effects": {k: {kk: (list(vv) if isinstance(vv, tuple) else vv) for kk, vv in res[k].items()} for k in C}},
+            indent=2, default=lambda o: o.item() if hasattr(o, "item") else str(o)))
 
 
 if __name__ == "__main__":
