@@ -1,11 +1,16 @@
 """
-analyze_e1.py — frozen confirmatory analysis for E1 (prestige x stance deconfound).
+analyze_e1.py — frozen confirmatory analysis for E1-style prestige x stance grids.
 
 Simplest faithful construct for PREREGISTRATION.md "E1" sec.9. The preregistered
 rating ~ prestige*stance + (1|run) has one independent fresh-context obs per run, so
 (1|run) is unidentifiable and it collapses to a plain 2x2 factorial: every effect is a
 linear combination of the four cell means, CIs are Welch-Satterthwaite t intervals.
 numpy + scipy.stats.t only.
+
+The analysis LOGIC was frozen pre-data at commit a5faad8 (E1 / ai_regulation_e1). The
+2026-06-14 generalization adds a --topic parameter so the SAME logic runs on any E1-style
+grid whose conditions follow the c0..c4 = baseline / HP-on / HP-against / LP-on / LP-against
+mapping (e.g. ai_security_e1). Logic, contrasts, guards and verdict are unchanged.
 
 EVERY combined value is meaning-guarded, because the Sonnet-4.5 rating head is quantized
 with rails at ~0.25/~0.72 (sweep 2026-06-12):
@@ -20,7 +25,7 @@ with rails at ~0.25/~0.72 (sweep 2026-06-12):
   - BH-FDR      : over the 5-contrast family that decides H1-H4.
   - WINRATE_PENDING: 'beats Win-Rate control' gate deferred (_wredit moderate-derived, MOD-005).
 
-Usage: python runner/analyze_e1.py --since 2026-06-14T14:00:00 [--json out.json]
+Usage: python runner/analyze_e1.py [--topic ai_regulation_e1] [--since 2026-..] [--json out.json]
 """
 from __future__ import annotations
 import argparse, json, re, zipfile
@@ -33,7 +38,6 @@ TAU = 0.05
 ATTRACTORS = (0.25, 0.72)          # Sonnet-4.5 / E1 rating-head rails
 BAND = 0.04                        # ~half a quantization step
 CELLS = {"c1": ("HP", "on"), "c2": ("HP", "against"), "c3": ("LP", "on"), "c4": ("LP", "against")}
-FNAME_RE = re.compile(r"^(?P<ts>\d{4}-\d{2}-\d{2}T[0-9:+\-]+)_de-ai-regulation-e1-(?P<cond>c[0-4])_")
 RATING_RE = re.compile(r'"strength_rating"\s*:\s*([0-9]*\.?[0-9]+)')
 
 
@@ -56,12 +60,14 @@ def extract_rating(eval_path):
     return None
 
 
-def load_grid(since):
+def load_grid(since, topic="ai_regulation_e1"):
+    th = topic.replace("_", "-")       # filename uses hyphens: de-<topic>-c<N>
+    fre = re.compile(r"^(?P<ts>\d{4}-\d{2}-\d{2}T[0-9:+\-]+)_de-" + re.escape(th) + r"-(?P<cond>c[0-4])_")
     cells = {c: [] for c in ["c0", "c1", "c2", "c3", "c4"]}
-    for ev in sorted(EVALS_DE.glob("*_de-ai-regulation-e1-c*_*.eval")):
-        m = FNAME_RE.match(ev.name)
+    for ev in sorted(EVALS_DE.glob("*_de-" + th + "-c*_*.eval")):
+        m = fre.match(ev.name)
         if not m or (since and m.group("ts") < since):
-            continue                       # since-cutoff excludes the mt=1 pre-step c0
+            continue                       # since-cutoff excludes any earlier baseline collection
         r = extract_rating(ev)
         if r is not None:
             cells[m.group("cond")].append(r)
@@ -110,12 +116,13 @@ def bh_fdr(pvals, q=0.05):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--since", default=None, help="ISO ts; include only grid evals at/after this.")
+    ap.add_argument("--topic", default="ai_regulation_e1", help="config topic; filename stem after 'de-'.")
     ap.add_argument("--json", default=None)
     a = ap.parse_args()
-    cells = load_grid(a.since)
+    cells = load_grid(a.since, a.topic)
     reg = {cid: regime(np.array(cells[cid], float)) for cid in cells}
 
-    print("E1 confirmatory 2x2 — cell ratings (target Sonnet 4.5, max-turns 2)\n")
+    print(f"E1-style 2x2 — {a.topic} — cell ratings (target Sonnet 4.5, max-turns 2)\n")
     print(f"  {'cell':<5}{'design':<13}{'n':>3} {'mean':>6} {'med':>6} {'sd':>6}  {'regime':<11} ratings")
     for cid in ["c0", "c1", "c2", "c3", "c4"]:
         x = np.array(cells[cid], float); n = len(x)
@@ -165,7 +172,7 @@ def main():
     print("  NOTE: WINRATE_PENDING — 'beats Win-Rate control' gate not yet applied (_wredit regen, MOD-005).")
 
     if a.json:
-        Path(a.json).write_text(json.dumps({"cells": cells, "regime": reg, "verdict": v,
+        Path(a.json).write_text(json.dumps({"topic": a.topic, "cells": cells, "regime": reg, "verdict": v,
             "effects": {k: {kk: (list(vv) if isinstance(vv, tuple) else vv) for kk, vv in res[k].items()} for k in C}},
             indent=2, default=lambda o: o.item() if hasattr(o, "item") else str(o)))
 
