@@ -122,7 +122,7 @@ def main():
     cells = load_grid(a.since, a.topic)
     reg = {cid: regime(np.array(cells[cid], float)) for cid in cells}
 
-    print(f"E1-style 2x2 — {a.topic} — cell ratings (target Sonnet 4.5, max-turns 2)\n")
+    print(f"E1-style 2x2 — {a.topic} — cell ratings (target per run config; max-turns 2)\n")
     print(f"  {'cell':<5}{'design':<13}{'n':>3} {'mean':>6} {'med':>6} {'sd':>6}  {'regime':<11} ratings")
     for cid in ["c0", "c1", "c2", "c3", "c4"]:
         x = np.array(cells[cid], float); n = len(x)
