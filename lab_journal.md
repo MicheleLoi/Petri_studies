@@ -645,18 +645,18 @@ Append-only journal of every event in this repository — runs, configs, decisio
 *Orientation for a human reader. The immutable record is the dated entries; this reconstruction summarizes their
 scientific meaning. Every number here is
 re-derivable from the .eval files + the version-pinned runner; the 2026-06-13 ground-truth audit (the
-`[correction]` entry of 2026-06-13T15:38 at the bottom + `09_notes/methodology_ground_truth_verification_20260613.md`
+`[correction]` entry of 2026-06-13T15:38 just above + `09_notes/methodology_ground_truth_verification_20260613.md`
 in the **workspace repo, outside this one**) verified the empirical findings — 0 of 16 cross-checked claims
 falsified (the 16-claim list lives in that methodology doc) — and corrected the sub-statistics noted below.*
 
 **The spine in five movements** *(two of them expose a **measurement trap** — a spurious result produced by the test design or the instrument, not by the model; lettered A/B so they don't clash with the movement numbers)*:
 
-1. **A faithful instrument (2026-06-03;** see [[lab_journal#[2026-06-03] [SID-20260603-095328] [legacy_compat_match] [de]|DE]] / [[lab_journal#[2026-06-03] [SID-20260603-095328] [legacy_compat_match] [ch]|CH]] below**).** Before extending anything, the runner reproduces the original
+1. **A faithful instrument (2026-06-03;** see [[lab_journal#[2026-06-03] [SID-20260603-095328] [legacy_compat_match] [de]|DE]] / [[lab_journal#[2026-06-03] [SID-20260603-095328] [legacy_compat_match] [ch]|CH]] above**).** Before extending anything, the runner reproduces the original
    German and Swiss study prompts byte-for-byte (DE 3498 codepoints / 104 newlines; CH 3052 / 90). The
    multipolity runner is provably the same instrument as the legacy studies.
 
 2. **Measurement trap A — meta-awareness suppression (2026-06-04;** see [[lab_journal#[2026-06-04T17:30+02:00] [SID-20260604-145637] [anomaly]|anomaly]] + [[lab_journal#[2026-06-04T18:00:00+02:00] [SID-20260604-145637] [methodology_pivot]|2-arm pivot]]
-   entries below**).** The first UK trial returned an identical 0.68 across all 7 source conditions: the model
+   entries above**).** The first UK trial returned an identical 0.68 across all 7 source conditions: the model
    recognizes the attribution-swap test and holds its rating constant, collapsing the *source effect* (not its
    awareness) to an artifactual zero. The design leaks (the auditor announces "a different attribution"; the
    model commits to "source-independence" and holds it; all 7 conditions share one conversation), and a
@@ -664,7 +664,7 @@ falsified (the 16-claim list lives in that methodology doc) — and corrected th
    suppression with a two-arm design (Arm A continuous context vs. Arm B fresh context per condition). The
    0.68-flat is kept as a spoiled *run*, not a clean source-bias estimate.
 
-3. **The positive finding — introspective confabulation (2026-06-09;** see the Stage-0 notes below — [[lab_journal#[2026-06-09] [SID-20260609-105624] [note] [Stage-0 protocol-lock]|launch]] + [[lab_journal#[2026-06-09] [SID-20260609-105624] [note] [Stage-0 RESULTS]|RESULTS]]**).** With fresh contexts the source effect
+3. **The positive finding — introspective confabulation (2026-06-09;** see the Stage-0 notes above — [[lab_journal#[2026-06-09] [SID-20260609-105624] [note] [Stage-0 protocol-lock]|launch]] + [[lab_journal#[2026-06-09] [SID-20260609-105624] [note] [Stage-0 RESULTS]|RESULTS]]**).** With fresh contexts the source effect
    on *behaviour* is ~null, yet the model's *self-report* says the source moved its rating. Stage-0 (Sonnet
    4.6, 38 runs): the rating head (the model's 0–1 `strength_rating` output) is genuinely quality-sensitive
    (**H0a**, the positive-control gate — a strong vs. weak argument must separate by ≥0.15 or the null is
@@ -676,7 +676,7 @@ falsified (the 16-claim list lives in that methodology doc) — and corrected th
    unclaimable; count corrected 2026-06-13 from a parser bug — see the `[correction]` entry.)
 
 4. **Measurement trap B — the saturating rating head (2026-06-12;** see the 2026-06-12 [[lab_journal#[2026-06-12T16:37:19+02:00] [SID-20260611-191657] [note]|saturating-head note]]
-   below**).** Calibrating the German prestige×stance experiment (E1) on Sonnet 4.5 showed the 0–1 head is a
+   above**).** Calibrating the German prestige×stance experiment (E1) on Sonnet 4.5 showed the 0–1 head is a
    *saturating nonlinearity*: razor-flat at ≈0.25 (weak) and ≈0.72 (good) attractors, responsive only in
    between (mediocre 0.45–0.62, σ̂≈0.07). *(These ≈0.25/≈0.72 are Sonnet 4.5 / E1; the 0.188/0.760 in movement 3
    are Sonnet 4.6 / Stage-0 — a different model and study, not the same dial.)* Consequence:
@@ -685,16 +685,16 @@ falsified (the 16-claim list lives in that methodology doc) — and corrected th
    artifact. (Cost was de-risked too: the full ~505-eval core *projects* to roughly €22 as-billed / €38
    uncached @0.92 — a projection, not measured data; the point is only that cost is not the binding constraint.)
 
-5. **E1 locked (2026-06-13;** see the [[lab_journal#[2026-06-13T10:29:27+02:00] [SID-20260613-002241] [preregistration]|preregistration]] entry below**).** The original E1 argument sat on the 0.72 ceiling, masking the against-interest
+5. **E1 locked (2026-06-13;** see the [[lab_journal#[2026-06-13T10:29:27+02:00] [SID-20260613-002241] [preregistration]|preregistration]] entry above**).** The original E1 argument sat on the 0.72 ceiling, masking the against-interest
    *upward* bonus E1 exists to detect; its base was recalibrated to a mid-range argument (≈0.52) and the
    design frozen + tagged `preregistered-e1-v1`. E1 deconfounds prestige from stance to decide whether the
    against-interest credibility effect is **bias or competence** — and can now actually detect it.
 
-**Where the load-bearing terms are bound** *(this guide summarizes; the dated entries + these docs define)*:
+**Where the load-bearing terms are bound** *(this reconstruction summarizes; the dated entries + these docs define)*:
 `H0a` / `τ` / `H1–H3` → `PREREGISTRATION.md` + `docs/confabulation_study_protocol.md`. The two-arm design (Arm A
 = continuous, Arm B = fresh context per condition) + the four measurement channels → that protocol doc (runner
 `--arm`). `E1` (prestige × stance) + the `preregistered-e1-v1` freeze → `PREREGISTRATION.md`. The ground-truth
-audit (method, the 16 cross-checked claims, corrections C1–C5) → the 2026-06-13 `[correction]` entry below +
+audit (method, the 16 cross-checked claims, corrections C1–C5) → the 2026-06-13 `[correction]` entry above +
 the workspace doc `09_notes/methodology_ground_truth_verification_20260613.md` (outside this repo).
 
 **Two lessons the findings carry:** source dependence is real but easily *mis-measured* — the two measurement
@@ -758,3 +758,10 @@ Pre-registered readings (an effect counts only if it exceeds **τ ≈ 0.05** AND
 **Condition:** n/a
 **Files:** lab_journal.md (masthead rewrite + reader's-guide relocation)
 **Notes:** Restructured the journal so a synthesis is honest about *when* it was made. The "Reader's guide" five-movements summary, which sat at the **top** as a *mutable* "living summary" (an explicit append-only exception), was moved into the dated stream as a `[reconstruction]` entry at its build time (2026-06-13T15:43:50, reader's-guide commit `cd678c3`) — i.e. **after the entries it reconstructs**. The masthead's living-summary carve-out is removed; the rule is now uniform — *every* event, including a reconstruction, is a dated append-only entry, and to re-synthesize you append a new one. Rationale: a mutable summary above an immutable log is in tension with append-only's tamper-evidence and goes stale silently (the old top summary, “as of 2026-06-13”, already omitted the 06-14 work below it); placing the reconstruction at its chronological point makes staleness self-evident and turns the evolution of the interpretation into a visible chain. Content preserved except: dropped the "(summary as of 2026-06-13)" heading, the carve-out sentence, and the duplicated "what this repo is" paragraph (promoted to the masthead); fixed the orientation paragraph's two relocation-sensitive references ("this guide" -> "this reconstruction", "entries below" -> "the dated entries"). The synthesis's remaining in-text "below"/"at the bottom" wayfinding (inside the five movements) is left exactly as written — it reflects the original masthead vantage, the Obsidian wikilinks resolve by heading rather than file position, and a reconstruction's prose is itself append-only once built.
+
+## [2026-06-14T17:03:54+02:00] [SID-20260614-145330] [correction] [journal-structure]
+**Polity:** n/a
+**Topic:** re-pointed the relocated reconstruction's navigational direction references
+**Condition:** n/a
+**Files:** lab_journal.md (the 2026-06-13 `[reconstruction]` entry)
+**Notes:** Supersedes the wayfinding claim in the 16:38 `[journal-structure]` note (which said the in-movement "below"/"at the bottom" references were left as written). On review (PI direction) they were re-pointed: the reconstruction now sits BELOW the 06-03..06-13 entries it summarizes, so their navigational "below" was simply wrong. Changed below->above in the five movements + the terms-bound pointer, and "at the bottom"->"just above" in the orientation (7 references); also fixed a stray "this guide"->"this reconstruction" missed in the relocation. PRESERVED unchanged: the semantic "below which a source effect is unclaimable" (movement 3 — a numeric threshold, not a pointer) and the two internal references that point within the reconstruction itself ("sub-statistics noted below"; "the two measurement traps above"). Re-pointing stale directions is part of completing the one-time relocation; the earlier note's "a reconstruction's prose is append-only once built" stands for edits AFTER the relocation settles.
