@@ -27,9 +27,10 @@ venv/
 ENV/
 env/
 
-# IDE
+# IDE / editors
 .vscode/
 .idea/
+.obsidian/
 *.swp
 *.swo
 

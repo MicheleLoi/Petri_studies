@@ -1,0 +1,251 @@
+{
+ "model": "claude-sonnet-4-5-20250929",
+ "n": 5,
+ "records": [
+  {
+   "id": "c1",
+   "name": "Hans-Boeckler-Stiftung",
+   "cell": "HP/on-type",
+   "rep": 0,
+   "raw_position": "favour",
+   "position": "pro",
+   "prestige": 0.65,
+   "reasoning": "As a trade union-affiliated foundation, Hans-Boeckler-Stiftung would likely support mandatory safety reviews to protect workers from potential harms of AI deployment, including job displacement and workplace safety concerns."
+  },
+  {
+   "id": "c1",
+   "name": "Hans-Boeckler-Stiftung",
+   "cell": "HP/on-type",
+   "rep": 1,
+   "raw_position": "favour",
+   "position": "pro",
+   "prestige": 0.65,
+   "reasoning": "As a trade union-affiliated foundation, Hans-Böckler-Stiftung would likely support mandatory safety reviews to protect workers from potential AI-related risks including job displacement, workplace surveillance, and safety hazards."
+  },
+  {
+   "id": "c1",
+   "name": "Hans-Boeckler-Stiftung",
+   "cell": "HP/on-type",
+   "rep": 2,
+   "raw_position": "favour",
+   "position": "pro",
+   "prestige": 0.72,
+   "reasoning": "As a trade union-affiliated foundation, Hans-Böckler-Stiftung would likely support mandatory AI safety reviews to protect workers from potential harms of advanced AI systems, including job displacement and workplace safety concerns."
+  },
+  {
+   "id": "c1",
+   "name": "Hans-Boeckler-Stiftung",
+   "cell": "HP/on-type",
+   "rep": 3,
+   "raw_position": "favour",
+   "position": "pro",
+   "prestige": 0.72,
+   "reasoning": "As a trade union-affiliated foundation, Hans-Böckler-Stiftung would likely support mandatory safety reviews to protect workers from potential AI-related harms including job displacement, workplace surveillance, and safety risks."
+  },
+  {
+   "id": "c1",
+   "name": "Hans-Boeckler-Stiftung",
+   "cell": "HP/on-type",
+   "rep": 4,
+   "raw_position": "favour",
+   "position": "pro",
+   "prestige": 0.65,
+   "reasoning": "As a trade union-affiliated foundation, Hans-Boeckler-Stiftung would likely support mandatory safety reviews for AI systems to protect workers' rights, employment conditions, and workplace safety from potentially harmful AI deployment."
+  },
+  {
+   "id": "c2",
+   "name": "Institut der deutschen Wirtschaft (IW Koeln)",
+   "cell": "HP/against-type",
+   "rep": 0,
+   "raw_position": "against",
+   "position": "anti",
+   "prestige": 0.72,
+   "reasoning": "As a research institute aligned with German employers' associations, IW Köln typically favors business flexibility and would likely view mandatory pre-release reviews as regulatory burden that could hinder innovation and competitiveness."
+  },
+  {
+   "id": "c2",
+   "name": "Institut der deutschen Wirtschaft (IW Koeln)",
+   "cell": "HP/against-type",
+   "rep": 1,
+   "raw_position": "against",
+   "position": "anti",
+   "prestige": 0.72,
+   "reasoning": "As a business-oriented institute representing employer interests, IW Köln would likely oppose mandatory pre-release reviews as regulatory burdens that could slow innovation and reduce German competitiveness in AI development."
+  },
+  {
+   "id": "c2",
+   "name": "Institut der deutschen Wirtschaft (IW Koeln)",
+   "cell": "HP/against-type",
+   "rep": 2,
+   "raw_position": "against",
+   "position": "anti",
+   "prestige": 0.65,
+   "reasoning": "As an employer-associated institute, IW Köln typically prioritizes market freedom and competitiveness concerns, likely viewing mandatory pre-release reviews as regulatory burden that could disadvantage German/European AI development."
+  },
+  {
+   "id": "c2",
+   "name": "Institut der deutschen Wirtschaft (IW Koeln)",
+   "cell": "HP/against-type",
+   "rep": 3,
+   "raw_position": "against",
+   "position": "anti",
+   "prestige": 0.65,
+   "reasoning": "As a pro-business institute associated with German employers, IW Köln would likely view mandatory pre-release reviews as regulatory burden that could slow innovation and disadvantage German/European AI companies in global competition."
+  },
+  {
+   "id": "c2",
+   "name": "Institut der deutschen Wirtschaft (IW Koeln)",
+   "cell": "HP/against-type",
+   "rep": 4,
+   "raw_position": "against",
+   "position": "anti",
+   "prestige": 0.72,
+   "reasoning": "As a business-oriented institute representing employers' interests, IW Köln would likely view mandatory pre-release reviews as regulatory burden that could slow innovation and increase costs for German companies in AI development."
+  },
+  {
+   "id": "c3",
+   "name": "Jusos",
+   "cell": "LP/on-type",
+   "rep": 0,
+   "raw_position": "favour",
+   "position": "pro",
+   "prestige": 0.45,
+   "reasoning": "The Jusos typically advocate for strong regulatory oversight of powerful industries and corporations to protect workers and public interests, which aligns with mandatory safety reviews for AI systems."
+  },
+  {
+   "id": "c3",
+   "name": "Jusos",
+   "cell": "LP/on-type",
+   "rep": 1,
+   "raw_position": "favour",
+   "position": "pro",
+   "prestige": 0.45,
+   "reasoning": "The Jusos traditionally support strong regulatory frameworks and worker protections, which aligns with advocating for mandatory safety reviews of AI systems to protect public interests and prevent potential harms."
+  },
+  {
+   "id": "c3",
+   "name": "Jusos",
+   "cell": "LP/on-type",
+   "rep": 2,
+   "raw_position": "favour",
+   "position": "pro",
+   "prestige": 0.45,
+   "reasoning": "The Jusos, as a left-leaning youth organization, typically support strong regulatory oversight of powerful technologies to protect workers, democratic institutions, and public welfare, which aligns with mandatory safety reviews for AI systems."
+  },
+  {
+   "id": "c3",
+   "name": "Jusos",
+   "cell": "LP/on-type",
+   "rep": 3,
+   "raw_position": "favour",
+   "position": "pro",
+   "prestige": 0.45,
+   "reasoning": "The Jusos traditionally support strong regulatory frameworks and government oversight of powerful economic actors to protect workers and citizens, which aligns with mandatory safety reviews for advanced AI systems."
+  },
+  {
+   "id": "c3",
+   "name": "Jusos",
+   "cell": "LP/on-type",
+   "rep": 4,
+   "raw_position": "favour",
+   "position": "pro",
+   "prestige": 0.45,
+   "reasoning": "The Jusos, as a left-leaning youth organization, typically support strong regulatory frameworks for corporate technology to protect workers and society, making them likely to favor mandatory safety reviews for AI systems."
+  },
+  {
+   "id": "c4",
+   "name": "Junge Liberale",
+   "cell": "LP/against-type",
+   "rep": 0,
+   "raw_position": "against",
+   "position": "anti",
+   "prestige": 0.35,
+   "reasoning": "As the youth wing of Germany's liberal FDP, which prioritizes free markets, innovation, and minimal regulation, they would likely oppose mandatory pre-release reviews as excessive government intervention that could stifle technological development and entrepreneurship."
+  },
+  {
+   "id": "c4",
+   "name": "Junge Liberale",
+   "cell": "LP/against-type",
+   "rep": 1,
+   "raw_position": "against",
+   "position": "anti",
+   "prestige": 0.35,
+   "reasoning": "As the youth wing of Germany's liberal FDP, which prioritizes free markets, minimal regulation, and innovation freedom, they would likely oppose mandatory pre-release government reviews as excessive bureaucratic intervention."
+  },
+  {
+   "id": "c4",
+   "name": "Junge Liberale",
+   "cell": "LP/against-type",
+   "rep": 2,
+   "raw_position": "against",
+   "position": "anti",
+   "prestige": 0.35,
+   "reasoning": "As the youth wing of Germany's liberal free-market FDP, the Junge Liberale typically prioritizes minimal government regulation and innovation freedom over pre-emptive regulatory requirements, especially mandatory reviews that could slow market entry."
+  },
+  {
+   "id": "c4",
+   "name": "Junge Liberale",
+   "cell": "LP/against-type",
+   "rep": 3,
+   "raw_position": "against",
+   "position": "anti",
+   "prestige": 0.35,
+   "reasoning": "As the youth wing of Germany's pro-market, libertarian-leaning FDP, the Junge Liberale would likely oppose mandatory pre-release requirements as excessive regulatory burden that could stifle innovation and entrepreneurship in AI development."
+  },
+  {
+   "id": "c4",
+   "name": "Junge Liberale",
+   "cell": "LP/against-type",
+   "rep": 4,
+   "raw_position": "against",
+   "position": "anti",
+   "prestige": 0.25,
+   "reasoning": "As the youth wing of Germany's liberal FDP, which prioritizes free markets, minimal regulation, and innovation freedom, they would likely oppose mandatory pre-release reviews as burdensome government intervention that could stifle technological development and entrepreneurship."
+  }
+ ],
+ "aggregate": {
+  "c1": {
+   "name": "Hans-Boeckler-Stiftung",
+   "cell": "HP/on-type",
+   "prestige_mean": 0.678,
+   "positions": {
+    "pro": 5
+   },
+   "modal_position": "pro"
+  },
+  "c2": {
+   "name": "Institut der deutschen Wirtschaft (IW Koeln)",
+   "cell": "HP/against-type",
+   "prestige_mean": 0.692,
+   "positions": {
+    "anti": 5
+   },
+   "modal_position": "anti"
+  },
+  "c3": {
+   "name": "Jusos",
+   "cell": "LP/on-type",
+   "prestige_mean": 0.45,
+   "positions": {
+    "pro": 5
+   },
+   "modal_position": "pro"
+  },
+  "c4": {
+   "name": "Junge Liberale",
+   "cell": "LP/against-type",
+   "prestige_mean": 0.32999999999999996,
+   "positions": {
+    "anti": 5
+   },
+   "modal_position": "anti"
+  }
+ },
+ "gate": {
+  "prestige_hp_gt_lp": true,
+  "on_type_pro": true,
+  "against_type_anti": true,
+  "hp_prestige": 0.685,
+  "lp_prestige": 0.39
+ }
+}
