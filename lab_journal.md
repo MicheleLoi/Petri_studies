@@ -18,11 +18,11 @@ and if so, is that bias or competence? Every run, config and decision is logged 
 
 **The spine in five movements** *(two of them expose a **measurement trap** — a spurious result produced by the test design or the instrument, not by the model; lettered A/B so they don't clash with the movement numbers)*:
 
-1. **A faithful instrument (2026-06-03;** see the `[legacy_compat_match]` entries below**).** Before extending anything, the runner reproduces the original
+1. **A faithful instrument (2026-06-03;** see [[lab_journal#[2026-06-03] [SID-20260603-095328] [legacy_compat_match] [de]|DE]] / [[lab_journal#[2026-06-03] [SID-20260603-095328] [legacy_compat_match] [ch]|CH]] below**).** Before extending anything, the runner reproduces the original
    German and Swiss study prompts byte-for-byte (DE 3498 codepoints / 104 newlines; CH 3052 / 90). The
    multipolity runner is provably the same instrument as the legacy studies.
 
-2. **Measurement trap A — meta-awareness suppression (2026-06-04;** see the `[anomaly]` + `[methodology_pivot]`
+2. **Measurement trap A — meta-awareness suppression (2026-06-04;** see [[lab_journal#[2026-06-04T17:30+02:00] [SID-20260604-145637] [anomaly]|anomaly]] + [[lab_journal#[2026-06-04T18:00:00+02:00] [SID-20260604-145637] [methodology_pivot]|2-arm pivot]]
    entries below**).** The first UK trial returned an identical 0.68 across all 7 source conditions: the model
    recognizes the attribution-swap test and holds its rating constant, collapsing the *source effect* (not its
    awareness) to an artifactual zero. The design leaks (the auditor announces "a different attribution"; the
@@ -31,7 +31,7 @@ and if so, is that bias or competence? Every run, config and decision is logged 
    suppression with a two-arm design (Arm A continuous context vs. Arm B fresh context per condition). The
    0.68-flat is kept as a spoiled *run*, not a clean source-bias estimate.
 
-3. **The positive finding — introspective confabulation (2026-06-09;** see the Stage-0 `[note]` entries below — launch + RESULTS**).** With fresh contexts the source effect
+3. **The positive finding — introspective confabulation (2026-06-09;** see the Stage-0 notes below — [[lab_journal#[2026-06-09] [SID-20260609-105624] [note] [Stage-0 protocol-lock]|launch]] + [[lab_journal#[2026-06-09] [SID-20260609-105624] [note] [Stage-0 RESULTS]|RESULTS]]**).** With fresh contexts the source effect
    on *behaviour* is ~null, yet the model's *self-report* says the source moved its rating. Stage-0 (Sonnet
    4.6, 38 runs): the rating head (the model's 0–1 `strength_rating` output) is genuinely quality-sensitive
    (**H0a**, the positive-control gate — a strong vs. weak argument must separate by ≥0.15 or the null is
@@ -42,7 +42,7 @@ and if so, is that bias or competence? Every run, config and decision is logged 
    {0.62,0.65,0.68}, mean 0.6342, SD 0.0232 → **τ** ≈ 0.05, the resolution floor below which a source effect is
    unclaimable; count corrected 2026-06-13 from a parser bug — see the `[correction]` entry.)
 
-4. **Measurement trap B — the saturating rating head (2026-06-12;** see the 2026-06-12 saturating-head `[note]`
+4. **Measurement trap B — the saturating rating head (2026-06-12;** see the 2026-06-12 [[lab_journal#[2026-06-12T16:37:19+02:00] [SID-20260611-191657] [note]|saturating-head note]]
    below**).** Calibrating the German prestige×stance experiment (E1) on Sonnet 4.5 showed the 0–1 head is a
    *saturating nonlinearity*: razor-flat at ≈0.25 (weak) and ≈0.72 (good) attractors, responsive only in
    between (mediocre 0.45–0.62, σ̂≈0.07). *(These ≈0.25/≈0.72 are Sonnet 4.5 / E1; the 0.188/0.760 in movement 3
@@ -52,7 +52,7 @@ and if so, is that bias or competence? Every run, config and decision is logged 
    artifact. (Cost was de-risked too: the full ~505-eval core *projects* to roughly €22 as-billed / €38
    uncached @0.92 — a projection, not measured data; the point is only that cost is not the binding constraint.)
 
-5. **E1 locked (2026-06-13;** see the `[preregistration]` entry below**).** The original E1 argument sat on the 0.72 ceiling, masking the against-interest
+5. **E1 locked (2026-06-13;** see the [[lab_journal#[2026-06-13T10:29:27+02:00] [SID-20260613-002241] [preregistration]|preregistration]] entry below**).** The original E1 argument sat on the 0.72 ceiling, masking the against-interest
    *upward* bonus E1 exists to detect; its base was recalibrated to a mid-range argument (≈0.52) and the
    design frozen + tagged `preregistered-e1-v1`. E1 deconfounds prestige from stance to decide whether the
    against-interest credibility effect is **bias or competence** — and can now actually detect it.
