@@ -1,51 +1,25 @@
 # evals
 
-Raw `.eval` files produced by Petri. **Ground truth, untampered.** Published verbatim to GitHub.
+Raw `.eval` files produced by the Petri / Inspect-AI runner. **Ground truth, untampered — published verbatim.**
 
-> ⚠️ Phase A: empty (no evals generated yet — Petri integration deferred to Phase A2).
+**428 `.eval` files** are present, across DE (German original + legacy compat), CH (Swiss), UK, and US. They include both confirmatory and **exploratory / in-progress** runs; the append-only [`../lab_journal.md`](../lab_journal.md) is the authoritative record of which is which, plus corrections and superseded entries.
 
-## Structure
+## Layout
+
+Flat per-polity directories — topic and condition are encoded in each filename, not in subdirectories:
 
 ```
 evals/
-├── manifest.sha256             — SHA-256 of every .eval file (integrity)
-├── de/<topic>/<condition>/     — legacy compat (Phase B)
-├── ch/<topic>/<condition>/
-├── uk/<topic>/<condition>/
-├── us/<topic>/<condition>/
-└── it/<topic>/<condition>/
+├── de/   — German original + legacy-compat + multipolity runs (incl. _archive legacy)
+├── uk/   — UK runs
+└── us/   — US runs (EnSources / source-nationality arm)
 ```
 
-Each `.eval` filename uses the SID convention: `SID-YYYYMMDD-HHMMSS.eval`.
+Filename: `<ISO-timestamp>_<polity>-<topic>-<condition>_<id>.eval`
+(e.g. `2026-06-15T14-53-25+02-00_us-ai-security-e1-c3_<id>.eval`).
 
-## Integrity protocol
+## Provenance
 
-After each push:
+Each `.eval` is an Inspect-AI log containing the full auditor/target/judge transcript, the model ratings, and the model-role identifiers. The run's stimulus (argument text, source identities, conditions) lives in `configs/<polity>/<topic>.yaml`; the runner commit is recoverable from git history. Analysis scripts are in `runner/` (`analyze_e1.py`, `analyze_stage0.py`).
 
-```bash
-sha256sum evals/<polity>/<topic>/<condition>/*.eval > evals/manifest.sha256.tmp
-sort evals/manifest.sha256.tmp -o evals/manifest.sha256
-git add evals/manifest.sha256
-git commit -m "evals: update manifest after <polity>/<topic> run (MOD-NNN)"
-```
-
-A revised pre-registration tag invalidates prior `.eval` files for the affected polity — they are NOT deleted (audit trail) but the README of the affected polity directory annotates them as `<filename>.eval (superseded by preregistered-<polity>-v2)`.
-
-## Provenance embedded in each .eval
-
-(Phase A2+) Each `.eval` will include a metadata block with:
-
-- Runner commit SHA (this repo)
-- Config file SHA-256
-- Model snapshot identifier
-- Timestamp (ISO-8601, UTC)
-- Petri version (from `runner/requirements.lock`)
-- Pre-registration tag (e.g., `preregistered-uk-v1`)
-
-## Reproduction
-
-```bash
-python runner/petri_run.py --polity <polity> --topic <topic> --condition <id> --reproduce
-```
-
-Reads the existing `.eval`, re-runs Petri with the embedded provenance, asserts byte-equivalence on the SEED_INSTRUCTION + transcript hash.
+> Note: a repo-wide `manifest.sha256` and a `--reproduce` byte-equivalence mode are described in earlier design docs but are **not yet implemented**; integrity currently rests on git history + the append-only lab journal.

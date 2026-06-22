@@ -2,7 +2,7 @@
 
 **Multi-polity replication of the source-attribution-bias study** (Anthropic Petri framework / Inspect-AI), extending the German (DE) and Swiss (CH) iterations to the United Kingdom (UK), United States (US), and Italy (IT).
 
-> ⚠️ **Phase A skeleton.** Runner stub present; Petri integration deferred to Phase A2. No `.eval` files generated yet. Pre-registration tags pending (see `PREREGISTRATION.md`).
+> **Status (2026-06).** Harness operational (Petri / Inspect-AI integration complete). **428 `.eval` files** across DE/CH (legacy, byte-equivalence-verified), UK, and US; IT pending. E1 (prestige × stance deconfound) is pre-registered — git tag `preregistered-e1-v1`. Many runs are **exploratory / in-progress and not peer-reviewed**; the append-only [`lab_journal.md`](lab_journal.md) is the authoritative record (including corrections and superseded results) — read findings there with their in-progress framing.
 
 ## What this is
 
@@ -22,8 +22,10 @@ pip install -r runner/requirements.lock
 # Dry-run: render the SEED_INSTRUCTION for inspection (no API call)
 python runner/petri_run.py --polity de --topic carbon_tax --dry-run
 
-# (Phase A2+) Real run, requires Anthropic API key in $ANTHROPIC_API_KEY:
-# python runner/petri_run.py --polity uk --topic ai_regulation --condition baseline
+# Real run (requires ANTHROPIC_API_KEY in env; see runner/README.md for the model-role flags):
+# python runner/petri_run.py --polity us --topic ai_security_e1 --execute \
+#   --arm fresh_per_condition --target anthropic/claude-sonnet-4-5-20250929 \
+#   --auditor anthropic/claude-haiku-4-5-20251001 --judge anthropic/claude-haiku-4-5-20251001
 ```
 
 ## Repository structure
