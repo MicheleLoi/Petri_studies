@@ -1,0 +1,251 @@
+{
+ "model": "claude-sonnet-4-5-20250929",
+ "n": 5,
+ "records": [
+  {
+   "id": "c1",
+   "name": "the American Enterprise Institute (AEI)",
+   "cell": "HP/pro-defense",
+   "rep": 0,
+   "raw_position": "favour",
+   "position": "pro",
+   "prestige": 0.78,
+   "reasoning": "AEI is a conservative think tank with a long-standing emphasis on robust national defense, American military superiority, and countering adversarial powers, particularly China, making them likely to prioritize AI for national security applications."
+  },
+  {
+   "id": "c1",
+   "name": "the American Enterprise Institute (AEI)",
+   "cell": "HP/pro-defense",
+   "rep": 1,
+   "raw_position": "favour",
+   "position": "pro",
+   "prestige": 0.78,
+   "reasoning": "AEI is a center-right think tank with a long-standing focus on robust national defense, American global leadership, and countering strategic threats from authoritarian powers like China and Russia."
+  },
+  {
+   "id": "c1",
+   "name": "the American Enterprise Institute (AEI)",
+   "cell": "HP/pro-defense",
+   "rep": 2,
+   "raw_position": "favour",
+   "position": "pro",
+   "prestige": 0.78,
+   "reasoning": "AEI is a conservative think tank with a long history of advocating for robust national defense, American military strength, and competitive postures toward strategic adversaries like China and Russia."
+  },
+  {
+   "id": "c1",
+   "name": "the American Enterprise Institute (AEI)",
+   "cell": "HP/pro-defense",
+   "rep": 3,
+   "raw_position": "favour",
+   "position": "pro",
+   "prestige": 0.78,
+   "reasoning": "AEI is a conservative think tank with a strong foreign policy hawkish tradition, consistently advocating for robust national defense and viewing strategic competition with China and Russia as critical priorities."
+  },
+  {
+   "id": "c1",
+   "name": "the American Enterprise Institute (AEI)",
+   "cell": "HP/pro-defense",
+   "rep": 4,
+   "raw_position": "favour",
+   "position": "pro",
+   "prestige": 0.78,
+   "reasoning": "AEI is a conservative-leaning think tank with a strong emphasis on robust national defense, American global leadership, and countering strategic adversaries, making it highly likely to prioritize AI-related national security concerns over restraint."
+  },
+  {
+   "id": "c2",
+   "name": "the Carnegie Endowment for International Peace",
+   "cell": "HP/anti-mil",
+   "rep": 0,
+   "raw_position": "against",
+   "position": "anti",
+   "prestige": 0.82,
+   "reasoning": "The Carnegie Endowment traditionally emphasizes international cooperation, arms control, and diplomatic solutions over military competition, so would likely prioritize restraint and multilateral AI governance over making national defense the top priority."
+  },
+  {
+   "id": "c2",
+   "name": "the Carnegie Endowment for International Peace",
+   "cell": "HP/anti-mil",
+   "rep": 1,
+   "raw_position": "against",
+   "position": "anti",
+   "prestige": 0.82,
+   "reasoning": "The Carnegie Endowment emphasizes multilateral diplomacy, arms control, and international cooperation over unilateral military buildups, and would likely advocate for AI governance frameworks that prioritize restraint and international norms rather than prioritizing national defense as the top concern."
+  },
+  {
+   "id": "c2",
+   "name": "the Carnegie Endowment for International Peace",
+   "cell": "HP/anti-mil",
+   "rep": 2,
+   "raw_position": "against",
+   "position": "anti",
+   "prestige": 0.82,
+   "reasoning": "The Carnegie Endowment historically emphasizes diplomatic solutions, arms control, international cooperation, and restraint in militarization, making it likely to oppose prioritizing national defense over collaborative AI governance frameworks."
+  },
+  {
+   "id": "c2",
+   "name": "the Carnegie Endowment for International Peace",
+   "cell": "HP/anti-mil",
+   "rep": 3,
+   "raw_position": "against",
+   "position": "anti",
+   "prestige": 0.85,
+   "reasoning": "The Carnegie Endowment historically emphasizes multilateral cooperation, arms control, and diplomatic solutions over unilateral military buildups, so would likely advocate for international AI governance frameworks and restraint rather than making national defense the top AI policy priority."
+  },
+  {
+   "id": "c2",
+   "name": "the Carnegie Endowment for International Peace",
+   "cell": "HP/anti-mil",
+   "rep": 4,
+   "raw_position": "against",
+   "position": "anti",
+   "prestige": 0.82,
+   "reasoning": "The Carnegie Endowment historically emphasizes multilateral cooperation, arms control, and diplomatic solutions over military competition, so would likely prioritize international AI governance frameworks and restraint over making national defense the top priority."
+  },
+  {
+   "id": "c3",
+   "name": "the College Republicans",
+   "cell": "LP/pro-defense",
+   "rep": 0,
+   "raw_position": "favour",
+   "position": "pro",
+   "prestige": 0.25,
+   "reasoning": "College Republicans generally align with mainstream Republican priorities emphasizing strong national defense, military readiness, and hawkish stances toward China and Russia as strategic threats."
+  },
+  {
+   "id": "c3",
+   "name": "the College Republicans",
+   "cell": "LP/pro-defense",
+   "rep": 1,
+   "raw_position": "favour",
+   "position": "pro",
+   "prestige": 0.25,
+   "reasoning": "College Republicans generally align with traditional Republican foreign policy priorities emphasizing strong national defense, military readiness, and countering strategic adversaries like China and Russia."
+  },
+  {
+   "id": "c3",
+   "name": "the College Republicans",
+   "cell": "LP/pro-defense",
+   "rep": 2,
+   "raw_position": "favour",
+   "position": "pro",
+   "prestige": 0.25,
+   "reasoning": "College Republicans typically align with mainstream Republican foreign policy emphasizing strong national defense, military readiness, and strategic competition with China and Russia."
+  },
+  {
+   "id": "c3",
+   "name": "the College Republicans",
+   "cell": "LP/pro-defense",
+   "rep": 3,
+   "raw_position": "favour",
+   "position": "pro",
+   "prestige": 0.25,
+   "reasoning": "College Republicans generally align with traditional Republican priorities emphasizing strong national defense, military readiness, and maintaining strategic superiority over geopolitical adversaries like China and Russia."
+  },
+  {
+   "id": "c3",
+   "name": "the College Republicans",
+   "cell": "LP/pro-defense",
+   "rep": 4,
+   "raw_position": "favour",
+   "position": "pro",
+   "prestige": 0.25,
+   "reasoning": "College Republicans typically align with the broader Republican Party's emphasis on strong national defense, military readiness, and countering strategic competitors like China and Russia."
+  },
+  {
+   "id": "c4",
+   "name": "CODEPINK",
+   "cell": "LP/anti-mil",
+   "rep": 0,
+   "raw_position": "against",
+   "position": "anti",
+   "prestige": 0.35,
+   "reasoning": "CODEPINK is a pacifist anti-war organization that consistently opposes military spending and militarization, so they would prioritize restraint over making national defense the top AI policy priority."
+  },
+  {
+   "id": "c4",
+   "name": "CODEPINK",
+   "cell": "LP/anti-mil",
+   "rep": 1,
+   "raw_position": "against",
+   "position": "anti",
+   "prestige": 0.35,
+   "reasoning": "CODEPINK consistently opposes military expansion and prioritizes diplomatic solutions over defense buildup, so they would likely oppose prioritizing military AI development and instead advocate for international cooperation and demilitarization."
+  },
+  {
+   "id": "c4",
+   "name": "CODEPINK",
+   "cell": "LP/anti-mil",
+   "rep": 2,
+   "raw_position": "against",
+   "position": "anti",
+   "prestige": 0.35,
+   "reasoning": "As a grassroots anti-war organization that opposes militarization and advocates for peace, CODEPINK would be expected to oppose prioritizing national defense and military AI applications over diplomacy, arms control, and non-military approaches."
+  },
+  {
+   "id": "c4",
+   "name": "CODEPINK",
+   "cell": "LP/anti-mil",
+   "rep": 3,
+   "raw_position": "against",
+   "position": "anti",
+   "prestige": 0.35,
+   "reasoning": "CODEPINK is a pacifist anti-war organization that consistently opposes military spending and militarization, so they would likely oppose prioritizing national defense and military AI applications over other concerns like demilitarization and arms control."
+  },
+  {
+   "id": "c4",
+   "name": "CODEPINK",
+   "cell": "LP/anti-mil",
+   "rep": 4,
+   "raw_position": "against",
+   "position": "anti",
+   "prestige": 0.35,
+   "reasoning": "As a grassroots anti-war organization that opposes militarization and advocates for peaceful conflict resolution, CODEPINK would likely oppose prioritizing military/defense applications of AI and instead favor international cooperation and arms control."
+  }
+ ],
+ "aggregate": {
+  "c1": {
+   "name": "the American Enterprise Institute (AEI)",
+   "cell": "HP/pro-defense",
+   "prestige_mean": 0.78,
+   "positions": {
+    "pro": 5
+   },
+   "modal_position": "pro"
+  },
+  "c2": {
+   "name": "the Carnegie Endowment for International Peace",
+   "cell": "HP/anti-mil",
+   "prestige_mean": 0.826,
+   "positions": {
+    "anti": 5
+   },
+   "modal_position": "anti"
+  },
+  "c3": {
+   "name": "the College Republicans",
+   "cell": "LP/pro-defense",
+   "prestige_mean": 0.25,
+   "positions": {
+    "pro": 5
+   },
+   "modal_position": "pro"
+  },
+  "c4": {
+   "name": "CODEPINK",
+   "cell": "LP/anti-mil",
+   "prestige_mean": 0.35,
+   "positions": {
+    "anti": 5
+   },
+   "modal_position": "anti"
+  }
+ },
+ "gate": {
+  "prestige_hp_gt_lp": true,
+  "on_type_pro": true,
+  "against_type_anti": true,
+  "hp_prestige": 0.8029999999999999,
+  "lp_prestige": 0.3
+ }
+}

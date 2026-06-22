@@ -48,3 +48,6 @@ Thumbs.db
 *.eval.local
 evals/_drafts/
 .local_run_logs/
+
+# Resilio Sync daemon metadata (machine-local; never track)
+.sync/
