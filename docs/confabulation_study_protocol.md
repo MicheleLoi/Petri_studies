@@ -218,5 +218,6 @@ quantization); any claim the auditor routing is source-driven (3-vs-1 sampling-c
 
 - **Human (PI):** ratify hypotheses + τ-rule + frozen probe wording before the confirmatory tag; judge whether
   the Stage-0 dissociation is substantive vs artifact; own the `preregistered-confab-v1` tag and the paper claims.
-- **AI:** implement runner/config/analysis; run the blocks; extract + tabulate; keep lab_journal + MHC modlogs in
-  sync; surface the H0a gate verdict for the PI's decision.
+- **AI:** implement runner/config/analysis; run the blocks; extract + tabulate; append research events to
+  `lab_journal.md`; submit material decisions through the `giano-tracing` workflow; surface the H0a gate verdict
+  for the PI's decision. Historical MHC modlogs remain unchanged evidence.

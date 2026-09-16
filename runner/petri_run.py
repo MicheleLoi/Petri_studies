@@ -34,7 +34,6 @@ import argparse
 import contextlib
 import io
 import json
-import os
 import sys
 import warnings
 from pathlib import Path
@@ -216,53 +215,6 @@ def execute_petri(
         },
         log_dir=str(output_dir),
     )
-
-
-def _resolve_workspace_path() -> Path | None:
-    """Find the MHC workspace for harness ledger calls.
-
-    Priority: env var MHC_WORKSPACE_PATH; fallback canonical local path; else None.
-    """
-    env_path = os.environ.get("MHC_WORKSPACE_PATH")
-    if env_path and Path(env_path, "mhc_harness_client.py").exists():
-        return Path(env_path)
-    canonical = Path("C:/Users/loimi/switchdrive/CURRENTLY WORKING ON/AI - assisted papers/Epistemic constitutional AI")
-    if (canonical / "mhc_harness_client.py").exists():
-        return canonical
-    return None
-
-
-def register_eval_in_harness(eval_path: Path, polity: str, topic: str, condition: str) -> dict | None:
-    """Register a generated .eval file in the MHC harness ledger.
-
-    Returns the harness response dict, or None if the workspace cannot be located.
-    Failures are logged but do not raise — the .eval is preserved regardless.
-    """
-    workspace = _resolve_workspace_path()
-    if workspace is None:
-        print(
-            f"[harness] No MHC workspace found (set MHC_WORKSPACE_PATH); "
-            f"skipping placement_log for {eval_path}",
-            file=sys.stderr,
-        )
-        return None
-
-    try:
-        sys.path.insert(0, str(workspace))
-        # Local import — only when actually called, to avoid side-effects
-        from mhc_harness_client import register, get_session  # type: ignore[import-not-found]
-
-        sid = (get_session() or {}).get("sid")
-        result = register(
-            artifact=str(eval_path),
-            type=f"eval_file:{polity}:{topic}:{condition}",
-            sid=sid,
-        )
-        print(f"[harness] register {eval_path.name} -> {result.get('status')}", file=sys.stderr)
-        return result
-    except Exception as e:
-        print(f"[harness] register failed for {eval_path}: {e}", file=sys.stderr)
-        return None
 
 
 # --- CLI ------------------------------------------------------------------
@@ -487,7 +439,6 @@ def main(argv: list[str] | None = None) -> int:
                 print(f"[execute] Produced {len(new_files)} new .eval file(s) for condition={cid}{rep_label}:", file=sys.stderr)
                 for ef in new_files:
                     print(f"  {ef.name}", file=sys.stderr)
-                    register_eval_in_harness(ef, args.polity, args.topic, cid)
 
     return 0
 

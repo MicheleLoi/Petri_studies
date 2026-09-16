@@ -22,10 +22,6 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 EVALS_ROOT = REPO_ROOT / "evals"
 LAB_JOURNAL = REPO_ROOT / "lab_journal.md"
-WORKSPACE_PATH = Path(
-    "C:/Users/loimi/switchdrive/CURRENTLY WORKING ON/AI - assisted papers/"
-    "Epistemic constitutional AI"
-)
 
 
 def extract_eval_metadata(eval_path: Path) -> dict:
@@ -125,7 +121,7 @@ def fmt_tokens(usage: dict) -> str:
     return f"{total_in}in/{total_out}out"
 
 
-def format_entry(meta: dict, sid: str = "UNKNOWN_SID") -> str:
+def format_entry(meta: dict, sid: str = "GIANO_SESSION_UNKNOWN") -> str:
     scores_str = (
         ", ".join(f"{k}={v}" for k, v in meta["scores"].items())
         or "none"
@@ -146,16 +142,10 @@ def format_entry(meta: dict, sid: str = "UNKNOWN_SID") -> str:
     )
 
 
-def find_current_sid() -> str:
-    """Read current SID from workspace .mhc-config.json if accessible."""
-    cfg_path = WORKSPACE_PATH / ".mhc-config.json"
-    if not cfg_path.exists():
-        return "UNKNOWN_SID"
-    try:
-        cfg = json.loads(cfg_path.read_text(encoding="utf-8"))
-        return cfg.get("current_session", {}).get("id", "UNKNOWN_SID")
-    except Exception:
-        return "UNKNOWN_SID"
+def append_entries(entries: list[str]) -> None:
+    """Append journal entries without rewriting any existing byte."""
+    with LAB_JOURNAL.open("a", encoding="utf-8", newline="") as stream:
+        stream.write("".join(entries))
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -177,7 +167,6 @@ def main(argv: list[str] | None = None) -> int:
         print("No .eval files found.", file=sys.stderr)
         return 0
 
-    sid = find_current_sid()
     new_entries: list[str] = []
     skipped = 0
 
@@ -190,7 +179,11 @@ def main(argv: list[str] | None = None) -> int:
         if meta["eval_id"] in seen:
             skipped += 1
             continue
-        entry = format_entry(meta, sid)
+        # This utility can discover old, previously unlisted evals. Assigning
+        # the currently open Giano session would rewrite their provenance, so
+        # the entry stays explicitly unbound. Giano independently records new
+        # file arrivals in its own register while the project is open.
+        entry = format_entry(meta)
         new_entries.append(entry)
         print(
             f"[new] {meta['eval_id']} -> "
@@ -213,8 +206,7 @@ def main(argv: list[str] | None = None) -> int:
             print(e)
         return 0
 
-    new_text = journal.rstrip() + "\n" + "".join(new_entries) + "\n"
-    LAB_JOURNAL.write_text(new_text, encoding="utf-8")
+    append_entries(new_entries)
     print(
         f"Appended {len(new_entries)} entries to lab_journal.md "
         f"(skipped {skipped} already-tracked).",

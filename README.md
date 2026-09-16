@@ -47,14 +47,14 @@ python runner/petri_run.py --polity de --topic carbon_tax --dry-run
 ## Methodological principles
 
 - **Single runner + YAML data.** Per-polity content lives in YAML (`configs/<polity>/`), not in per-topic Python scripts. Diff cross-polity = diff of two YAML directories.
-- **Append-only lab journal.** All events (seed generated, run started, transcript saved, anomaly noted) logged with timestamp + SID + checksum.
+- **Append-only lab journal.** All events (seed generated, run started, transcript saved, anomaly noted) remain in the journal with their original provenance fields. New Giano session provenance is recorded separately by Giano; missing historical links stay explicit rather than being assigned to the current session.
 - **Pre-registered design.** Each polity gets a `preregistered-<polity>-v1` git tag before its first eval. No silent retroactive edits.
 - **Provenance chain.** Each `.eval` file links to (runner SHA, config SHA, model snapshot, timestamp). See `METHODOLOGY.md`.
-- **MHC-tracked code changes.** Every substantive code commit has an MHC modlog entry in the linked governance workspace.
+- **Current work tracing.** Open this repository as a Giano T tracked folder and use the `giano-tracing` assistant plugin. The assistant proposes entries; the human accepts or rejects them in Giano. Giano owns its register and attestations.
 
-## Linked workspace
+## Historical governance workspace
 
-This repo is the *technical body*. The *intellectual brain* (paper draft, MHC artifacts, modlogs) lives in a separate governance workspace: `Epistemic constitutional AI/`. See `_org/external_repos.md` in that workspace for the pointer.
+The separate `Epistemic constitutional AI/` workspace contains historical paper drafts, MHC artifacts and modlogs. Those records remain evidence, but this repository no longer calls its harness or reads its current SID. Current research work uses Giano T in this folder; changing the tracing layer does not alter the pre-registered design or the configured target, auditor and judge models.
 
 ## License
 

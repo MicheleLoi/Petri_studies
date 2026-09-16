@@ -31,7 +31,7 @@ Step-by-step protocol for adding a new polity (or extending an existing one) aft
    # ... etc for all 7 conditions
    ```
 
-6. **Log:** every event in `lab_journal.md`, every code change as an MHC modlog entry in the linked workspace.
+6. **Log and trace:** append every research event to `lab_journal.md`. For current work, open this repository as a Giano T tracked folder and use the `giano-tracing` assistant plugin; submit material work decisions as proposals for the human to accept or reject in Giano. Historical MHC modlogs remain unchanged evidence.
 
 7. **Publish:** push `.eval` files to GitHub; update `evals/manifest.sha256`.
 
