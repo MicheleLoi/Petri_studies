@@ -1,0 +1,1287 @@
+{
+  "status": "planned offline sequence; not final frozen collection manifest",
+  "seed": 20260924,
+  "algorithm": "Python random.Random(seed), shuffle canonical approved cell list once per block; explicit order authoritative",
+  "slots": [
+    {
+      "slot": "jev-0001",
+      "block": 1,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0002",
+      "block": 1,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0003",
+      "block": 1,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0004",
+      "block": 1,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0005",
+      "block": 1,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0006",
+      "block": 1,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0007",
+      "block": 1,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0008",
+      "block": 1,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0009",
+      "block": 2,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0010",
+      "block": 2,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0011",
+      "block": 2,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0012",
+      "block": 2,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0013",
+      "block": 2,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0014",
+      "block": 2,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0015",
+      "block": 2,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0016",
+      "block": 2,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0017",
+      "block": 3,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0018",
+      "block": 3,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0019",
+      "block": 3,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0020",
+      "block": 3,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0021",
+      "block": 3,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0022",
+      "block": 3,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0023",
+      "block": 3,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0024",
+      "block": 3,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0025",
+      "block": 4,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0026",
+      "block": 4,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0027",
+      "block": 4,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0028",
+      "block": 4,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0029",
+      "block": 4,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0030",
+      "block": 4,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0031",
+      "block": 4,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0032",
+      "block": 4,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0033",
+      "block": 5,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0034",
+      "block": 5,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0035",
+      "block": 5,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0036",
+      "block": 5,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0037",
+      "block": 5,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0038",
+      "block": 5,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0039",
+      "block": 5,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0040",
+      "block": 5,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0041",
+      "block": 6,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0042",
+      "block": 6,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0043",
+      "block": 6,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0044",
+      "block": 6,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0045",
+      "block": 6,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0046",
+      "block": 6,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0047",
+      "block": 6,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0048",
+      "block": 6,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0049",
+      "block": 7,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0050",
+      "block": 7,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0051",
+      "block": 7,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0052",
+      "block": 7,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0053",
+      "block": 7,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0054",
+      "block": 7,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0055",
+      "block": 7,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0056",
+      "block": 7,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0057",
+      "block": 8,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0058",
+      "block": 8,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0059",
+      "block": 8,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0060",
+      "block": 8,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0061",
+      "block": 8,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0062",
+      "block": 8,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0063",
+      "block": 8,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0064",
+      "block": 8,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0065",
+      "block": 9,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0066",
+      "block": 9,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0067",
+      "block": 9,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0068",
+      "block": 9,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0069",
+      "block": 9,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0070",
+      "block": 9,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0071",
+      "block": 9,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0072",
+      "block": 9,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0073",
+      "block": 10,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0074",
+      "block": 10,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0075",
+      "block": 10,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0076",
+      "block": 10,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0077",
+      "block": 10,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0078",
+      "block": 10,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0079",
+      "block": 10,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0080",
+      "block": 10,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0081",
+      "block": 11,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0082",
+      "block": 11,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0083",
+      "block": 11,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0084",
+      "block": 11,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0085",
+      "block": 11,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0086",
+      "block": 11,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0087",
+      "block": 11,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0088",
+      "block": 11,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0089",
+      "block": 12,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0090",
+      "block": 12,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0091",
+      "block": 12,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0092",
+      "block": 12,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0093",
+      "block": 12,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0094",
+      "block": 12,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0095",
+      "block": 12,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0096",
+      "block": 12,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0097",
+      "block": 13,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0098",
+      "block": 13,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0099",
+      "block": 13,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0100",
+      "block": 13,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0101",
+      "block": 13,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0102",
+      "block": 13,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0103",
+      "block": 13,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0104",
+      "block": 13,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0105",
+      "block": 14,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0106",
+      "block": 14,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0107",
+      "block": 14,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0108",
+      "block": 14,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0109",
+      "block": 14,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0110",
+      "block": 14,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0111",
+      "block": 14,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0112",
+      "block": 14,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0113",
+      "block": 15,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0114",
+      "block": 15,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0115",
+      "block": 15,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0116",
+      "block": 15,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0117",
+      "block": 15,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0118",
+      "block": 15,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0119",
+      "block": 15,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0120",
+      "block": 15,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0121",
+      "block": 16,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0122",
+      "block": 16,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0123",
+      "block": 16,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0124",
+      "block": 16,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0125",
+      "block": 16,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0126",
+      "block": 16,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0127",
+      "block": 16,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0128",
+      "block": 16,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0129",
+      "block": 17,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0130",
+      "block": 17,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0131",
+      "block": 17,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0132",
+      "block": 17,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0133",
+      "block": 17,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0134",
+      "block": 17,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0135",
+      "block": 17,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0136",
+      "block": 17,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0137",
+      "block": 18,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0138",
+      "block": 18,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0139",
+      "block": 18,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0140",
+      "block": 18,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0141",
+      "block": 18,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0142",
+      "block": 18,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0143",
+      "block": 18,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0144",
+      "block": 18,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0145",
+      "block": 19,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0146",
+      "block": 19,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0147",
+      "block": 19,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0148",
+      "block": 19,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0149",
+      "block": 19,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0150",
+      "block": 19,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0151",
+      "block": 19,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0152",
+      "block": 19,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0153",
+      "block": 20,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0154",
+      "block": 20,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0155",
+      "block": 20,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0156",
+      "block": 20,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0157",
+      "block": 20,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0158",
+      "block": 20,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0159",
+      "block": 20,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0160",
+      "block": 20,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0161",
+      "block": 21,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0162",
+      "block": 21,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0163",
+      "block": 21,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0164",
+      "block": 21,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0165",
+      "block": 21,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0166",
+      "block": 21,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0167",
+      "block": 21,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0168",
+      "block": 21,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0169",
+      "block": 22,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0170",
+      "block": 22,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0171",
+      "block": 22,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0172",
+      "block": 22,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0173",
+      "block": 22,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0174",
+      "block": 22,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0175",
+      "block": 22,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0176",
+      "block": 22,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0177",
+      "block": 23,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0178",
+      "block": 23,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0179",
+      "block": 23,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0180",
+      "block": 23,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0181",
+      "block": 23,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0182",
+      "block": 23,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0183",
+      "block": 23,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0184",
+      "block": 23,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0185",
+      "block": 24,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0186",
+      "block": 24,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0187",
+      "block": 24,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0188",
+      "block": 24,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0189",
+      "block": 24,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0190",
+      "block": 24,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0191",
+      "block": 24,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0192",
+      "block": 24,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0193",
+      "block": 25,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0194",
+      "block": 25,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0195",
+      "block": 25,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0196",
+      "block": 25,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0197",
+      "block": 25,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0198",
+      "block": 25,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0199",
+      "block": 25,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0200",
+      "block": 25,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0201",
+      "block": 26,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0202",
+      "block": 26,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0203",
+      "block": 26,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0204",
+      "block": 26,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0205",
+      "block": 26,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0206",
+      "block": 26,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0207",
+      "block": 26,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0208",
+      "block": 26,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0209",
+      "block": 27,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0210",
+      "block": 27,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0211",
+      "block": 27,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0212",
+      "block": 27,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0213",
+      "block": 27,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0214",
+      "block": 27,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0215",
+      "block": 27,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0216",
+      "block": 27,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0217",
+      "block": 28,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0218",
+      "block": 28,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0219",
+      "block": 28,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0220",
+      "block": 28,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0221",
+      "block": 28,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0222",
+      "block": 28,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0223",
+      "block": 28,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0224",
+      "block": 28,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0225",
+      "block": 29,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0226",
+      "block": 29,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0227",
+      "block": 29,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0228",
+      "block": 29,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0229",
+      "block": 29,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0230",
+      "block": 29,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0231",
+      "block": 29,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0232",
+      "block": 29,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0233",
+      "block": 30,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0234",
+      "block": 30,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0235",
+      "block": 30,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0236",
+      "block": 30,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0237",
+      "block": 30,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0238",
+      "block": 30,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0239",
+      "block": 30,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0240",
+      "block": 30,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0241",
+      "block": 31,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0242",
+      "block": 31,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0243",
+      "block": 31,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0244",
+      "block": 31,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0245",
+      "block": 31,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0246",
+      "block": 31,
+      "cell": "AEI_A"
+    },
+    {
+      "slot": "jev-0247",
+      "block": 31,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0248",
+      "block": 31,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0249",
+      "block": 32,
+      "cell": "CE_B"
+    },
+    {
+      "slot": "jev-0250",
+      "block": 32,
+      "cell": "CP_A"
+    },
+    {
+      "slot": "jev-0251",
+      "block": 32,
+      "cell": "CE_A"
+    },
+    {
+      "slot": "jev-0252",
+      "block": 32,
+      "cell": "CR_A"
+    },
+    {
+      "slot": "jev-0253",
+      "block": 32,
+      "cell": "AEI_B"
+    },
+    {
+      "slot": "jev-0254",
+      "block": 32,
+      "cell": "CR_B"
+    },
+    {
+      "slot": "jev-0255",
+      "block": 32,
+      "cell": "CP_B"
+    },
+    {
+      "slot": "jev-0256",
+      "block": 32,
+      "cell": "AEI_A"
+    }
+  ]
+}

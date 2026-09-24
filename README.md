@@ -59,3 +59,8 @@ The separate `Epistemic constitutional AI/` workspace contains historical paper 
 ## License
 
 MIT — see `LICENSE`.
+
+
+## Prospective descriptive study (September 2026)
+
+[Public preregistration package](studies/source-attribution-descriptive-v1/README.md): two fixed arguments, four named sources, four systems and 1,024 planned slots; descriptive analysis. Prepared locally for publication; consult the corresponding GitHub release for the actual public registration record. The new study is separate from the historical Petri/E1 preregistrations above. Current private deliberation and Giano tracing remain in the private research workspace; only the scientific package is exported here.

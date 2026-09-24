@@ -1,0 +1,11 @@
+# Jev identity: evidence and limitation
+
+Evidence recorded on 24 September 2026. The study uses `typesafe-ai/jev` through Vercel AI Gateway, with **Jev 1.13.0 presumed, not verified**.
+
+The [official TypeSafe model page](https://docs.typesafe.ai/models) identified `jev-1.13.0` as the current version, with `jev-latest` and `jev-preview` pointing to it at the preparation check. This supports the presumption but does not establish which weights Vercel serves. [OpenRouter's Jev 1.13 listing](https://openrouter.ai/typesafe/jev-1.13) is corroboration of another distributor's label, not identification of our deployment. [Vercel issue 21213](https://github.com/vercel/ai/issues/21213) reports alias-only identification; it is third-party testimony, not our own test or a provider guarantee.
+
+Four neutral technical requests through the intended Vercel endpoint completed before the main study. The responses exposed the alias and TypeSafe routing, not a numbered model version. The gateway catalog and generation lookup likewise did not verify the weights. The project retains those technical records privately. They are excluded from the main study and were not tests of source-attribution effects.
+
+The author adopted the use of a presumed version. Requested alias, returned identity, routing metadata, presumed version and dated documentary basis remain separate. An unexpected identity, provider or explicit version suspends further requests for review. Absence of a numbered version behind the known alias is the accepted exception. Documentation and catalog must be checked again on the actual launch date; this preparation note is not a launch receipt.
+
+One neutral response returned score 3.89 with auxiliary probabilities summing to 0.99. Rounding is a possible explanation, not an established cause. The parser retains an otherwise usable score, flags invalid auxiliary probabilities and does not renormalize. A valid probability distribution inconsistent with the score triggers suspension. An earlier technical checker was corrected to follow this already specified distinction. All original attempts and the temporary pause are preserved privately; neither the rubric nor a statistical threshold was optimized using source effects.

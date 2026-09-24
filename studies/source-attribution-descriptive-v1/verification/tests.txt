@@ -1,0 +1,42 @@
+test_all_provider_completion_and_usage (test_main_study.MainTests.test_all_provider_completion_and_usage) ... ok
+test_auth_failure_has_no_inference_attempt_and_persists (test_main_study.MainTests.test_auth_failure_has_no_inference_attempt_and_persists) ... ok
+test_budget_stops_before_any_request (test_main_study.MainTests.test_budget_stops_before_any_request) ... ok
+test_crash_reserved_attempt_never_resent (test_main_study.MainTests.test_crash_reserved_attempt_never_resent) ... ok
+test_duplicate_keys_and_multiple_json_rejected (test_main_study.MainTests.test_duplicate_keys_and_multiple_json_rejected) ... ok
+test_full_offline_run_and_halves (test_main_study.MainTests.test_full_offline_run_and_halves) ... ok
+test_full_schedule_and_approved_payloads (test_main_study.MainTests.test_full_schedule_and_approved_payloads) ... ok
+test_hand_calculated_contrasts_unequal_counts (test_main_study.MainTests.test_hand_calculated_contrasts_unequal_counts) ... ok
+test_http_classification_quota_not_retry (test_main_study.MainTests.test_http_classification_quota_not_retry) ... ok
+test_input_tampering_rejected_on_resume (test_main_study.MainTests.test_input_tampering_rejected_on_resume) ... ok
+test_jev_auxiliary_anomaly_retains_score (test_main_study.MainTests.test_jev_auxiliary_anomaly_retains_score) ... ok
+test_jev_true_inconsistency_legend_and_fallback_pause (test_main_study.MainTests.test_jev_true_inconsistency_legend_and_fallback_pause) ... ok
+test_mismatched_report_plan_is_rejected (test_main_study.MainTests.test_mismatched_report_plan_is_rejected) ... ok
+test_missing_changed_version_preserves_rating_but_pauses (test_main_study.MainTests.test_missing_changed_version_preserves_rating_but_pauses) ... ok
+test_mixed_errors_share_three_attempts_then_first_usable (test_main_study.MainTests.test_mixed_errors_share_three_attempts_then_first_usable) ... ok
+test_no_rating_retry_delayed_and_exact_payload (test_main_study.MainTests.test_no_rating_retry_delayed_and_exact_payload) ... ok
+test_pause_survives_restart (test_main_study.MainTests.test_pause_survives_restart) ... ok
+test_retry_after_seconds_date_invalid (test_main_study.MainTests.test_retry_after_seconds_date_invalid) ... ok
+test_saved_response_pause_detected_before_later_slots (test_main_study.MainTests.test_saved_response_pause_detected_before_later_slots) ... ok
+test_saved_response_recovery_without_send (test_main_study.MainTests.test_saved_response_recovery_without_send) ... ok
+test_second_live_runner_lock_rejected (test_main_study.MainTests.test_second_live_runner_lock_rejected) ... ok
+test_three_failures_persist_across_resume (test_main_study.MainTests.test_three_failures_persist_across_resume) ... ok
+test_truncation_not_usable_even_valid_json (test_main_study.MainTests.test_truncation_not_usable_even_valid_json) ... ok
+test_uncertain_attempt_cost_is_reserved_not_zero (test_main_study.MainTests.test_uncertain_attempt_cost_is_reserved_not_zero) ... ok
+test_unequal_counts_empty_cell_and_illustrations (test_main_study.MainTests.test_unequal_counts_empty_cell_and_illustrations) ... ok
+test_version_pause_does_not_stop_other_models (test_main_study.MainTests.test_version_pause_does_not_stop_other_models) ... ok
+test_zero_constant_and_no_nan (test_main_study.MainTests.test_zero_constant_and_no_nan) ... ok
+test_alternate_rating_never_replaces_designated_field (test_response_quality.ResponseQualityTests.test_alternate_rating_never_replaces_designated_field) ... ok
+test_complete_json_in_truncated_generation_remains_unusable (test_response_quality.ResponseQualityTests.test_complete_json_in_truncated_generation_remains_unusable) ... ok
+test_completion_status_must_be_explicit_boolean (test_response_quality.ResponseQualityTests.test_completion_status_must_be_explicit_boolean) ... ok
+test_conformant_response_and_single_fence (test_response_quality.ResponseQualityTests.test_conformant_response_and_single_fence) ... ok
+test_duplicates_anywhere_are_rejected (test_response_quality.ResponseQualityTests.test_duplicates_anywhere_are_rejected) ... ok
+test_invalid_explanations_are_separately_reported (test_response_quality.ResponseQualityTests.test_invalid_explanations_are_separately_reported) ... ok
+test_invalid_numeric_values_cannot_be_used (test_response_quality.ResponseQualityTests.test_invalid_numeric_values_cannot_be_used) ... ok
+test_malformed_multiple_or_nonobject_json_is_not_repaired (test_response_quality.ResponseQualityTests.test_malformed_multiple_or_nonobject_json_is_not_repaired) ... ok
+test_missing_explanations_do_not_exclude_primary_rating (test_response_quality.ResponseQualityTests.test_missing_explanations_do_not_exclude_primary_rating) ... ok
+test_pilot_shaped_extra_fields_do_not_change_rating (test_response_quality.ResponseQualityTests.test_pilot_shaped_extra_fields_do_not_change_rating) ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 25.222s
+
+OK

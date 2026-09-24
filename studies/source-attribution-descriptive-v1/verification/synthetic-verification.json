@@ -1,0 +1,1 @@
+{"attempts":1098,"checks":["empty cell NA","unequal counts","constant ratings","timeout recovery","max three sends","Jev auxiliary flag","known I1=.2 and I2=-.1","finished resume sends zero"],"network_calls":0,"obtained":991,"planned":1024,"resume_additional_sends":0,"synthetic":true}

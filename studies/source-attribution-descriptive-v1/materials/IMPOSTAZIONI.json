@@ -1,0 +1,38 @@
+{
+  "status": "author_approved_settings_not_full_protocol_freeze",
+  "decision_date": "2026-09-24",
+  "temperature": 1,
+  "generation_token_limit": 1024,
+  "fresh_conversation_per_request": true,
+  "responses_per_request": 1,
+  "models": {
+    "sonnet45": {
+      "requested_id": "claude-sonnet-4-5-20250929",
+      "temperature": 1,
+      "max_tokens": 1024,
+      "thinking": {
+        "type": "disabled"
+      }
+    },
+    "gpt4o": {
+      "requested_id": "gpt-4o-2024-08-06",
+      "temperature": 1,
+      "max_completion_tokens": 1024,
+      "n": 1
+    },
+    "flash": {
+      "requested_id": "gemini-3.5-flash",
+      "generationConfig": {
+        "temperature": 1,
+        "maxOutputTokens": 1024,
+        "candidateCount": 1,
+        "thinkingConfig": {
+          "thinkingLevel": "MINIMAL"
+        }
+      }
+    }
+  },
+  "caveat": "Provider parameters are not assumed to define equivalent reasoning or sampling across architectures.",
+  "pilot_source": "runs/feasibility-pilot-v1/plan.json",
+  "public_export_note": "Scientific content retained from the preparation record; historical status fields describe that earlier record. PREREGISTRATION.md and plan.json specify the complete current study. Private dialogue and task/session identifiers are omitted."
+}

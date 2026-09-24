@@ -1,0 +1,240 @@
+{
+  "schema": "public-derivative-provenance-v1",
+  "private_manifest_sha256": "c153ea52ff0cbfb03103de1d19833153faa4049bfbad86371638d362789a7809",
+  "description": "Private preparation preserved; public derivative removes private conversation metadata and names the selected public venue.",
+  "mapping": {
+    ".gitattributes": {
+      "public_sha256": "3e5e82fc72e044ea9af807a2030b73dbb94800d2cd1775302063b2eee761ba1e",
+      "private_snapshot_sha256": null,
+      "byte_identical": false
+    },
+    "ENVIRONMENT.json": {
+      "public_sha256": "0a89da10a50278ee45f70218929ed37e34309e9d8a3054f8e99d463431fda8e5",
+      "private_snapshot_sha256": "0a89da10a50278ee45f70218929ed37e34309e9d8a3054f8e99d463431fda8e5",
+      "byte_identical": true
+    },
+    "OPERATIONS.md": {
+      "public_sha256": "b01120b7ea6ccfd65d2d0fdaf6bd79eeb772410ef7c6febc6d50294145e5d4e4",
+      "private_snapshot_sha256": null,
+      "byte_identical": false
+    },
+    "plan.json": {
+      "public_sha256": "48dafc7451127ba441a2a5957f9a04e306de88187ed41244d6b820792e199e8a",
+      "private_snapshot_sha256": "48dafc7451127ba441a2a5957f9a04e306de88187ed41244d6b820792e199e8a",
+      "byte_identical": true
+    },
+    "PREREGISTRATION.md": {
+      "public_sha256": "3600c20632f2f21850e3dac0678f92fe8f67d114aeffedebdfba68324fa0695e",
+      "private_snapshot_sha256": "1d0f185510e31e68b1444218186ee85c34d62d3d9e05c31df60704a5a67f9acf",
+      "byte_identical": false
+    },
+    "README.md": {
+      "public_sha256": "75e5034c70a02c331b91103e1c11d522fed9f8e15a6f3292ddb54ea8d7e54a53",
+      "private_snapshot_sha256": "eb26da451bf00d4bb2836695b057fd9506a3c16bf31a2dd39ddc2345dbde09e8",
+      "byte_identical": false
+    },
+    "requirements-observed.txt": {
+      "public_sha256": "a0c0492f1cbaf0ef9b6662f501a0c86a344ac4a26891f57d96556688388378b2",
+      "private_snapshot_sha256": "a0c0492f1cbaf0ef9b6662f501a0c86a344ac4a26891f57d96556688388378b2",
+      "byte_identical": true
+    },
+    "VERIFYING.md": {
+      "public_sha256": "86a1574677458658ceb819c4b319fc0bc4587516b98c6ba84de357c1cd127b4f",
+      "private_snapshot_sha256": null,
+      "byte_identical": false
+    },
+    "verify_manifest.py": {
+      "public_sha256": "e5b0cdfe9ff2887d62bd0a6c30a22faf4730e3f812ec0d7d5e3be73c5fc37daf",
+      "private_snapshot_sha256": null,
+      "byte_identical": false
+    },
+    "code/budget.py": {
+      "public_sha256": "c23a6c1af2a12b98a125497736499828c9988d7ab999f5a84caeedaf777e8538",
+      "private_snapshot_sha256": "c23a6c1af2a12b98a125497736499828c9988d7ab999f5a84caeedaf777e8538",
+      "byte_identical": true
+    },
+    "code/design.py": {
+      "public_sha256": "b8754cc3120631c236595b6d57f2765414a34efc21a94717b1ce3b46349cb6e7",
+      "private_snapshot_sha256": "b8754cc3120631c236595b6d57f2765414a34efc21a94717b1ce3b46349cb6e7",
+      "byte_identical": true
+    },
+    "code/main_adapters.py": {
+      "public_sha256": "1f187e5111613f61edb301e2f37cad7602ebc5579c57c19355fcfa5683624102",
+      "private_snapshot_sha256": "1f187e5111613f61edb301e2f37cad7602ebc5579c57c19355fcfa5683624102",
+      "byte_identical": true
+    },
+    "code/main_plan.py": {
+      "public_sha256": "aacecc16a766511582a8fdd53cde785ec03cebe85f6274633acda547e6300b58",
+      "private_snapshot_sha256": "aacecc16a766511582a8fdd53cde785ec03cebe85f6274633acda547e6300b58",
+      "byte_identical": true
+    },
+    "code/main_rehearsal.py": {
+      "public_sha256": "11840a0e6e7d6a6d80033a88f58b2bc07f9c69462b0acace312e6aa9b1724282",
+      "private_snapshot_sha256": "11840a0e6e7d6a6d80033a88f58b2bc07f9c69462b0acace312e6aa9b1724282",
+      "byte_identical": true
+    },
+    "code/main_report.py": {
+      "public_sha256": "ddbee18b13004baf43736ebc85044749f2e024a7226d223b4acba15d738d46fd",
+      "private_snapshot_sha256": "ddbee18b13004baf43736ebc85044749f2e024a7226d223b4acba15d738d46fd",
+      "byte_identical": true
+    },
+    "code/main_runner.py": {
+      "public_sha256": "a8fb980748f699eb802635ca514a59bf0388d58fb43ce729d4121a7c36ffea44",
+      "private_snapshot_sha256": "a8fb980748f699eb802635ca514a59bf0388d58fb43ce729d4121a7c36ffea44",
+      "byte_identical": true
+    },
+    "code/response_quality.py": {
+      "public_sha256": "d4a966cb232144e17475161fdf461ca514291ef8acc8051ff59a9670ab824843",
+      "private_snapshot_sha256": "d4a966cb232144e17475161fdf461ca514291ef8acc8051ff59a9670ab824843",
+      "byte_identical": true
+    },
+    "code/test_main_study.py": {
+      "public_sha256": "08837feb86185ead3ec75d2886af3f29d4c34f44f87c269056ccf8f1419544f2",
+      "private_snapshot_sha256": "08837feb86185ead3ec75d2886af3f29d4c34f44f87c269056ccf8f1419544f2",
+      "byte_identical": true
+    },
+    "code/test_response_quality.py": {
+      "public_sha256": "b187781293859e05e86ccc841335a2e1260e405fd3446d528ed649954275605d",
+      "private_snapshot_sha256": "b187781293859e05e86ccc841335a2e1260e405fd3446d528ed649954275605d",
+      "byte_identical": true
+    },
+    "code/trace.py": {
+      "public_sha256": "8a7e3e37fad06b23acbbfae8a0d3f95582a44b5d0f6f2a05ebfe5f9fa6b02614",
+      "private_snapshot_sha256": "8a7e3e37fad06b23acbbfae8a0d3f95582a44b5d0f6f2a05ebfe5f9fa6b02614",
+      "byte_identical": true
+    },
+    "materials/ARGOMENTI.json": {
+      "public_sha256": "370b2d0c81b59d299fa7c8c0658a1e94192402729269874c8c5e4b301d449078",
+      "private_snapshot_sha256": "609fc7c2fbabcf3bcac6317efdf23f338225691ca33129dc162d9c3ff44d001d",
+      "byte_identical": false
+    },
+    "materials/IMPOSTAZIONI.json": {
+      "public_sha256": "79f9cbb02e3f3f33b207d2239fef5af4195ff9afd09faf721bdaac3efa1d7698",
+      "private_snapshot_sha256": "1db812b3c70ee50fc13b38b70f2ab3acd380d956c3844954aab6b38454f0b4e8",
+      "byte_identical": false
+    },
+    "materials/jev_inputs_v1.json": {
+      "public_sha256": "07336d3858bc21f6df62498f0627d3efdebc1492fef215612e316595d890f65c",
+      "private_snapshot_sha256": "07336d3858bc21f6df62498f0627d3efdebc1492fef215612e316595d890f65c",
+      "byte_identical": true
+    },
+    "materials/jev_schedule_v1.json": {
+      "public_sha256": "e30a1a7493b6193f84c39c8f39f84ac18ff6102afd8267e4e03fa984b4662bd2",
+      "private_snapshot_sha256": "e30a1a7493b6193f84c39c8f39f84ac18ff6102afd8267e4e03fa984b4662bd2",
+      "byte_identical": true
+    },
+    "materials/jev_spec_v1.json": {
+      "public_sha256": "bf0c34dc7235552086c7f07d245893dbbf549d7f37b6d284b0bfccda328f9b24",
+      "private_snapshot_sha256": "7d162fae40e1d3d42687be6762bcc6fe8a814c898b6acbfffc6d4d740eeaa08b",
+      "byte_identical": false
+    },
+    "materials/JEV_VERSION_EVIDENCE.md": {
+      "public_sha256": "f08e8635ea19f1c83b728232fb2248924ae3078bd10de49a87d5b39a33f7ade1",
+      "private_snapshot_sha256": "9cb3ea8e11605db94e84d379ba5ede8e93083b5644272094c55152bfa68f6384",
+      "byte_identical": false
+    },
+    "materials/PROMPT.json": {
+      "public_sha256": "7003ab78d4554463256200198972da832987a1587089e6472df7aa88cdf8ceed",
+      "private_snapshot_sha256": "49d97939d3d9d272e874d80cea0adf34ce1f1599de7a07c14220456c5df8a66e",
+      "byte_identical": false
+    },
+    "verification/chronology.png": {
+      "public_sha256": "ce36e63eea3d5755e45f78ed14e38fe17b044a24192198a4cd2e449489910801",
+      "private_snapshot_sha256": "ce36e63eea3d5755e45f78ed14e38fe17b044a24192198a4cd2e449489910801",
+      "byte_identical": true
+    },
+    "verification/ratings.png": {
+      "public_sha256": "e4911b0e91c8d918d56a33976bd8d2ffc465e12d1512bb8ba908dc1ee92c178c",
+      "private_snapshot_sha256": "e4911b0e91c8d918d56a33976bd8d2ffc465e12d1512bb8ba908dc1ee92c178c",
+      "byte_identical": true
+    },
+    "verification/synthetic-report.md": {
+      "public_sha256": "9a61b0ef2f4cf3a220920ce6cdfa7c7ced60df8a4fa85c8e31150f15e4798467",
+      "private_snapshot_sha256": "9a61b0ef2f4cf3a220920ce6cdfa7c7ced60df8a4fa85c8e31150f15e4798467",
+      "byte_identical": true
+    },
+    "verification/synthetic-verification.json": {
+      "public_sha256": "796acf31acd285ac0da29f99135b93253d58bf3b97e0f02806df219753a2b7df",
+      "private_snapshot_sha256": "796acf31acd285ac0da29f99135b93253d58bf3b97e0f02806df219753a2b7df",
+      "byte_identical": true
+    },
+    "verification/tests.txt": {
+      "public_sha256": "26cccc90368b9af12a5c905d42ff9b94c745c4503f94753dcfd61458e15463f1",
+      "private_snapshot_sha256": "26cccc90368b9af12a5c905d42ff9b94c745c4503f94753dcfd61458e15463f1",
+      "byte_identical": true
+    }
+  },
+  "metadata_changes": {
+    "materials/ARGOMENTI.json": {
+      "removed_metadata_keys": [
+        "author_response_verbatim",
+        "thread_id",
+        "giano_sid",
+        "not_decided_here"
+      ],
+      "changed_metadata": [
+        "arguments.A.origin: replace local absolute path with repository-relative provenance"
+      ],
+      "scientific_values_changed": false,
+      "added_metadata": [
+        "public_export_note"
+      ]
+    },
+    "materials/IMPOSTAZIONI.json": {
+      "removed_metadata_keys": [
+        "author_response_verbatim",
+        "thread_id",
+        "giano_sid",
+        "still_open"
+      ],
+      "changed_metadata": [],
+      "scientific_values_changed": false,
+      "added_metadata": [
+        "public_export_note"
+      ]
+    },
+    "materials/PROMPT.json": {
+      "removed_metadata_keys": [
+        "author_response_verbatim"
+      ],
+      "changed_metadata": [],
+      "scientific_values_changed": false,
+      "added_metadata": [
+        "public_export_note"
+      ]
+    },
+    "materials/jev_spec_v1.json": {
+      "removed_metadata_keys": [
+        "author_quote"
+      ],
+      "changed_metadata": [],
+      "scientific_values_changed": false,
+      "added_metadata": [
+        "public_export_note"
+      ]
+    },
+    "materials/JEV_VERSION_EVIDENCE.md": {
+      "change": "Public evidence summary replaces private dialogue quotes and private file links; preserves version uncertainty and technical-pilot caveat.",
+      "scientific_values_changed": false
+    },
+    "PREREGISTRATION.md": {
+      "change": "Record the author-selected public GitHub venue and public export provenance. No change to methods, sample size, interpretation, attempts or analysis.",
+      "scientific_values_changed": false
+    }
+  },
+  "omitted_files": [
+    "JEV_PROTOCOLLO.md",
+    "MAIN_OPERATIONS.md",
+    "ORGANIZER_STUDIO_ATTUALE.md",
+    "PROTOCOLLO.md",
+    "README.md",
+    "code/main_freeze.py"
+  ],
+  "omitted_reason": "Private preparation documentation and its snapshot builder are not needed to run or inspect this public scientific package. The complete scientific plan is retained in PREREGISTRATION.md.",
+  "scientific_plan_byte_identical": true,
+  "all_included_code_byte_identical": true,
+  "scheduled_slots": 1024,
+  "payload_specs": 32,
+  "nonsecret_project_identifier_retained": "Original Vertex endpoint and quota-project identifier retained to preserve exact tested specifications; no credential values included.",
+  "attestation_claim": "No package-specific Giano attestation or GitHub publication claimed at preparation."
+}
