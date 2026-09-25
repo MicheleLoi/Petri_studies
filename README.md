@@ -64,3 +64,8 @@ MIT — see `LICENSE`.
 ## Prospective descriptive study (September 2026)
 
 [Public preregistration package](studies/source-attribution-descriptive-v1/README.md): two fixed arguments, four named sources, four systems and 1,024 planned slots; descriptive analysis. Prepared locally for publication; consult the corresponding GitHub release for the actual public registration record. The new study is separate from the historical Petri/E1 preregistrations above. Current private deliberation and Giano tracing remain in the private research workspace; only the scientific package is exported here.
+
+
+## Prospective descriptive extension (25 September 2026)
+
+[Protocol and frozen package](studies/source-attribution-extension-descriptive-v1/README.md): German debt brake, Swiss nuclear policy and US AI; 1,664 new planned slots in 16 blocks. Publication details are recorded in the corresponding GitHub release. New raw data and results are not included.

@@ -1,0 +1,82 @@
+{
+  "DE": {
+    "topic": "German fiscal policy",
+    "organizations": {
+      "GJ": "Grüne Jugend",
+      "JL": "Junge Liberale",
+      "AFD": "Alternative für Deutschland (AfD)",
+      "DIW": "DIW Berlin",
+      "IFO": "ifo Institut"
+    },
+    "pairs": [
+      [
+        "GJ",
+        "JL"
+      ],
+      [
+        "DIW",
+        "IFO"
+      ],
+      [
+        "AFD",
+        "JL"
+      ]
+    ],
+    "configs": [
+      "gpt4o",
+      "sonnet45",
+      "sol",
+      "sonnet5"
+    ]
+  },
+  "CH": {
+    "topic": "energy policy",
+    "organizations": {
+      "JG": "Junge Grüne Schweiz",
+      "JF": "Jungfreisinnige Schweiz",
+      "SES": "Schweizerische Energie-Stiftung (SES)",
+      "AV": "Avenir Suisse"
+    },
+    "pairs": [
+      [
+        "JG",
+        "JF"
+      ],
+      [
+        "SES",
+        "AV"
+      ]
+    ],
+    "configs": [
+      "gpt4o",
+      "sonnet45",
+      "sol",
+      "sonnet5"
+    ]
+  },
+  "US": {
+    "topic": "AI policy",
+    "organizations": {
+      "CR": "College Republicans",
+      "CP": "CODEPINK",
+      "AEI": "American Enterprise Institute",
+      "CE": "Carnegie Endowment for International Peace"
+    },
+    "pairs": [
+      [
+        "CP",
+        "CR"
+      ],
+      [
+        "CE",
+        "AEI"
+      ]
+    ],
+    "configs": [
+      "sol",
+      "sonnet5",
+      "sol_reasoning",
+      "sonnet5_reasoning"
+    ]
+  }
+}

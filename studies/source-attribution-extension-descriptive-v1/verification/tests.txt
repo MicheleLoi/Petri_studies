@@ -1,0 +1,27 @@
+test_budget_blocks_all_sends (test_extension.ExtensionTests.test_budget_blocks_all_sends) ... ok
+test_budget_preserves_explicit_uncertain_reserve (test_extension.ExtensionTests.test_budget_preserves_explicit_uncertain_reserve) ... ok
+test_configuration_suspends_base_model (test_extension.ExtensionTests.test_configuration_suspends_base_model) ... ok
+test_design_balance_and_exact_us_prompts (test_extension.ExtensionTests.test_design_balance_and_exact_us_prompts) ... ok
+test_eu_premium_applies_to_historical_gemini_only (test_extension.ExtensionTests.test_eu_premium_applies_to_historical_gemini_only) ... ok
+test_first_usable_and_no_repeat (test_extension.ExtensionTests.test_first_usable_and_no_repeat) ... ok
+test_os_lock_releases_and_forbids_overlap (test_extension.ExtensionTests.test_os_lock_releases_and_forbids_overlap) ... ok
+test_report_known_interactions_and_halves (test_extension.ExtensionTests.test_report_known_interactions_and_halves) ... ok
+test_saved_response_recovered_before_any_new_send (test_extension.ExtensionTests.test_saved_response_recovered_before_any_new_send) ... ok
+test_three_attempt_limit_preserved_on_resume (test_extension.ExtensionTests.test_three_attempt_limit_preserved_on_resume) ... ok
+test_uncertain_attempt_never_resent (test_extension.ExtensionTests.test_uncertain_attempt_never_resent) ... ok
+test_valid_all_configurations_and_truncation (test_extension.ExtensionTests.test_valid_all_configurations_and_truncation) ... ok
+test_alternate_rating_never_replaces_designated_field (test_response_quality.ResponseQualityTests.test_alternate_rating_never_replaces_designated_field) ... ok
+test_complete_json_in_truncated_generation_remains_unusable (test_response_quality.ResponseQualityTests.test_complete_json_in_truncated_generation_remains_unusable) ... ok
+test_completion_status_must_be_explicit_boolean (test_response_quality.ResponseQualityTests.test_completion_status_must_be_explicit_boolean) ... ok
+test_conformant_response_and_single_fence (test_response_quality.ResponseQualityTests.test_conformant_response_and_single_fence) ... ok
+test_duplicates_anywhere_are_rejected (test_response_quality.ResponseQualityTests.test_duplicates_anywhere_are_rejected) ... ok
+test_invalid_explanations_are_separately_reported (test_response_quality.ResponseQualityTests.test_invalid_explanations_are_separately_reported) ... ok
+test_invalid_numeric_values_cannot_be_used (test_response_quality.ResponseQualityTests.test_invalid_numeric_values_cannot_be_used) ... ok
+test_malformed_multiple_or_nonobject_json_is_not_repaired (test_response_quality.ResponseQualityTests.test_malformed_multiple_or_nonobject_json_is_not_repaired) ... ok
+test_missing_explanations_do_not_exclude_primary_rating (test_response_quality.ResponseQualityTests.test_missing_explanations_do_not_exclude_primary_rating) ... ok
+test_pilot_shaped_extra_fields_do_not_change_rating (test_response_quality.ResponseQualityTests.test_pilot_shaped_extra_fields_do_not_change_rating) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 40.245s
+
+OK
