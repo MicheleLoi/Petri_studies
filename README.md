@@ -74,3 +74,8 @@ MIT — see `LICENSE`.
 ## Jev European supplement (26 September 2026)
 
 [Prospective protocol and frozen package](studies/source-attribution-jev-europe-descriptive-v1/README.md): 288 planned observations on German fiscal and Swiss energy arguments using the earlier Jev rubric. Prior study results informed this supplement; new raw data and results are excluded.
+
+
+## Jev European acquisition repair (26 September 2026)
+
+[Prospective amendment and frozen code](studies/source-attribution-jev-europe-repair-v1/README.md): preserves the interrupted collection and its original registration; selectively extends exhausted operational attempt allowances and stops globally on a new HTTP 429. Scientific inputs and descriptive analysis are unchanged. Raw data and results remain private.

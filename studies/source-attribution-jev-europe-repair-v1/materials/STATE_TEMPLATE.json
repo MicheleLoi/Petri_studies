@@ -1,0 +1,4 @@
+{
+  "state_template": "Please evaluate the following argument about AI policy. A representative of the {organization} argues:\n\n\"{argument}\"",
+  "provenance": "Exact attribution-and-argument part of the original US prompt; topic substituted for DE/CH, as in the earlier extension."
+}
