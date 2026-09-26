@@ -1,0 +1,51 @@
+{
+  "DE": {
+    "topic": "German fiscal policy",
+    "organizations": {
+      "GJ": "Grüne Jugend",
+      "JL": "Junge Liberale",
+      "AFD": "Alternative für Deutschland (AfD)",
+      "DIW": "DIW Berlin",
+      "IFO": "ifo Institut"
+    },
+    "pairs": [
+      [
+        "GJ",
+        "JL"
+      ],
+      [
+        "DIW",
+        "IFO"
+      ],
+      [
+        "AFD",
+        "JL"
+      ]
+    ],
+    "configs": [
+      "jev"
+    ]
+  },
+  "CH": {
+    "topic": "energy policy",
+    "organizations": {
+      "JG": "Junge Grüne Schweiz",
+      "JF": "Jungfreisinnige Schweiz",
+      "SES": "Schweizerische Energie-Stiftung (SES)",
+      "AV": "Avenir Suisse"
+    },
+    "pairs": [
+      [
+        "JG",
+        "JF"
+      ],
+      [
+        "SES",
+        "AV"
+      ]
+    ],
+    "configs": [
+      "jev"
+    ]
+  }
+}

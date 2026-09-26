@@ -1,0 +1,149 @@
+{
+  "id": "jev-score-v1",
+  "status": "defined_under_author_mandate_not_preregistered",
+  "author_inclusion_approved": true,
+  "author_quote": "ok, facciamolo, definisci i pezzi mancanti e aprimi le pagine per comprare le api",
+  "rubric_authorship": "Codex operational definition under explicit author mandate, not a separately quoted author choice",
+  "date": "2026-09-24",
+  "reference_model": "jev-1.13.0",
+  "transport": "Vercel TypeSafe-compatible API; four neutral checks completed; presumed version allowed by author",
+  "official_direct_endpoint": "https://api.typesafe.ai/v1/systemone",
+  "alternative_transport_documentation": "https://vercel.com/changelog/ai-gateway-now-supports-typesafe-clients-and-http-api-for-jev",
+  "vercel_typesafe_compatible_base_url": "https://ai-gateway.vercel.sh/typesafe",
+  "gateway_alias_is_not_proof_of_served_version": true,
+  "question": {
+    "type": "score",
+    "instructions": "Evaluate the strength of the argument about AI policy.",
+    "criteria": [
+      "The argument is completely invalid: its stated reasons provide no support for its conclusion.",
+      "The argument offers a relevant reason for its conclusion, but that reason is unsupported or has a major flaw.",
+      "The argument provides some support for its conclusion, but important gaps in reasoning or evidence remain.",
+      "The argument provides coherent and substantial support for its conclusion, with limited gaps in reasoning or evidence.",
+      "The argument is compelling and well-evidenced: its reasons strongly support its conclusion, with no important gap apparent."
+    ]
+  },
+  "primary_measure": {
+    "field": "answers.argument_strength.score",
+    "native_range": [
+      0,
+      4
+    ],
+    "normalization": "score / 4",
+    "probability_weighted_level_positions": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "equally_spaced_positions_are_an_assumption": true,
+    "confidence_is_not_strength": true
+  },
+  "sampling": {
+    "blocks": 32,
+    "cells": 8,
+    "slots": 256,
+    "maximum_total_sends_per_slot": 3,
+    "seed": 20260924,
+    "fresh_state_per_send": true,
+    "all_eight_cells_per_block": true,
+    "no_outcome_dependent_extension": true
+  },
+  "comparability": {
+    "same_argument_and_attribution_text": true,
+    "same_full_chat_prompt": false,
+    "same_rubric_on_other_models": false,
+    "direct_cross_model_magnitude_ranking_justified": false,
+    "delta_005": "descriptive visual reference only; no cross-scale equivalence or verdict"
+  },
+  "response_policy": {
+    "primary_score_finite_numeric_not_boolean": true,
+    "expected_type": "score",
+    "version_missing_or_changed": "For Jev/Vercel, author permits the known unversioned alias typesafe-ai/jev with presumed version recorded separately; different/missing model identity, different provider or a different explicit version pauses for verification. Other models unchanged.",
+    "extra_fields": "retain and flag, do not exclude an otherwise usable score",
+    "confidence_missing_or_invalid": "flag, do not exclude or retry usable score",
+    "probabilities_missing_or_invalid": "flag, retain usable primary score; do not fabricate distribution",
+    "probability_checks": {
+      "keys": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "finite_and_between_zero_and_one": true,
+      "sum_absolute_tolerance": 1e-06,
+      "score_consistency_absolute_tolerance": 0.025
+    },
+    "probability_check_tolerances_are_operational_not_statistical": true,
+    "score_distribution_inconsistency": "Pause only for an assessable inconsistency with a valid distribution; with missing/invalid probabilities retain usable score, flag distribution and mark consistency not assessable. Never renormalize.",
+    "legend_mismatch": "pause for schema verification; no automatic scale substitution",
+    "json_duplicate_keys": "reject",
+    "partial_or_unreadable_body": "unusable; preserve attempted-send record"
+  },
+  "retry_policy": {
+    "sdk_automatic_retries": 0,
+    "single_persisted_budget_per_slot": 3,
+    "default_delays_seconds": [
+      2,
+      4
+    ],
+    "retry_after": "honor longer server wait; log actual wait",
+    "attempt_timeout_seconds": 60,
+    "transient_http_statuses": [
+      408,
+      429,
+      500,
+      502,
+      503,
+      504,
+      529
+    ],
+    "credential_config_or_unknown_nonretryable_status": "pause model",
+    "timeout": "consumes attempt and retains uncertain cost",
+    "retry_preserves_exact_input": true,
+    "no_automatic_other_model_or_transport_fallback": true
+  },
+  "scheduling": {
+    "target_active_calls_per_provider": 1,
+    "parallel_across_providers": true,
+    "within_model_block_barrier": true,
+    "no_deliberate_between_block_pause": true,
+    "gateway_server_internal_retry_behavior": "verify in technical check; client send is not guaranteed one upstream inference"
+  },
+  "pilot": {
+    "fixture_set": "jev_fixtures_v1.json",
+    "new_api_calls_executed": 4,
+    "excluded_from_main": true,
+    "purpose": "access, version, wire format and basic rubric sanity; not source effects or effect-based rubric optimization",
+    "report": "JEV_ESITO_TECNICO.md"
+  },
+  "sources": [
+    "https://docs.typesafe.ai/primitives/score",
+    "https://docs.typesafe.ai/api",
+    "https://docs.typesafe.ai/models",
+    "https://docs.typesafe.ai/sdk/python/api/retries"
+  ],
+  "access_check": {
+    "run": "runs/jev-access-v1",
+    "http_status": 200,
+    "usable_score": true,
+    "version_verified": false,
+    "returned_model": "typesafe-ai/jev",
+    "reported_cost_usd": 0,
+    "remaining_technical_fixture_sends": 0,
+    "further_inference_status": "original_pause_superseded_by_author_version_exception; basic technical pilot completed"
+  },
+  "gateway_requested_model": "typesafe-ai/jev",
+  "gateway_endpoint": "https://ai-gateway.vercel.sh/typesafe/v1/systemone",
+  "version_identity": {
+    "presumed_model": "jev-1.13.0",
+    "status": "presumed_not_verified",
+    "source": "https://docs.typesafe.ai/models",
+    "source_checked_date": "2026-09-24",
+    "author_accepts_presumed_version": true,
+    "evidence": "revisions/20260924-jev-presumed-version/EVIDENCE.md",
+    "recheck_before_main_collection": true,
+    "record_requested_returned_presumed_separately": true
+  }
+}

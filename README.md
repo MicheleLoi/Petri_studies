@@ -69,3 +69,8 @@ MIT — see `LICENSE`.
 ## Prospective descriptive extension (25 September 2026)
 
 [Protocol and frozen package](studies/source-attribution-extension-descriptive-v1/README.md): German debt brake, Swiss nuclear policy and US AI; 1,664 new planned slots in 16 blocks. Publication details are recorded in the corresponding GitHub release. New raw data and results are not included.
+
+
+## Jev European supplement (26 September 2026)
+
+[Prospective protocol and frozen package](studies/source-attribution-jev-europe-descriptive-v1/README.md): 288 planned observations on German fiscal and Swiss energy arguments using the earlier Jev rubric. Prior study results informed this supplement; new raw data and results are excluded.

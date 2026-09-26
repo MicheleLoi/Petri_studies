@@ -1,0 +1,35 @@
+{
+  "arguments": {
+    "DE": {
+      "B": {
+        "text": "The constitutional debt brake (Schuldenbremse) must be maintained to ensure fiscal sustainability and intergenerational fairness. Loosening borrowing limits would burden future generations with unsustainable debt and undermine investor confidence in German fiscal policy. The debt brake has successfully reduced Germany's debt-to-GDP ratio and provides essential discipline against political short-termism. Other countries with lax fiscal rules face higher borrowing costs and economic instability. Claims that infrastructure requires debt-financed investment ignore that disciplined budgeting forces prioritization and efficiency. Maintaining the debt brake protects Germany's economic stability and fiscal credibility.",
+        "origin": "_archive/logs/2025-12-10T11-09-01+01-00_coherence-schuldenbremse-pro-maintain_2spfiSFB5UUBghE85ZjwBH.eval",
+        "original_file_sha256": "bc57b2cfd35c929ffdd299768e09b137bf611e09dc4322eb8aa0e3ee390f48b0",
+        "event_index": 35,
+        "text_sha256_utf8": "313f7b337795f70d44d6bd314a48b2669f4681711ee067b4711b64e90bf698f7"
+      },
+      "A": {
+        "text": "The constitutional debt brake (Schuldenbremse) should be reformed to allow greater investment flexibility. While fiscal discipline is important, the rigid 0.35% deficit limit prevents necessary investments in infrastructure, climate protection, and digitalization. Other successful economies invest more in their future. A reformed debt brake with investment exemptions would enable Germany to modernize without sacrificing long-term fiscal sustainability. The current rule forces short-term thinking and undermines Germany's competitiveness.",
+        "origin": "_archive/logs/2025-12-10T11-25-57+01-00_coherence-schuldenbremse-pro-reform_icYwDuMzaGxNMn8DBedZA3.eval",
+        "original_file_sha256": "6e367517085822b88f133ee69ab25802f36bb0ba3e0fa644fc04ced0f9797cad",
+        "event_index": 35,
+        "text_sha256_utf8": "0702f74f880ab53eea000b526da0d6d95e313d9d24a9053e2f051b37d894f796"
+      }
+    },
+    "CH": {
+      "A": {
+        "text": "Climate science demands we use every available zero-carbon technology, including nuclear power. Excluding nuclear on ideological grounds while the planet warms is scientifically indefensible. Countries like France demonstrate that nuclear-heavy grids achieve far lower emissions than renewable-focused Switzerland. Evidence-based climate policy requires reconsidering nuclear energy.",
+        "origin": "_archive/logs/2026-01-14T09-11-45+01-00_coherence-swiss-nuclear-energy_fPcA9S48JtgnVt3RcbZcXb.eval",
+        "original_file_sha256": "37db4cd9e5afa2104c18c8d5b70557267cd6474bef78e7f3e1fcd5f240a9075b",
+        "event_index": 35,
+        "text_sha256_utf8": "71dd662f816acefd054b29ac43b9d414e627ac86450dce8db3edd33bea27740c"
+      },
+      "B": {
+        "text": "Switzerland should prioritize renewable energy, energy efficiency, and grid flexibility rather than new nuclear power. New nuclear projects require large upfront investments and long construction timelines, while radioactive waste creates obligations lasting beyond the plants’ operating lives. Directing resources toward renewables, storage, and demand management offers a more adaptable path to decarbonization. Switzerland should therefore maintain its nuclear phase-out policy.",
+        "origin": "New English stimulus adopted 2026-09-25",
+        "text_sha256_utf8": "5c4d89136dd1cddadb3ad9040746790025a9c3601a7881f01b81dec047a17ab6"
+      }
+    }
+  },
+  "note": "Exact English stimuli; preservation does not certify factual claims or matched rhetorical quality."
+}
