@@ -1,0 +1,14 @@
+{
+  "allowed_providers": [
+    "typesafe-ai",
+    "digitalocean"
+  ],
+  "base_manifest_sha256": "e5fdf0cf9147c29ef72776ece86a07abb3a516bf9f8e5686ba2f25e008b6a3a4",
+  "pacing_manifest_sha256": "151eb909223cdd97a2b5889a6572aee7b369714b906f671a24be0daf0c1e76cf",
+  "accepted_historical_result": "attempts/jev-0007/04/result.json",
+  "accepted_historical_result_sha256": "a278cda071aff9c59102bc6602272ec7c8d95b59ee242d3b6a783c6862c65d4b",
+  "released_suspension": "suspensions/jev.json",
+  "released_suspension_sha256": "6cc309ac56df9ba50d4b4ae200bef055d510de2e5029a5850f4afb53806d160d",
+  "author_instruction": "se non devo aprire un altro account, approvo",
+  "new_account_required": false
+}

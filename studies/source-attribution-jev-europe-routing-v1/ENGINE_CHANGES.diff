@@ -1,0 +1,40 @@
+--- frozen-repair-Engine
++++ route-Engine
+@@ -25,7 +25,7 @@
+             affected=next(configs for configs in self.plan['worker_groups'].values() if model in configs)
+             for config in affected:
+                 self.paused.add(config)
+-                p=self.run/'suspensions'/f'{config}.json'
++                p=self.run/'route_suspensions'/f'{config}.json'
+                 if not p.exists(): save(p,dict(model=config,trigger_model=model,reason=reason,timestamp_utc=self.clock()))
+         self.log('model_suspended',model=model,reason=reason)
+ 
+@@ -59,7 +59,7 @@
+                     self.budget_stopped=True; self.stop.set(); self.log('budget_notice_required',slot=row['slot']); return
+                 req=dict(row=row,attempt=n,spec=spec,spec_sha256=sha(spec),
+                     logged_before_dispatch_utc=self.clock(),reserved_eur=reserve,
+-                    amendment_manifest_sha256=self.receipt['manifest_sha256'])
++                    amendment_manifest_sha256=self.receipt['manifest_sha256'],route_manifest_sha256=file_sha(PACKAGE/'MANIFEST.json'))
+                 if datetime.fromisoformat(req['logged_before_dispatch_utc'])<=datetime.fromisoformat(self.receipt['registered_utc']):
+                     raise ValueError('New attempt must follow amendment publication')
+                 save(p,req)  # irrevocable attempt reservation before any send
+@@ -99,6 +99,10 @@
+ 
+     def execute(self):
+         with exclusive(self.run):
++            release=self.run/'route_policy_release.json'
++            if release.exists():
++                if load(release)['policy']!=POLICY: raise ValueError('Route release policy mismatch')
++            else: save(release,dict(policy=POLICY,timestamp_utc=self.clock(),raw_suspension_preserved=True))
+             verify_run_lineage(self.plan,self.run,self.receipt)
+             if (self.run/'finished.json').exists(): return load(self.run/'finished.json')
+             digest=sha(self.plan)
+@@ -114,7 +118,7 @@
+                 record_hold_release(self.run,self.resume_authorization,self.clock())
+             self.log('execution_opened',pid=os.getpid(),plan_sha256=digest)
+             for m in self.plan['models']:
+-                if (self.run/'suspensions'/f'{m}.json').exists(): self.paused.add(m)
++                if ((self.run/'suspensions'/f'{m}.json').exists() and not released_suspension(self.run,m)) or (self.run/'route_suspensions'/f'{m}.json').exists(): self.paused.add(m)
+             # Reconstruct the whole history before any new inference, including crashes
+             # after a response was saved but before its pause flag was persisted.
+             for row in self.plan['schedule']:
