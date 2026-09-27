@@ -890,3 +890,8 @@ The author approved admission of Jev served through DigitalOcean without opening
 ## 2026-09-27T08:56:44.733267+00:00 — Jev bounded gateway failover
 
 The author approved up to two sequential internal attempts between admitted Jev providers after a technical failure, with one final result. Any429 remains a stop. All73 prior client attempts and both earlier suspensions are preserved by hashes. The existing503-to200 response is admitted retrospectively, separately from prospective eligibility for new calls. No source effects compared. Same existing account, payloads, caps,60-second pacing and descriptive analysis. Extra internal-failure reserves are reported separately. Manifest `65185ccec381b8da24707f3ce1b4b0a19ef336893005b09621df8a96e9b2507f`, package `studies/source-attribution-jev-europe-fallback-v1`. Deposit precedes resumption. Raw data remain private; exact snapshot and route equivalence are unverified.
+
+
+## 2026-09-27T12:49:49.834113+00:00 — Jev account-access resumption
+
+The author requested another attempt after the account-credit step. Release only the exact historical403 account-access failure, keeping it as a failed client attempt and preserving all74 prior attempts and suspensions by hash. Same model, account, inputs, caps, pacing, bounded gateway fallback and descriptive analysis. New failures still stop. Manifest `d7ed55c53e70c51b1f03bcbab88092eb5d3db6df0ac7988d434a007d66455ad1`, package `studies/source-attribution-jev-europe-account-resume-v1`. Public deposit precedes the next request; raw data and account details remain private.

@@ -1,0 +1,106 @@
+--- frozen-fallback-runner
++++ account-resume-runner
+@@ -18,6 +18,9 @@
+ ROUTING=SIBLINGS/'source-attribution-jev-europe-routing-v1'
+ sys.path.insert(0,str(ROUTING))
+ import route_runner as previous
++FALLBACK=SIBLINGS/'source-attribution-jev-europe-fallback-v1'
++sys.path.insert(0,str(FALLBACK))
++import fallback_runner as previous_fallback
+ 
+ def gateway_policy(routing, plan):
+     """Only a documented same-model, two-attempt technical failover is added."""
+@@ -80,6 +83,12 @@
+ 
+ def historical_view(run,path,r):
+     rel=path.relative_to(Path(run)).as_posix()
++    if rel==POLICY['reviewed_access_result']:
++        if file_sha(path)!=POLICY['reviewed_access_result_sha256']:raise ValueError('Access review hash mismatch')
++        if r.get('http_status')!=403 or r.get('error_code')!='no_providers_available' or r.get('rating_usable') or not r.get('pause_model'):raise ValueError('Wrong access failure')
++        reviewed=dict(r)
++        reviewed.update(pause_model=False,status='retry',historical_access_review='Author-authorized retry after account credit check; raw403 and attempt count retained')
++        return reviewed
+     if rel!=POLICY['accepted_fallback_result']:return previous.historical_view(run,path,r)
+     if file_sha(path)!=POLICY['accepted_fallback_result_sha256']:raise ValueError('Historical fallback review hash mismatch')
+     if r['flags']!=['gateway_upstream_attempt_count_not_one'] or not r['rating_usable'] or not r['identity_accepted']:raise ValueError('Wrong historical fallback flag')
+@@ -95,6 +104,11 @@
+ def released_suspension(run,model):
+     p=Path(run)/'suspensions'/f'{model}.json'
+     return p.exists() and p.relative_to(Path(run)).as_posix()==POLICY['released_suspension'] and file_sha(p)==POLICY['released_suspension_sha256']
++
++def released_fallback_suspension(run,model):
++    p=Path(run)/'fallback_suspensions'/f'{model}.json'
++    return p.exists() and p.relative_to(Path(run)).as_posix()==POLICY['released_fallback_suspension'] and file_sha(p)==POLICY['released_fallback_suspension_sha256']
++
+ 
+ def history(run, row, plan, recover=False):
+     results=[]
+@@ -173,7 +187,7 @@
+             affected=next(configs for configs in self.plan['worker_groups'].values() if model in configs)
+             for config in affected:
+                 self.paused.add(config)
+-                p=self.run/'fallback_suspensions'/f'{config}.json'
++                p=self.run/'account_suspensions'/f'{config}.json'
+                 if not p.exists(): save(p,dict(model=config,trigger_model=model,reason=reason,timestamp_utc=self.clock()))
+         self.log('model_suspended',model=model,reason=reason)
+ 
+@@ -207,7 +221,7 @@
+                     self.budget_stopped=True; self.stop.set(); self.log('budget_notice_required',slot=row['slot']); return
+                 req=dict(row=row,attempt=n,spec=spec,spec_sha256=sha(spec),
+                     logged_before_dispatch_utc=self.clock(),reserved_eur=reserve,
+-                    amendment_manifest_sha256=self.receipt['manifest_sha256'],route_manifest_sha256=POLICY['routing_manifest_sha256'],fallback_manifest_sha256=file_sha(PACKAGE/'MANIFEST.json'))
++                    amendment_manifest_sha256=self.receipt['manifest_sha256'],route_manifest_sha256=POLICY['routing_manifest_sha256'],fallback_manifest_sha256=POLICY['fallback_manifest_sha256'],account_manifest_sha256=file_sha(PACKAGE/'MANIFEST.json'))
+                 if datetime.fromisoformat(req['logged_before_dispatch_utc'])<=datetime.fromisoformat(self.receipt['registered_utc']):
+                     raise ValueError('New attempt must follow amendment publication')
+                 save(p,req)  # irrevocable attempt reservation before any send
+@@ -247,7 +261,7 @@
+ 
+     def execute(self):
+         with exclusive(self.run):
+-            release=self.run/'fallback_policy_release.json'
++            release=self.run/'account_policy_release.json'
+             if release.exists():
+                 if load(release)['policy']!=POLICY: raise ValueError('Route release policy mismatch')
+             else: save(release,dict(policy=POLICY,timestamp_utc=self.clock(),raw_suspension_preserved=True))
+@@ -266,7 +280,7 @@
+                 record_hold_release(self.run,self.resume_authorization,self.clock())
+             self.log('execution_opened',pid=os.getpid(),plan_sha256=digest)
+             for m in self.plan['models']:
+-                if ((self.run/'suspensions'/f'{m}.json').exists() and not released_suspension(self.run,m)) or ((self.run/'route_suspensions'/f'{m}.json').exists() and not released_route_suspension(self.run,m)) or (self.run/'fallback_suspensions'/f'{m}.json').exists(): self.paused.add(m)
++                if ((self.run/'suspensions'/f'{m}.json').exists() and not released_suspension(self.run,m)) or ((self.run/'route_suspensions'/f'{m}.json').exists() and not released_route_suspension(self.run,m)) or ((self.run/'fallback_suspensions'/f'{m}.json').exists() and not released_fallback_suspension(self.run,m)) or (self.run/'account_suspensions'/f'{m}.json').exists(): self.paused.add(m)
+             # Reconstruct the whole history before any new inference, including crashes
+             # after a response was saved but before its pause flag was persisted.
+             for row in self.plan['schedule']:
+@@ -306,6 +320,8 @@
+             return result
+ 
+ def verify_route_package():
++    previous_fallback.verify_route_package()
++    if file_sha(FALLBACK/'MANIFEST.json')!=POLICY['fallback_manifest_sha256']:raise ValueError('Fallback package changed')
+     for rel,digest in load(PACKAGE/'MANIFEST.json')['files'].items():
+         p=(PACKAGE/rel).resolve()
+         if not p.is_relative_to(PACKAGE) or file_sha(p)!=digest:raise ValueError('Route package changed: '+rel)
+@@ -325,10 +341,10 @@
+     cli=argparse.ArgumentParser(description=__doc__)
+     cli.add_argument('--study-root',type=Path,required=True)
+     cli.add_argument('--launch-record',type=Path,required=True)
+-    cli.add_argument('--fallback-record',type=Path,required=True)
++    cli.add_argument('--account-record',type=Path,required=True)
+     a=cli.parse_args()
+     verify_route_package()
+-    receipt=load(a.fallback_record)
++    receipt=load(a.account_record)
+     if receipt['manifest_sha256']!=file_sha(PACKAGE/'MANIFEST.json') or receipt['visibility']!='public':raise ValueError('Wrong public route receipt')
+     if not receipt['registration_reference'] or datetime.fromisoformat(receipt['registered_utc'])>=datetime.now(timezone.utc):raise ValueError('Invalid publication time')
+     plan,_,original_receipt=verify_launch(BASE,a.launch_record)
+@@ -339,8 +355,8 @@
+     transport=PacedTransport(HttpTransport(),wait)
+     engine=Engine(plan,run,transport,budget_check=lambda x:not compute(a.study_root,planned_eur=x)['user_notice_required'],amendment_receipt=original_receipt)
+     transport.log=engine.log
+-    save(run/'fallback_launch_checks'/(now().replace(':','-')+'.json'),dict(receipt=receipt,recorded_utc=now()))
+-    save(run/'launch_checks'/(now().replace(':','-')+'-fallback-docs.json'),original_receipt)
++    save(run/'account_launch_checks'/(now().replace(':','-')+'.json'),dict(receipt=receipt,recorded_utc=now()))
++    save(run/'launch_checks'/(now().replace(':','-')+'-account-docs.json'),original_receipt)
+     print(json.dumps(engine.execute()),flush=True)
+ 
+ if __name__=='__main__':main()
