@@ -1,0 +1,13 @@
+{
+  "files": {
+    "CHANGES.diff": "0cd553fe7d75e9afb63ee9d481ff63b02e0d13fa2053378393f63970e867a5a9",
+    "fallback_audit.py": "bd34a45d22435c2478c3a974c26e0ba18cec7885e5035e77034bfc0f89342ae7",
+    "fallback_report.py": "68a07cfd97b0cb9a9cf21808c106224817a9d0a0b5d9d340da0ea3faf7d75ace",
+    "fallback_runner.py": "4cfefebfd26a867c9a25c5be7318a63a6576dacc0d91df90d9a11778c4bd4f25",
+    "POLICY.json": "191f2ecba0405d993d4d5e950c4f9fe78b58abe5424a1e4430e8b5c9e97221be",
+    "PRESERVED_PREFIX.json": "a745f8f31726be56787907d972ffeb9412c0ccc846193db1785c278e50ea288a",
+    "README.md": "aab1b0c3721821225b53c162ff34f16c4fcf087e7a69bbfe2eb46a0d24525698",
+    "test_fallback.py": "24b0139df73aa55bbaf921b0ec3876510917ba6ad1140090a15044de503f49f9",
+    "test_inherited.py": "7780334da85061653dd7ad806cd4e47ed06823c03ee8eda7c0da17e049b47716"
+  }
+}
