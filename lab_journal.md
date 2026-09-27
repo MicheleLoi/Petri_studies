@@ -895,3 +895,8 @@ The author approved up to two sequential internal attempts between admitted Jev 
 ## 2026-09-27T12:49:49.834113+00:00 — Jev account-access resumption
 
 The author requested another attempt after the account-credit step. Release only the exact historical403 account-access failure, keeping it as a failed client attempt and preserving all74 prior attempts and suspensions by hash. Same model, account, inputs, caps, pacing, bounded gateway fallback and descriptive analysis. New failures still stop. Manifest `d7ed55c53e70c51b1f03bcbab88092eb5d3db6df0ac7988d434a007d66455ad1`, package `studies/source-attribution-jev-europe-account-resume-v1`. Public deposit precedes the next request; raw data and account details remain private.
+
+
+## 2026-09-27T13:07:10.770760+00:00 — Jev account-access resumption
+
+The author requested another attempt after a successful neutral Jev access check following the credit purchase step. Release only the exact second historical403 account-access failure, keeping it as a failed client attempt and preserving all75 prior attempts and suspensions by hash. Same model, account, inputs, caps, pacing, bounded gateway fallback and descriptive analysis. New failures still stop. Manifest `d4daf8de625b4b4d343e895aa0cb504aceabcfc7bc80cb3bc9942ddff78cef21`, package `studies/source-attribution-jev-europe-paid-resume-v1`. Public deposit precedes the next request; raw data and account details remain private.

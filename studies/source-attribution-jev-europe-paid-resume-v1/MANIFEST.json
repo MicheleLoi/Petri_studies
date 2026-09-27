@@ -1,0 +1,15 @@
+{
+  "files": {
+    "CHANGES.diff": "7104e740802bc70dcef1038be1684556f50412efbef16bfd7d261a3d02a27a29",
+    "paid_audit.py": "e196fab77dce4a9eb298001cae33d786624370a9d783d6f9011f84cec21633b8",
+    "paid_report.py": "6290b59fc66c053f04521e42297a9c5daf2795a3a542afd2861a12d286c1cbfb",
+    "paid_runner.py": "2c6c11bbfd144c326d90dc86d49eadefb753d540b14c3b644d459e92d649879c",
+    "POLICY.json": "d65c74ea5fa418b938fa2c51bd64ef6afb4b495ace879cb997b6d20689f9c4e1",
+    "PRESERVED_PREFIX.json": "d7de3aaad6e9c74610344c3e71e1c42148c9d61dd6ad375cbb698e3b68721b25",
+    "README.md": "3058fca63b6176f47b2d8fafb660e4817b5713a02fdb6d5705541ae6c9829411",
+    "test_account.py": "c3c1eab23f82bbbe7e0867bd9177d616c676803a0e901aef00faa7dbe000a05f",
+    "test_fallback.py": "0fede73dd1f25b0d86114dc7d4e12a58fd5fc7d6374a0f19c92208dd9320a35a",
+    "test_inherited.py": "ac3626b5e2d5d28cc9e30344df1066339d68ddffb25125dfa24f2e223c58f16e",
+    "test_second_access.py": "684762e0d55073d223730747ef9a6664408d020f619f1ca04a0f6a0167523c6c"
+  }
+}

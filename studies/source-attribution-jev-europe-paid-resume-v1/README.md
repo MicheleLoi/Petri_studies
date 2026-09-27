@@ -1,0 +1,7 @@
+# Jev European supplement: resumption after successful access check
+
+Following the author’s request to unblock the account and continue the same Jev study, the gateway returned a successful neutral Jev response after the credit purchase step. The neutral prompt is a pre-existing non-scientific fixture and is excluded from all study calculations. Earlier balance availability alone had not established paid access.
+
+Release only the exact second HTTP403 no_providers_available at jev-0017/05 and its account_suspensions/jev.json, both bound by hash. The earlier403 review remains. Both failures count toward the original client-attempt cap and contribute no rating. All75 preceding attempts and four suspensions remain byte-for-byte preserved. No counters reset, slots resent after success, extra attempts, model/provider changes, prompt changes or source-effect analysis. Same one worker,60-second pacing, bounded gateway failover, first-valid selection, costs and future-stop rules. New failures block in paid_suspensions. No automatic release of future holds or suspensions.
+
+This public operational deposit precedes new study requests. Use paid_runner.py with the genuine current-date base receipt and --paid-record; at completion paid_audit.py and paid_report.py. The neutral check and account/payment information remain private. Report both account refusals, multi-day timing and all earlier eligibility reviews. Exact served snapshot and provider equivalence remain unverified. The user's scientific choices are unchanged.

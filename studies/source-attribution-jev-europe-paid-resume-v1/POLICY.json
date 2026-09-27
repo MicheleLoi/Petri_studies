@@ -1,0 +1,41 @@
+{
+  "allowed_providers": [
+    "typesafe-ai",
+    "digitalocean"
+  ],
+  "base_manifest_sha256": "e5fdf0cf9147c29ef72776ece86a07abb3a516bf9f8e5686ba2f25e008b6a3a4",
+  "pacing_manifest_sha256": "151eb909223cdd97a2b5889a6572aee7b369714b906f671a24be0daf0c1e76cf",
+  "accepted_historical_result": "attempts/jev-0007/04/result.json",
+  "accepted_historical_result_sha256": "a278cda071aff9c59102bc6602272ec7c8d95b59ee242d3b6a783c6862c65d4b",
+  "released_suspension": "suspensions/jev.json",
+  "released_suspension_sha256": "6cc309ac56df9ba50d4b4ae200bef055d510de2e5029a5850f4afb53806d160d",
+  "author_instruction": "approvo, non è necessario tutti da uno, continuiamo a testare",
+  "new_account_required": false,
+  "routing_manifest_sha256": "270622eddfdc98c885c3b2751f166edb70548d5d46394088268a4b377fc38adc",
+  "accepted_fallback_result": "attempts/jev-0016/04/result.json",
+  "accepted_fallback_result_sha256": "285d3d7235853d73c5b97d6375d214a618b6671ae470aa8ca642ee05067d5e9e",
+  "released_route_suspension": "route_suspensions/jev.json",
+  "released_route_suspension_sha256": "ba0c2a62f9dd2a976f6eef9ba0877f906df633fac3ac517427f0ff2923b3b1dc",
+  "maximum_upstream_attempts": 2,
+  "allowed_prior_failures": [
+    408,
+    500,
+    502,
+    503,
+    504,
+    529
+  ],
+  "fallback_manifest_sha256": "65185ccec381b8da24707f3ce1b4b0a19ef336893005b09621df8a96e9b2507f",
+  "reviewed_access_result": "attempts/jev-0017/04/result.json",
+  "reviewed_access_result_sha256": "83f3344f182eabf9ef54fa46546dba3e14be56fccc07e147c4fcc1c399dfeb35",
+  "released_fallback_suspension": "fallback_suspensions/jev.json",
+  "released_fallback_suspension_sha256": "47727f532ed55ccdf4f9ab9129397f01b938b7b8578909f7ce76e67870f7521c",
+  "account_resume_authority": "try now",
+  "access_review": "Both historical403 responses remain failed client attempts, never ratings. Release only the two exact access blocks after verified neutral access; preserve counts and all future stops.",
+  "account_manifest_sha256": "d7ed55c53e70c51b1f03bcbab88092eb5d3db6df0ac7988d434a007d66455ad1",
+  "reviewed_second_access_result": "attempts/jev-0017/05/result.json",
+  "reviewed_second_access_result_sha256": "e909d20bbc0f92eab6b9dad9211a6c63ebc72e5ce479a8b5a572b789e2f7bca9",
+  "released_account_suspension": "account_suspensions/jev.json",
+  "released_account_suspension_sha256": "98b817c76cf1a743b27cdf34047fe88da0e8898262195db9c9230ce7dc258593",
+  "paid_resume_authority": "Author requested account unblocking and asked whether access now works after the payment step. A separate neutral check returned accepted Jev successfully before this resumption."
+}
