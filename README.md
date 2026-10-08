@@ -1,5 +1,15 @@
 ﻿# Petri_studies
 
+## Empirical dataset: The Argument and the Letterhead
+
+The completed data for the September 2026 registered descriptive studies are available on Zenodo: **[The Argument and the Letterhead - empirical data](https://doi.org/10.5281/zenodo.23238024)** (version 1, published 8 October 2026).
+
+**[Download the complete dataset ZIP](https://zenodo.org/records/23238024/files/letterhead-empirical-data-v1.zip?download=1)** (22.29 MB).
+
+The archive contains 2,976 selected ratings across the initial US study, the US/Germany/Switzerland extension and the European Jev supplement, together with all 3,054 recorded attempts, saved raw scientific records, completed reports, CSV tables, frozen scientific packages, provenance and an offline verifier. See the archive's README and data dictionary for scope and interpretation.
+
+These observations are separate from the historical Petri `.eval` collections. Statements below about private or excluded raw data describe the registration-stage packages; the completed scientific records and reports are now available through Zenodo.
+
 **Multi-polity replication of the source-attribution-bias study** (Anthropic Petri framework / Inspect-AI), extending the German (DE) and Swiss (CH) iterations to the United Kingdom (UK), United States (US), and Italy (IT).
 
 > **Status (2026-06).** Harness operational (Petri / Inspect-AI integration complete). **428 `.eval` files** across DE/CH (legacy, byte-equivalence-verified), UK, and US; IT pending. E1 (prestige × stance deconfound) is pre-registered — git tag `preregistered-e1-v1`. Many runs are **exploratory / in-progress and not peer-reviewed**; the append-only [`lab_journal.md`](lab_journal.md) is the authoritative record (including corrections and superseded results) — read findings there with their in-progress framing.
